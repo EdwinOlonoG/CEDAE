@@ -5,3 +5,4 @@ git push
 --------------------------------------
 npm install
 npm start
+ng g c nombre del componente   /// ng -> angular  g -> generate c-> component
