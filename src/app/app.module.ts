@@ -47,6 +47,7 @@ import { RecepcionistaComponent } from './recepcionista/recepcionista.component'
     FarmaciaComponent,
     SidebarRecepcionistaComponent,
     RecepcionistaComponent,
+
   ],
   imports: [
     BrowserModule,
