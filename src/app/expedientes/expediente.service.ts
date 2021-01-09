@@ -14,7 +14,7 @@ export class ExpedienteService {
     return this.http.get(`${this.baseUrl}/getAll.php`);
   }
 
-  getExpediente(id: string | number) {
+  getExpediente(id: number) {
     return this.http.get(`${this.baseUrl}/get.php?Paciente_idPaciente=${id}`);
   }
 
@@ -22,9 +22,9 @@ export class ExpedienteService {
     return this.http.post(`${this.baseUrl}/post.php`, paciente);
   }
 
-  deleteExpediente(paciente: ExpedientesComponent) {
-    return this.http.delete(`${this.baseUrl}/delete.php?Paciente_idPaciente=${paciente.id}`);
-  }
+  /* deleteExpediente(paciente: ExpedientesComponent) {
+    return this.http.delete(`${this.baseUrl}/delete.php?Paciente_idPaciente=${Paciente.id}`);
+  } */
 
   updateExpediente(paciente: ExpedientesComponent) {
     return this.http.put(`${this.baseUrl}/update.php`, paciente);

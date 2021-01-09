@@ -12,18 +12,10 @@
         <div>
         <table class="table table-dark">
             <thead>
-            <tr>
-                <th *ngFor='let column of columns'>
-                    {{column.column}}
-                </th>
-            </tr>
+            
             </thead>
             <tbody>
-            <tr *ngFor='let expediente of expedientes'>
-                    <td>{{expediente.Id}}</td>
-                    <td><a href='#'routerLink='/expediente'>{{expediente.Nombre}}</a></td>
-                    <td>{{expediente.sexo}}</td>
-            </tr>
+           
     
             </tbody>
         </table>

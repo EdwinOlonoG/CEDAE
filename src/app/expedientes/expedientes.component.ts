@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpedienteService } from './expediente.service';
+import { IExpediente } from './expediente'
 
 @Component({
   selector: 'pm-expedientes',
@@ -9,16 +10,9 @@ import { ExpedienteService } from './expediente.service';
 export class ExpedientesComponent implements OnInit {
 
   
-  constructor(
-    public id:number,
-    public idPaciente:number,
-    public nomPac:string,
-    public TelPac:number,
-    public EdadPac:number,
-    public CorreoPac:string,
-    public SexoPac:string,
-) { }
+  constructor(public ExperdienteService: ExpedienteService) { }
 
+  paciente : IExpediente[] = [];
   ngOnInit(): void {
   }
 }
