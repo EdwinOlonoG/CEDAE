@@ -47,7 +47,6 @@ import { RecepcionistaComponent } from './recepcionista/recepcionista.component'
     FarmaciaComponent,
     SidebarRecepcionistaComponent,
     RecepcionistaComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -64,6 +63,8 @@ import { RecepcionistaComponent } from './recepcionista/recepcionista.component'
       { path: 'tablaexpedientes', component: ExpedientesComponent},
       { path: 'farmacia', component: FarmaciaComponent},
       { path: 'recepcionista', component: RecepcionistaComponent},
+
+
     ]),
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),

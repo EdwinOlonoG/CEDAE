@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExpedienteService } from './expediente.service';
 
 @Component({
   selector: 'pm-expedientes',
@@ -7,38 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpedientesComponent implements OnInit {
 
-  constructor() { }
-
-  expedientes: any = [
-    {
-      Id: 0,
-      Nombre: 'Ivan',
-      sexo: 'M',
-    },
-    {
-      Id: 1,
-      Nombre: 'María',
-      sexo: 'M',
-     
-    },
-    {
-      Id: 2,
-      Nombre: 'José María Morelos y pavón',
-      sexo : 'H',
-      
-    },
-  ];
-  columns: any = [
-  {
-      column: 'Id'
-  },
-  {
-      column: 'Nombre'
-  },
-  {
-      column: 'Sexo'
-  },
-];
+  
+  constructor(
+    public id:number,
+    public idPaciente:number,
+    public nomPac:string,
+    public TelPac:number,
+    public EdadPac:number,
+    public CorreoPac:string,
+    public SexoPac:string,
+) { }
 
   ngOnInit(): void {
   }
