@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ExpedientesComponent } from './expedientes.component';
-import { Observable } from 'rxjs';
 import { IExpediente } from './expediente';
 import { tap } from 'rxjs/operators';
 
@@ -41,10 +40,6 @@ export class ExpedienteService {
      */
   }
     /* return this.http.get(`${this.baseUrl}/getAll.php`); */
-
-
-  
-
   getExpediente(id: number) {
     return this.http.get(`${this.baseUrl}/get.php?Paciente_idPaciente=${id}`);
   }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ExpedienteService } from '../expedientes/expediente.service';
+import { ExpedientesComponent } from "../expedientes/expedientes.component"
+
 
 @Component({
   selector: 'pm-generador-expediente',
@@ -10,12 +13,12 @@ export class GeneradorExpedienteComponent implements OnInit {
   HistorialValue = false;
   PronosticoValue = false;
 
-  constructor() { }
+  constructor(public experdienteService: ExpedienteService) { }
 
   ngOnInit(): void {
   }
- Guardar(): void{
-   alert('Guardaste el expediente con exito');
+ Guardar(/* paciente: ExpedientesComponent */): void{
+   this.experdienteService.addExpediente/* (paciente) */
  }
  Borrar(): void{
    alert('¿Seguro que quieres borrar el expediente?');

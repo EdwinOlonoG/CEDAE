@@ -19,8 +19,14 @@ button{
     align-self: right;
 }
 text{
-    padding-top: 25px;
+     padding-top: 25px;
 }
 li{
     padding: 25px;
+}
+span{
+    color: red;
+    font-size: smaller;
+    text-align: center;
+    padding-left: 30px;
 }

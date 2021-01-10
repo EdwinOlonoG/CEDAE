@@ -7,19 +7,36 @@
             <div class='div-formulario'>
                 <h2>Medicamentos</h2>
                 <div class='row'>
-                    <div class='col-sm-3'>
+                    <div class='col-sm-3 '>
                         <li>Medicamento </li>
                 <li>Dósis: </li>
                 <li>Indicaciones: </li>
                
                     </div>
-                    <div class='col-sm-6'>
-                        <li><input></li>
-                        <li><input></li>
-                        <li><input></li>
-                        <li><button type="button" class="btn btn-primary">Otro Medicamento</button></li>
-                        <li><button type="button" class="btn btn-primary">Agregar a Receta</button></li>
-                        <li><button type="button" class="btn btn-danger">Cancelar</button></li>                        
+                    <div class='col-sm-6 div-formulario'>
+                        <form (ngSubmit)="save()"  [formGroup]="RecetaForm">
+                        <li><input class='text input-validator' placeholder="Medicamento"
+                            formControlName= "Medicamento"></li>
+                            <span class="span-invalid" *ngIf="RecetaForm.controls.Medicamento.invalid && (RecetaForm.controls.Medicamento.dirty || RecetaForm.controls.Medicamento.touched)">
+                                <span class="span-invalid" *ngIf="RecetaForm.controls.Medicamento.errors && RecetaForm.controls.Medicamento.errors['required']">
+                                        El nombre del Medicamento es requerido</span>
+                            </span>            
+                        <li><input class='text input-validator' placeholder="Dósis"
+                            formControlName= "Dosis"></li>
+                            <span class="span-invalid" *ngIf="RecetaForm.controls.Dosis.invalid && (RecetaForm.controls.Dosis.dirty || RecetaForm.controls.Dosis.touched)">
+                                <span class="span-invalid" *ngIf="RecetaForm.controls.Dosis.errors && RecetaForm.controls.Dosis.errors['required']">
+                                        Dósis requerida</span>
+                            </span> 
+                        <li><input class='text input-validator' placeholder="Indicaciones"
+                            formControlName= "Indicaciones"></li>
+                            <span class="span-invalid" *ngIf="RecetaForm.controls.Indicaciones.invalid && (RecetaForm.controls.Indicaciones.dirty || RecetaForm.controls.Indicaciones.touched)">
+                                <span class="span-invalid" *ngIf="RecetaForm.controls.Indicaciones.errors && RecetaForm.controls.Indicaciones.errors['required']">
+                                        Agregue una indicación de consumo</span>
+                            </span>
+                    <p> <button type="submit" class="btn btn-primary" [disabled]="RecetaForm.invalid">Agregar a Receta</button></p>
+                    <p> <button type="button" class="btn btn-primary" (click)="clear()">Otro Medicamento</button> </p>
+                        <button type="button" class="btn btn-danger">Cancelar</button>   
+                        </form>                     
                     </div>
                 </div>
             </div>
@@ -30,38 +47,24 @@
             <h2>Receta médica</h2>
             <table class='table table-dark'>
                 <tr>
-                        <td>Id</td>
                         <td>Medicamento</td>
                         <td>Dósis</td>
-                        <td>Disponibilidad en clínica</td>
+                        <td>Indicaciones</td>
                         <td>Opciones</td>
                 </tr>
                 <tbody>
-                    <tr >
-                        <td>08420</td>
-                        <td>Medicamento1</td>
-                        <td>500g al día cada 3 días</td>
-                        <td>Sí</td>
-                        <td><button type="button" class='btn btn-danger' >Eliminar</button></td>
-                    </tr>
-                    <tr>
-                        <td>07625</td>
-                        <td>Medicamento2</td>
-                        <td>1 capsula cada cinco minutos</td>
-                        <td>No</td>
-                        <td><button type="button" class='btn btn-danger' >Eliminar</button></td>
+                    <tr *ngFor ='let medicamento of Receta'>
+                        <td>{{medicamento.Medicamento}}</td>
+                        <td>{{medicamento.Dosis}}</td>
+                        <td>{{medicamento.Indicaciones}}</td>
+                        <td><button type="button" class="btn btn-danger" 
+                            (click)='eliminar(medicamento.id)'>Eliminar</button></td>
                     </tr>
                     
-                    <tr>
-                        <td>074857</td>
-                        <td>Medicamento2</td>
-                        <td>Dos cápsulas después de cada comida</td>
-                        <td>No</td>
-                        <td><button type="button" class='btn btn-danger'>Eliminar</button></td>
-                    </tr>
+                    
                 </tbody>
             </table>
-            <button type="button" class="btn btn-success">Imprimir</button>
+            <button type="button" class="btn btn-success"(click)='enviar()'>Imprimir</button>
             <button type="button" class="btn btn-success">Enviar al correo</button>
             <input placeholder="@lupita-dalesio@gmail.com">
         </div>
