@@ -13,14 +13,20 @@
         <table class="table table-dark">
             <thead>
                 <tr>
+                    <th>IdPaciente</th>
                     <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Edad</th>
                     <th>Sexo</th>
                     <th>Correo</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor ='let expediente of expedientes'>
+                    <td>{{expediente.idPaciente}}</td>
                     <td>{{expediente.nomPac}}</td>
+                    <td>{{expediente.TelPac}}</td>
+                    <td>{{expediente.EdadPac}}</td>
                     <td>{{expediente.SexoPac}}</td>
                     <td>{{expediente.CorreoPac}}</td>
                 </tr>

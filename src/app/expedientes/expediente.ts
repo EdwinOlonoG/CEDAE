@@ -1,5 +1,5 @@
 export interface  IExpediente{
-  id:number;
+  //id:number;
   idPaciente:number;
   nomPac:string;
   TelPac:number;

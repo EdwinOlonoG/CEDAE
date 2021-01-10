@@ -9,15 +9,25 @@ import { tap } from 'rxjs/operators';
 })
 export class ExpedienteService {
   baseUrl = "http://localhost/Coneccion/";
+  jasonPaciente = "http://localhost/Coneccion/paciente.json";
+  //jasonPaciente = "C:\xampp\htdocs\Coneccion";
   private productUrl = 'api/products/expedientes.json';
 
   constructor(private http: HttpClient) {}
 
-  getExpedienteAll(): Observable<IExpediente[]> {
-    return this.http.get<IExpediente[]>(this.productUrl).pipe(
+  getExpedienteAll() {
+    /*
+    this.http.get(`${this.baseUrl}/getAll.php`).subscribe(data => {
+      console.log(data);
+    });
+    return this.http.get<IExpediente[]>(this.jasonPaciente).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
-}
+    */
+    return this.http.get<IExpediente[]>(this.productUrl).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+     );
+  }
     /* return this.http.get(`${this.baseUrl}/getAll.php`); */
 
 
