@@ -100,7 +100,7 @@ insert  into `doctor`(`idDoctor`,`NomDoc`,`ApellidoDoc`,`EdadDoc`,`TelDoc`,`Sexo
 (5,'Ester','Patron','60',2147483647,'F',2147483647,15,1,4,7,2),
 (6,'Isaac','Vega','58',51981981,'M',2147483647,16,1,6,14,1),
 (6,'Isaac','Vega','58',51981981,'M',2147483647,16,1,7,13,1),
-(7,'Alejandro','Herrera','51',1981981851,'M',2147483647,17,2,8,12,2);
+(6,'Isaac','Vega','58',51981981,'M',214783647,17,1,9,21,1);
 
 /*Table structure for table `expedientes` */
 
@@ -190,7 +190,8 @@ insert  into `paciente`(`idPaciente`,`NomPac`,`TelPac`,`EdadPac`,`CorreoPac`,`Se
 (5,'Alexandra',2147483647,22,'@mail.com','F',11),
 (6,'Mariano',15165165,29,'@mail.com','M',14),
 (7,'Panfilo',2147483647,48,'@mail.com','M',13),
-(8,'Alejandro',0,58,'@mail.com','M',12);
+(8,'Alejandro',999999999,58,'@mail.com','M',12),
+(9,'Libertad',45189198,99,'@.com','F',21);
 
 /*Table structure for table `productos` */
 
@@ -237,6 +238,29 @@ CREATE TABLE `recepcionista` (
 insert  into `recepcionista`(`idRecepcionista`,`NomRecep`,`TelRecep`,`CorreoRecep`,`SexoRecep`,`Usuarios_idUsuarios`) values 
 (1,'Paquita',2147483647,'asereje@hotmail.com','F',2),
 (2,'Panfila',1516516515,'@yahoo.com','F',18);
+
+/*Table structure for table `receta` */
+
+DROP TABLE IF EXISTS `receta`;
+
+CREATE TABLE `receta` (
+  `idPaciente` int(11) NOT NULL,
+  `idDoctor` int(11) NOT NULL,
+  `Medicamente` varchar(45) DEFAULT NULL,
+  `Dosis` varchar(45) DEFAULT NULL,
+  `Indicaciones` varchar(45) DEFAULT NULL,
+  KEY `idPaciente` (`idPaciente`),
+  KEY `idDoctor` (`idDoctor`),
+  CONSTRAINT `receta_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`idPaciente`),
+  CONSTRAINT `receta_ibfk_2` FOREIGN KEY (`idDoctor`) REFERENCES `doctor` (`idDoctor`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `receta` */
+
+insert  into `receta`(`idPaciente`,`idDoctor`,`Medicamente`,`Dosis`,`Indicaciones`) values 
+(1,1,'Paracetamol','2 MG','Cada dia una dosis'),
+(1,1,'Viagra','3 MG','Cada que se necesite'),
+(2,1,'Aspirina','2 MG','Cada que se necesite');
 
 /*Table structure for table `sucursal` */
 
@@ -287,7 +311,8 @@ insert  into `usuarios`(`idUsuarios`,`Usuario`,`Contrasena`,`TUsuario`) values
 (16,'Doctor','asdasdd19209d',4),
 (17,'Doctor','1as98d1a51da6',4),
 (18,'Recepcionista','1918919819819',2),
-(20,'Administrador','19as198a1a98198',1);
+(20,'Administrador','19as198a1a98198',1),
+(21,'Paciente','asdasdasdasd',3);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
