@@ -26,6 +26,8 @@ import { ExpedientesComponent } from './expedientes/expedientes.component';
 import { FarmaciaComponent } from './farmacia/farmacia.component';
 import { SidebarRecepcionistaComponent } from './sidebar-recepcionista/sidebar-recepcionista.component';
 import { RecepcionistaComponent } from './recepcionista/recepcionista.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -50,6 +52,7 @@ import { RecepcionistaComponent } from './recepcionista/recepcionista.component'
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'expediente', component: GeneradorExpedienteComponent},
       { path: '', component: WelcomeComponent },

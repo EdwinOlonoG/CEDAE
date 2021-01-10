@@ -1,0 +1,21 @@
+[
+  {
+    "id": 10,
+  "idPaciente": 10,
+  "nomPac": "Gerardo",
+  "TelPac": "57012122",
+  "EdadPac": "15",
+  "CorreoPac": "hola@gmail.com",
+  "SexoPac": "Hombre"
+  },
+  {
+    
+    "id": 14,
+  "idPaciente": 14,
+  "nomPac": "Manuel",
+  "TelPac": "57012422",
+  "EdadPac": "16",
+  "CorreoPac": "adios@gmail.com",
+  "SexoPac": "Mujer"
+  }
+]

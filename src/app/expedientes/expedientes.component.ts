@@ -10,10 +10,19 @@ import { IExpediente } from './expediente'
 export class ExpedientesComponent implements OnInit {
 
   
-  constructor(public ExperdienteService: ExpedienteService) { }
+  constructor(public experdienteService: ExpedienteService) { }
 
-  paciente : IExpediente[] = [];
+  expedientes : IExpediente[] = [];
   ngOnInit(): void {
+    this.experdienteService
+      .getExpedienteAll()
+      .subscribe({
+        next: expedientes => {
+          this.expedientes = expedientes;
+        }
+    })
   }
+  
 }
+  
 
