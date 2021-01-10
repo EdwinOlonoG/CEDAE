@@ -4,6 +4,9 @@ import { ExpedientesComponent } from './expedientes.component';
 import { Observable } from 'rxjs';
 import { IExpediente } from './expediente';
 import { tap } from 'rxjs/operators';
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +19,13 @@ export class ExpedienteService {
   constructor(private http: HttpClient) {}
 
   getExpedienteAll() {
+    this.http.get(`${this.baseUrl}/getAll.php`).subscribe(data => {
+      console.log(data);
+    });
+    return this.http.get<IExpediente[]>(this.jasonPaciente).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+    );
+
     /*
     this.http.get(`${this.baseUrl}/getAll.php`).subscribe(data => {
       console.log(data);
@@ -24,9 +34,11 @@ export class ExpedienteService {
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
     */
+    /*
     return this.http.get<IExpediente[]>(this.productUrl).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
      );
+     */
   }
     /* return this.http.get(`${this.baseUrl}/getAll.php`); */
 
