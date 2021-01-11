@@ -9,7 +9,15 @@ import { IExpediente } from './expediente'
 })
 export class ExpedientesComponent implements OnInit {
 
-  
+  _listFilter: string;
+  get listFilter(): string{
+    return this._listFilter;
+}
+set listFilter(value: string){
+    this._listFilter = value;
+    this.filteredExpedientes = this.listFilter ? this.perfomFilter(this.listFilter) : this.expedientes;
+}
+filteredExpedientes: IExpediente[];
   constructor(public experdienteService: ExpedienteService) { }
 
   expedientes : IExpediente[] = [];
@@ -22,7 +30,11 @@ export class ExpedientesComponent implements OnInit {
         }
     })
   }
-  
+  perfomFilter(filterBy: string): IExpediente[]{
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.expedientes.filter((expediente: IExpediente) =>
+        expediente.nomPac.toLocaleLowerCase().indexOf(filterBy) !== -1);
+}
 }
   
 

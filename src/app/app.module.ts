@@ -27,6 +27,7 @@ import { FarmaciaComponent } from './farmacia/farmacia.component';
 import { SidebarRecepcionistaComponent } from './sidebar-recepcionista/sidebar-recepcionista.component';
 import { RecepcionistaComponent } from './recepcionista/recepcionista.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -53,6 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: 'expediente', component: GeneradorExpedienteComponent},
       { path: '', component: WelcomeComponent },

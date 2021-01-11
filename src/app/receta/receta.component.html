@@ -13,7 +13,7 @@
                 <li>Indicaciones: </li>
                
                     </div>
-                    <div class='col-sm-6 div-formulario'>
+                    <div class='col-sm-6 div-formulario' style="max-height: 200px;">
                         <form (ngSubmit)="save()"  [formGroup]="RecetaForm">
                         <li><input class='text input-validator' placeholder="Medicamento"
                             formControlName= "Medicamento"></li>
@@ -44,6 +44,7 @@
     </div>
     <div class='col-sm-2'>
         <div class="div-formulario">
+            <div  >
             <h2>Receta médica</h2>
             <table class='table table-dark'>
                 <tr>
@@ -64,9 +65,20 @@
                     
                 </tbody>
             </table>
-            <button type="button" class="btn btn-success"(click)='enviar()'>Imprimir</button>
+        </div>
+            <button type="button" class="btn btn-success"(click)='generarPDF()'>Imprimir</button>
             <button type="button" class="btn btn-success">Enviar al correo</button>
             <input placeholder="@lupita-dalesio@gmail.com">
         </div>
     </div>
+</div>
+<div class='div-formulario' id="contenido" *ngIf='true'>
+    <img src="./assets/images/cedae.png"
+    style="max-width: 200px;">
+    <h3>Clínica de atención dermatológica</h3>
+    <p>Doctor Buen Día</p>
+
+    <p *ngFor = 'let medicamento of Receta'>
+        {{medicamento.Dosis}} de {{medicamento.Medicamento}}. {{medicamento.Indicaciones}}
+    </p>
 </div>
