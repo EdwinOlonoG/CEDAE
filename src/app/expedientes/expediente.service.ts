@@ -19,15 +19,19 @@ export class ExpedienteService {
   constructor(private http: HttpClient) {}
 
   getExpedienteAll() {
+    /*
     this.http.get(`${this.baseUrl}sesion.php`).subscribe(data => {
       console.log(data);
     });
-    this.http.get(`${this.baseUrl}getPacienteDeDoctor.php`).subscribe(data => {
+    */
+    this.http.get(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=6`).subscribe(data => {
       console.log(data);
     });
+   
     return this.http.get<IExpediente[]>(this.jasonPaciente).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
+    
 
     /*
     this.http.get(`${this.baseUrl}/getAll.php`).subscribe(data => {

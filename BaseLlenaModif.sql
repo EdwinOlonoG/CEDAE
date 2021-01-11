@@ -246,7 +246,7 @@ DROP TABLE IF EXISTS `receta`;
 CREATE TABLE `receta` (
   `idPaciente` int(11) NOT NULL,
   `idDoctor` int(11) NOT NULL,
-  `Medicamente` varchar(45) DEFAULT NULL,
+  `Medicamento` varchar(45) DEFAULT NULL,
   `Dosis` varchar(45) DEFAULT NULL,
   `Indicaciones` varchar(45) DEFAULT NULL,
   KEY `idPaciente` (`idPaciente`),
@@ -257,10 +257,21 @@ CREATE TABLE `receta` (
 
 /*Data for the table `receta` */
 
-insert  into `receta`(`idPaciente`,`idDoctor`,`Medicamente`,`Dosis`,`Indicaciones`) values 
+insert  into `receta`(`idPaciente`,`idDoctor`,`Medicamento`,`Dosis`,`Indicaciones`) values 
 (1,1,'Paracetamol','2 MG','Cada dia una dosis'),
 (1,1,'Viagra','3 MG','Cada que se necesite'),
-(2,1,'Aspirina','2 MG','Cada que se necesite');
+(2,1,'Aspirina','2 MG','Cada que se necesite'),
+(1,1,'paracetamor','lala','nohagasnada'),
+(1,1,'paracetamor','lala','nohagasnada'),
+(1,1,'paracetamor','lala','nohagasnada'),
+(1,1,'a dasd as',' asdasd','asdasd'),
+(1,1,'Matate','Una vez','Cuando ya no aguantes'),
+(1,1,'Vamo a Morir','1 vez en la vida','Cuando ya no lo soportes hazlo'),
+(1,1,'Amor','Una vez con pareja','Ligate a alguien'),
+(1,1,'Paracetamol','1 mg','Cada 6 hrs'),
+(1,1,'Chocolate','3 mg','Cada dia'),
+(1,1,'Dormir','1 dia','Cada dia cuando estes tranq'),
+(1,1,'Dormir','1 dia','Cada dia cuando estes tranq');
 
 /*Table structure for table `sucursal` */
 
