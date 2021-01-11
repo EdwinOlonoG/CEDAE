@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExpedienteService } from '../expedientes/expediente.service';
-import { ExpedientesComponent } from "../expedientes/expedientes.component"
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 
 @Component({
@@ -12,10 +11,22 @@ export class GeneradorExpedienteComponent implements OnInit {
   DatosValue = false;
   HistorialValue = false;
   PronosticoValue = false;
+  ExpedienteForm: FormGroup;
 
-  constructor(public experdienteService: ExpedienteService) { }
+  constructor( private fb: FormBuilder){ }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    this.ExpedienteForm = this.fb.group({
+      Nombre: ["",[Validators.required]],
+      NSS:["",[Validators.required,Validators.pattern(/^([0-9])*$/)]],
+      Edad:["",[Validators.required,Validators.min(18)]],
+      Domicilio:["",[Validators.required,Validators.maxLength(200)]],
+      Nacionalidad:["",[Validators.required]],
+      Genero:["",[Validators.required]],
+      Telefono:["",[Validators.required,Validators.pattern(/^([0-9])*$/)]],
+      Correo:["",[Validators.required,Validators.email]],
+     });
   }
  Guardar(/* paciente: ExpedientesComponent */): void{
    this.experdienteService.addExpediente/* (paciente) */
@@ -24,4 +35,9 @@ export class GeneradorExpedienteComponent implements OnInit {
    alert('¿Seguro que quieres borrar el expediente?');
    alert('Se borró el expediente :c');
  }
+ save(event: Event): void
+ {
+   event.preventDefault();
+   console.log(this.ExpedienteForm.value);
+  }
 }
