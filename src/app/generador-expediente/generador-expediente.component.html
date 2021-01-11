@@ -6,11 +6,11 @@
     <div>
       <div class='div-formulario'>
       <tabset>
-        
+
         <tab heading="Datos" id="tab1">
           <div class='row'>
             <div class='col-sm-4'>
-              <ul>  
+              <ul>
                 <li>Nombre:</li>
                 <li>NSS:</li>
                 <li>fecha de nacimiento</li>
@@ -19,14 +19,96 @@
               </ul>
             </div>
             <div class='col-sm-8'>
-              <ul>  
-                <li><input class='text' placeholder="Javier Duarte"></li>
-                <li><input class='text' placeholder="08420567"></li>
-                <li><input class='text'placeholder="18"></li>
-                <li><input class='input-parrafo'></li>
-                <li><input placeholder="Mexicano"></li>
-
+              <Form (ngSubmit)="save($event)"  [formGroup]="ExpedienteForm">
+                <ul>
+                  <li>
+                       <input class='text input-validator' placeholder="Javier Duarte"
+                          formControlName ="Nombre">
+                          <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Nombre.invalid && ExpedienteForm.controls.Nombre.touched">
+                          <span class="span-invalid" *ngIf="ExpedienteForm.controls.Nombre.errors && ExpedienteForm.controls.Nombre.errors['required']">
+                               *Este es un campo obligatorio
+                          </span>
+                          </span>
+                  </li>
+                  <li>
+                     <input class='text input-validator' placeholder="08420567"
+                          formControlName = "NSS">
+                          <span  class="span-invalid" *ngIf="ExpedienteForm.controls.NSS.invalid && ExpedienteForm.controls.NSS.touched">
+                            <span class="span-invalid" *ngIf="ExpedienteForm.controls.NSS.errors && ExpedienteForm.controls.NSS.errors['required']">
+                                 *Este es un campo obligatorio
+                            </span>
+                            <span class="span-invalid" *ngIf="ExpedienteForm.controls.NSS.errors && ExpedienteForm.controls.NSS.errors['pattern']">
+                              *Sólo se aceptan números
+                           </span>
+                            </span>
+                  </li>
+                  <li>
+                     <input class='text input-validator'placeholder="18"
+                          formControlName = "Edad">
+                          <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Edad.invalid && ExpedienteForm.controls.Edad.touched">
+                            <span class="span-invalid" *ngIf="ExpedienteForm.controls.Edad.errors && ExpedienteForm.controls.Edad.errors['required']">
+                                 *Este es un campo obligatorio
+                            </span>
+                            <span class="span-invalid" *ngIf="ExpedienteForm.controls.Edad.errors && ExpedienteForm.controls.Edad.errors['min']">
+                              *La edad minima es 18
+                           </span>
+                            </span>
+                  </li>
+                  <li>
+                     <input class='text input-validator' class="input-parrafo" formControlName="Domicilio">
+                     <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Domicilio.invalid && ExpedienteForm.controls.Domicilio.touched">
+                        <span class="span-invalid" *ngIf="ExpedienteForm.controls.Domicilio.errors && ExpedienteForm.controls.Domicilio.errors['required']">
+                             *Este es un campo obligatorio
+                        </span>
+                        <span class="span-invalid"   *ngIf="ExpedienteForm.controls.Domicilio.errors && ExpedienteForm.controls.Domicilio.errors['maxlength']">
+                          *Sólo puede ingresar 200 caracteres
+                      </span>
+                      </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator' placeholder="Mexicano"
+                      formControlName="Nacionalidad">
+                      <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Nacionalidad.invalid && ExpedienteForm.controls.Nacionalidad.touched">
+                        <span class="span-invalid" *ngIf="ExpedienteForm.controls.Nombre.errors && ExpedienteForm.controls.Nombre.errors['required']">
+                             *Este es un campo obligatorio
+                        </span>
+                        </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator' placeholder="Masculino"
+                      formControlName="Genero">
+                      <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Genero.invalid && ExpedienteForm.controls.Genero.touched">
+                        <span class="span-invalid" *ngIf="ExpedienteForm.controls.Genero.errors && ExpedienteForm.controls.Genero.errors['required']">
+                            *Este es un campo obligatorio
+                        </span>
+                        </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator' placeholder="57012127"
+                      formControlName="Telefono">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Telefono.invalid && ExpedienteForm.controls.Telefono.touched">
+                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.Telefono.errors && ExpedienteForm.controls.Telefono.errors['required']">
+                          *Este es un campo obligatorio
+                      </span>
+                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.Telefono.errors && ExpedienteForm.controls.Telefono.errors['pattern']">
+                        *Sólo se aceptan números
+                     </span>
+                      </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator' placeholder="javier@gmail.com"
+                      formControlName="Correo">
+                      <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Correo.invalid && ExpedienteForm.controls.Correo.touched">
+                        <span class="span-invalid" *ngIf="ExpedienteForm.controls.Correo.errors && ExpedienteForm.controls.Correo.errors['required']">
+                            *Este es un campo obligatorio
+                        </span>
+                        <span class="span-invalid" *ngIf="ExpedienteForm.controls.Correo.errors && ExpedienteForm.controls.Correo.errors['email']">
+                          *El email es incorrecto
+                        </span>
+                        </span>
+                  </li>
               </ul>
+             </Form>
             </div>
           </div>
         </tab>
@@ -57,7 +139,7 @@
             </div>
           </div>
         </tab>
-        
+
           <tab heading="Diagnóstico">
             <div class='row'>
               <div class="col-sm-4">
@@ -105,7 +187,7 @@
       <progressbar max="200" [value]="150" type="danger" [striped]="true" [animate]="true"><i>150 / 200</i></progressbar>
 
     </div>
-  </div>  
+  </div>
 </div>
 
 
