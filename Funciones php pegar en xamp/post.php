@@ -8,7 +8,7 @@ if (!$jsonMascota) {
 }
 $bd = include_once "bd.php";
 $sentencia = $bd->prepare("insert into paciente(idPaciente, nomPac, TelPac, EdadPac, CorreoPac, SexoPac) values (?,?,?,?,?,?)");
-$resultado = $sentencia->execute([$jsonPaciente->idPaciente, $jsonPaciente->nomPac, $jsonPaciente->TelPac, , $jsonPaciente->EdadPac, , $jsonPaciente->CorreoPac, , $jsonPaciente->SexPac]);
+$resultado = $sentencia->execute([$jsonPaciente->idPaciente, $jsonPaciente->nomPac, $jsonPaciente->TelPac , $jsonPaciente->EdadPac, , $jsonPaciente->CorreoPac, , $jsonPaciente->SexPac]);
 echo json_encode([
     "resultado" => $resultado,
 ]);
