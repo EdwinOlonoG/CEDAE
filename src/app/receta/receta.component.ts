@@ -69,4 +69,7 @@ export class RecetaComponent implements OnInit {
       doc.save('Receta.pdf');
     });
   }
+  enviarCorreo(): void{
+    alert('enviando al correo');
+  }
 }

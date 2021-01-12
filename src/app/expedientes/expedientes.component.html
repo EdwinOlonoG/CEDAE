@@ -25,16 +25,15 @@
             </thead>
             <tbody>
                 <tr *ngFor ='let expediente of expedientes'>
-                    <td  a href="#"
-                    routerLink = '/seguimiento' 
-                    (click)='toggleValue()'
-                    (click)='Mostrar(expediente.idPaciente)'>{{expediente.idPaciente}}</td>
+                    <td >{{expediente.idPaciente}}</td>
                     <td>{{expediente.nomPac}}</td>
                     <td>{{expediente.TelPac}}</td>
                     <td>{{expediente.EdadPac}}</td>
                     <td>{{expediente.SexoPac}}</td>
                     <td>{{expediente.CorreoPac}}</td>
-                    <td><button type="button" class='btn btn-success'>Ver recetas</button>
+                    <td><button type="button" class='btn btn-success' a href="#" 
+                        (click)='toggleValue()'
+                        (click)='Mostrar(expediente.idPaciente)'>Ver Expedientes</button>
                         <button type="button" class='btn btn-danger'>Eliminar</button></td>
                 </tr>
     

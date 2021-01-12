@@ -42,7 +42,7 @@
                             <span class="span-invalid" *ngIf="RecetaForm.controls.Correo.errors && RecetaForm.controls.Correo.errors['email']">
                                 <br>El email es incorrecto</span>
                         </span>
-                    <button type="button" class="btn btn-success">Enviar al correo</button>
+                    <button type="button" class="btn btn-success" (click)='enviarCorreo()'>Enviar al correo</button>
                         <button type="button" class="btn btn-danger">Cancelar</button>   
                         </form>                     
                     </div>
