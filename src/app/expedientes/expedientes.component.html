@@ -32,7 +32,6 @@
                     <td>{{expediente.SexoPac}}</td>
                     <td>{{expediente.CorreoPac}}</td>
                     <td><button type="button" class='btn btn-success' a href="#" 
-                        (click)='toggleValue()'
                         (click)='Mostrar(expediente.idPaciente)'>Ver Expedientes</button>
                         <button type="button" class='btn btn-danger'>Eliminar</button></td>
                 </tr>
@@ -42,7 +41,7 @@
         </div>
     </div>
 </div>
-<div class="row" *ngIf='!ViewValue'>
+<div class="row" *ngIf='ViewValue'>
     <div class='col-sm-2'>
         <pm-sidebar-medico></pm-sidebar-medico>
     </div>

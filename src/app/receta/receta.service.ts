@@ -12,6 +12,7 @@ import { IReceta } from './Receta';
 export class RecetaService {
     baseUrl = "http://localhost/Coneccion/";
     jasonPaciente = "http://localhost/Coneccion/paciente.json";
+    jasonReceta = "http://localhost/Coneccion/pacientesReceta.json";
     //jasonPaciente = "C:\xampp\htdocs\Coneccion";
     private productUrl = 'api/products/expedientes.json';
   
@@ -26,30 +27,26 @@ addReceta(receta: IReceta[]) {
     console.log(receta);
     return this.http.post(`${this.baseUrl}postReceta.php?idDoctor=1&idPaciente=1`, receta).subscribe();
   }
-  getReceta(id: number) {  //aqui poner lo get de la receta id
-    console.log("Entre a la funcion de receta");
-    return this.http.get(`${this.baseUrl}/get.php?Paciente_idPaciente=${id}`);
-  }
-  getRecetaAll(id:number) {
 
-    this.http.get(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=6`).subscribe(data => {
-      console.log(data);
+
+
+  getReceta(id: number) { 
+    //console.log("Entre a la funcion de receta");
+    return this.http.get(`${this.baseUrl}getRecetas.php?id=${id}`);
+  }
+
+
+  getRecetaAll(id:number) { //aqui poner lo get de la receta id----------------------------------------
+    console.log("Entre a la funcion de receta");
+    this.http.get(`${this.baseUrl}getRecetas.php?id=${id}`).subscribe(id => {
+      console.log(id);
     });
    
-    return this.http.get<IReceta[]>(this.jasonPaciente).pipe(
+    return this.http.get<IReceta[]>(this.jasonReceta).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
   }
 
-  /*
-  this.http.get(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=3`).subscribe(data => {
-    console.log(data);
-  });
- 
-  return this.http.get<IExpediente[]>(this.jasonPaciente).pipe(
-    tap(data => console.log('All: ' + JSON.stringify(data))),
-  );
-  */
   enviar(receta: IReceta[]) {
     console.log("Entre a la funcion de enviar receta a la base");
     console.log(receta);

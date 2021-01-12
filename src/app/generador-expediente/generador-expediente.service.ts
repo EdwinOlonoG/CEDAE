@@ -14,6 +14,7 @@ import { IExpediente } from '../expedientes/expediente';
 export class GeneradorExpedienteService {
   baseUrl = "http://localhost/Coneccion/";
   jasonPaciente = "http://localhost/Coneccion/expedientePaciente.json";
+  jasonExpediente = "http://localhost/Coneccion/expedientePaciente.json";
   //jasonPaciente = "C:\xampp\htdocs\Coneccion";
   private productUrl = 'api/products/expedientes.json';
 
@@ -26,15 +27,13 @@ export class GeneradorExpedienteService {
     return this.http.post(`${this.baseUrl}postExpediente.php?idDoctor=6&idPaciente=1&idExpediente=1`, paciente).subscribe();
   }
   getExpedienteAll(id:number) {    //aqui tomar la expedientes del id
-    console.log("Entre a la funcion");
-    console.log(id);
-    this.http.get(`${this.baseUrl}getExpedientes`).subscribe(data => {
-      console.log(data);
+    console.log("Entre a la funcion de expediente");
+    this.http.get(`${this.baseUrl}getExpedientes.php?id=${id}`).subscribe(id => {
+      console.log(id);
     });
    
-    return this.http.get<IGeneradorExpediente[]>(this.jasonPaciente).pipe(
+    return this.http.get<IGeneradorExpediente[]>(this.jasonExpediente).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
     }
- 
 }
