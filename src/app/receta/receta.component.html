@@ -21,7 +21,7 @@
                                 <span class="span-invalid" *ngIf="RecetaForm.controls.Medicamento.errors && RecetaForm.controls.Medicamento.errors['required']">
                                         El nombre del Medicamento es requerido</span>
                             </span>            
-                        <li><input class='text input-validator' placeholder="Dósis"
+                        <li><input class='text input-validator' placeholder="Dosis"
                             formControlName= "Dosis"></li>
                             <span class="span-invalid" *ngIf="RecetaForm.controls.Dosis.invalid && (RecetaForm.controls.Dosis.dirty || RecetaForm.controls.Dosis.touched)">
                                 <span class="span-invalid" *ngIf="RecetaForm.controls.Dosis.errors && RecetaForm.controls.Dosis.errors['required']">
@@ -74,7 +74,7 @@
                 </tbody>
             </table>
         </div>
-            <button type="button" class="btn btn-success"(click)='generarPDF()'>Imprimir</button>
+            <button type="button" class="btn btn-success"(click)='generarPDF()' (click)='enviar()'>Imprimir</button>
             
             
         </div>
