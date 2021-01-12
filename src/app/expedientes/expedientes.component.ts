@@ -53,13 +53,13 @@ filteredExpedientes: IExpediente[];
       .getRecetaAll(idPaciente)
       .subscribe({
         next: TablaReceta => {
-          TablaReceta = TablaReceta;}
+          this.TablaReceta = TablaReceta;}
         })
     this.generadorExpedienteService
           .getExpedienteAll(idPaciente)
           .subscribe({
             next: TablaExpediente => {
-              TablaExpediente = TablaExpediente;}
+              this.TablaExpediente = TablaExpediente;}
             })
   }
 }
