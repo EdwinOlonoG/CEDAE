@@ -22,7 +22,7 @@ export class GeneradorExpedienteComponent implements OnInit {
     this.ExpedienteForm = this.fb.group({
       Nombre: ["",[Validators.required]],
       NSS:["",[Validators.required,Validators.pattern(/^([0-9])*$/)]],
-      FechaNa:["",[Validators.required,Validators.min(18)]],
+      FechaNa:["",[Validators.required]],
       Domicilio:["",[Validators.required,Validators.maxLength(200)]],
       Nacionalidad:["",[Validators.required]],
       Genero:["",[Validators.required]],
@@ -44,6 +44,7 @@ export class GeneradorExpedienteComponent implements OnInit {
      });
   }
  Guardar(/* paciente: ExpedientesComponent */): void{
+   alert("Se envió a la bd");
    this.Expediente = this.ExpedienteForm.value;
    this.expedienteService.addExpediente(this.Expediente);/* (paciente) */
    console.log(this.ExpedienteForm.value);

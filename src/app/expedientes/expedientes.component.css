@@ -3,3 +3,9 @@
     width: 2000px;
     height: 500px;
 }
+td{
+    text-align: center;
+}
+th{
+    text-align: center;
+}

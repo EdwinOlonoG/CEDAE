@@ -33,7 +33,6 @@
                     <td>{{expediente.CorreoPac}}</td>
                     <td><button type="button" class='btn btn-success' a href="#" 
                         (click)='Mostrar(expediente.idPaciente)'>Ver Expedientes</button>
-                        <button type="button" class='btn btn-danger'>Eliminar</button></td>
                 </tr>
     
             </tbody>
@@ -41,7 +40,7 @@
         </div>
     </div>
 </div>
-<div class="row" *ngIf='!ViewValue'>
+<div class="row" *ngIf='ViewValue'>
     <div class='col-sm-2'>
         <pm-sidebar-medico></pm-sidebar-medico>
     </div>
@@ -50,7 +49,7 @@
             <div class="div-formulario">
                 <div>
                     <h2>Expedientes</h2>
-                    <table class='table table-dark'>
+                    <table class='table table-dark table-striped'>
                         <tr>
                             <td>NSS</td>
                             <td>FechaNa</td>
@@ -97,7 +96,7 @@
             <div class='row' style="height: 100px;"></div>
             <div class="div-formulario">
                 <h2>Recetas</h2>
-                    <table class='table table-dark'>
+                    <table class='table table-dark table-striped' style="width: 400px;">
                         <tr>
                                 <td>Medicamento</td> 
                                 <td>Dosis</td>

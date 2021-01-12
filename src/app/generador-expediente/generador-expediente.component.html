@@ -25,7 +25,7 @@
               <Form (ngSubmit)="save($event)"  [formGroup]="ExpedienteForm">
                 <ul>
                   <li>
-                       <input class='text input-validator' placeholder="Javier Duarte"
+                       <input class='text input-validator' placeholder=""
                           formControlName ="Nombre">
                           <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Nombre.invalid && ExpedienteForm.controls.Nombre.touched">
                           <span class="span-invalid" *ngIf="ExpedienteForm.controls.Nombre.errors && ExpedienteForm.controls.Nombre.errors['required']">
@@ -34,7 +34,7 @@
                           </span>
                   </li>
                   <li>
-                     <input class='text input-validator' placeholder="08420567"
+                     <input class='text input-validator' placeholder=""
                           formControlName = "NSS">
                           <span  class="span-invalid" *ngIf="ExpedienteForm.controls.NSS.invalid && ExpedienteForm.controls.NSS.touched">
                             <span class="span-invalid" *ngIf="ExpedienteForm.controls.NSS.errors && ExpedienteForm.controls.NSS.errors['required']">
@@ -46,7 +46,7 @@
                             </span>
                   </li>
                   <li>
-                     <input class='text input-validator'placeholder="18"
+                     <input class='text input-validator'placeholder=""
                           formControlName = "FechaNa">
                           <span  class="span-invalid" *ngIf="ExpedienteForm.controls.FechaNa.invalid && ExpedienteForm.controls.FechaNa.touched">
                             <span class="span-invalid" *ngIf="ExpedienteForm.controls.FechaNa.errors && ExpedienteForm.controls.FechaNa.errors['required']">
@@ -69,7 +69,7 @@
                       </span>
                   </li>
                   <li>
-                    <input class='text input-validator' placeholder="Mexicano"
+                    <input class='text input-validator' placeholder=""
                       formControlName="Nacionalidad">
                       <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Nacionalidad.invalid && ExpedienteForm.controls.Nacionalidad.touched">
                         <span class="span-invalid" *ngIf="ExpedienteForm.controls.Nombre.errors && ExpedienteForm.controls.Nombre.errors['required']">
@@ -78,7 +78,7 @@
                         </span>
                   </li>
                   <li>
-                    <input class='text input-validator' placeholder="Masculino"
+                    <input class='text input-validator' placeholder="M"
                       formControlName="Genero">
                       <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Genero.invalid && ExpedienteForm.controls.Genero.touched">
                         <span class="span-invalid" *ngIf="ExpedienteForm.controls.Genero.errors && ExpedienteForm.controls.Genero.errors['required']">
@@ -87,7 +87,7 @@
                         </span>
                   </li>
                   <li>
-                    <input class='text input-validator' placeholder="57012127"
+                    <input class='text input-validator' placeholder=""
                       formControlName="Telefono">
                     <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Telefono.invalid && ExpedienteForm.controls.Telefono.touched">
                       <span class="span-invalid" *ngIf="ExpedienteForm.controls.Telefono.errors && ExpedienteForm.controls.Telefono.errors['required']">
@@ -299,8 +299,8 @@
       
     </div>
 
-      <progressbar max="200" [value]="150" type="danger" [striped]="true" [animate]="true"><i>150 / 200</i></progressbar>
-
+<!--       <progressbar max="200" [value]="150" type="danger" [striped]="true" [animate]="true"><i>150 / 200</i></progressbar>
+ -->
     </div>
   </div>
 </div>

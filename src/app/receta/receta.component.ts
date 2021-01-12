@@ -17,12 +17,14 @@ export class RecetaComponent implements OnInit {
   
   RecetaForm: FormGroup;
   Receta: IReceta[];
+  Correo: string;
   n: number;
+  ncopy: number;
   titulo = 'Generar PDF con Angular JS 5';
   imagen1 = 'assets/images/cedae.png';
   imagen2 = 'assets/images/flecha.png';
   imagen3 = 'assets/images/hammer.png';
-  constructor(private fb: FormBuilder, public recetaService: RecetaService) { this.Receta = [], this.n=-1}
+  constructor(private fb: FormBuilder, public recetaService: RecetaService) { this.Receta = [], this.n=-1, this.ncopy=-1}
 
   ngOnInit(): void {
     this.RecetaForm   = this.fb.group({
@@ -34,16 +36,21 @@ export class RecetaComponent implements OnInit {
   }
   save(): void{
     this.n = this.n+1;
-   
+    this.ncopy = this.ncopy+1;
     this.Receta.push(this.RecetaForm.value);
     this.Receta[this.n].id = this.n;
+    this.Correo = this.Receta[this.n].Correo;
+    this.n = this.ncopy;
     console.log(JSON.stringify(this.RecetaForm.value));
+
   }
   clear(): void{
     this.RecetaForm   = this.fb.group({
       Medicamento: ["", [Validators.required,]],
       Dosis: ["", [Validators.required]],
       Indicaciones: ["", [Validators.required]],
+      Correo: [this.Correo,[Validators.required]],
+
     });
   }
   enviar(): void{
@@ -52,9 +59,12 @@ export class RecetaComponent implements OnInit {
     this.recetaService.addReceta(this.Receta);
   }
   eliminar(id:number): void{
-    console.log(id);
-    this.Receta.splice(id);
-    
+
+     this.Receta.splice(id,1);
+     this.ncopy = this.n-1;
+     this.n = id-1;
+     console.log(id + "Imprimiendo el arreglo de objetos" + this.Receta);
+
   }
   generarPDF(){
     html2canvas(document.getElementById('contenido'),{
