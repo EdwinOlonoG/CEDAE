@@ -20,7 +20,7 @@ export class GeneradorExpedienteService {
   constructor(private http: HttpClient) {}
 
 
-  addExpediente(paciente: IGeneradorExpediente) {
+  addExpediente(paciente: IGeneradorExpediente) {         //agregar expediente aqui
     return this.http.post(`${this.baseUrl}/post.php`, paciente);
   }
   getExpedienteAll(id:number) {
