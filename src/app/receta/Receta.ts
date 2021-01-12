@@ -3,4 +3,5 @@ export interface  IReceta{
     Medicamento:string;
     Dosis:string;
     Indicaciones: string;
+    Correo: string;
   }

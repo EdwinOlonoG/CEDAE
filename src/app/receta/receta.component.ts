@@ -29,6 +29,7 @@ export class RecetaComponent implements OnInit {
       Medicamento: ["", [Validators.required,]],
       Dosis: ["", [Validators.required]],
       Indicaciones: ["", [Validators.required]],
+      Correo: ["",[Validators.required]],
     });
   }
   save(): void{

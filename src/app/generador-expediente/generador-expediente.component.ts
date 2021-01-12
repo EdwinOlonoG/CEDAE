@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-
+import { GeneradorExpedienteService } from './generador-expediente.service';
+import { IGeneradorExpediente } from './generador-expediente';
 
 @Component({
   selector: 'pm-generador-expediente',
@@ -12,8 +13,9 @@ export class GeneradorExpedienteComponent implements OnInit {
   HistorialValue = false;
   PronosticoValue = false;
   ExpedienteForm: FormGroup;
+  Expediente: IGeneradorExpediente;
 
-  constructor( private fb: FormBuilder){ }
+  constructor( private fb: FormBuilder, public expedienteService: GeneradorExpedienteService){ }
 
   ngOnInit(): void
   {
@@ -29,7 +31,8 @@ export class GeneradorExpedienteComponent implements OnInit {
      });
   }
  Guardar(/* paciente: ExpedientesComponent */): void{
-   this.experdienteService.addExpediente/* (paciente) */
+   this.Expediente = this.ExpedienteForm.value;
+   this.expedienteService.addExpediente(this.Expediente);/* (paciente) */
  }
  Borrar(): void{
    alert('¿Seguro que quieres borrar el expediente?');

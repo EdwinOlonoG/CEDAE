@@ -28,6 +28,7 @@ import { SidebarRecepcionistaComponent } from './sidebar-recepcionista/sidebar-r
 import { RecepcionistaComponent } from './recepcionista/recepcionista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 
 
 
@@ -50,6 +51,7 @@ import { FormsModule } from '@angular/forms';
     FarmaciaComponent,
     SidebarRecepcionistaComponent,
     RecepcionistaComponent,
+    SeguimientoComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,7 @@ import { FormsModule } from '@angular/forms';
       { path: 'tablaexpedientes', component: ExpedientesComponent},
       { path: 'farmacia', component: FarmaciaComponent},
       { path: 'recepcionista', component: RecepcionistaComponent},
-
+      { path: 'seguimiento', component: SeguimientoComponent},
 
     ]),
     BrowserAnimationsModule,

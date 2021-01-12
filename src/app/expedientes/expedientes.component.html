@@ -26,7 +26,9 @@
             <tbody>
                 <tr *ngFor ='let expediente of expedientes'>
                     <td>{{expediente.idPaciente}}</td>
-                    <td>{{expediente.nomPac}}</td>
+                    <td a href="#"
+                    routerLink = '/seguimiento'>
+                        {{expediente.nomPac}}</td>
                     <td>{{expediente.TelPac}}</td>
                     <td>{{expediente.EdadPac}}</td>
                     <td>{{expediente.SexoPac}}</td>
