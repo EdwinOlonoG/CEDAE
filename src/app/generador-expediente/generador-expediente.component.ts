@@ -28,7 +28,7 @@ export class GeneradorExpedienteComponent implements OnInit {
       Genero:["",[Validators.required]],
       Telefono:["",[Validators.required,Validators.pattern(/^([0-9])*$/)]],
       Correo:["",[Validators.required,Validators.email]],
-      FichaID: ["",[Validators.required]],
+      FichaId: ["",[Validators.required]],
       AntecedentesF:["",[Validators.required]],
       AntecedentesP:["",[Validators.required]],
       Exploracion: ["",[Validators.required]],

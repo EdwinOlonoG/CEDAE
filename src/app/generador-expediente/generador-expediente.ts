@@ -4,7 +4,7 @@ export interface  IGeneradorExpediente{
       FechaNa: string;
       Domicilio: string;
       Nacionalidad: string;
-      FichaID: string; 
+      FichaId: string; 
       AntecedentesF: string;
       AntecedentesP: string;
       Exploracion: string; 
