@@ -47,12 +47,12 @@
                   </li>
                   <li>
                      <input class='text input-validator'placeholder="18"
-                          formControlName = "Edad">
-                          <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Edad.invalid && ExpedienteForm.controls.Edad.touched">
-                            <span class="span-invalid" *ngIf="ExpedienteForm.controls.Edad.errors && ExpedienteForm.controls.Edad.errors['required']">
+                          formControlName = "FechaNa">
+                          <span  class="span-invalid" *ngIf="ExpedienteForm.controls.FechaNa.invalid && ExpedienteForm.controls.FechaNa.touched">
+                            <span class="span-invalid" *ngIf="ExpedienteForm.controls.FechaNa.errors && ExpedienteForm.controls.FechaNa.errors['required']">
                                  *Este es un campo obligatorio
                             </span>
-                            <span class="span-invalid" *ngIf="ExpedienteForm.controls.Edad.errors && ExpedienteForm.controls.Edad.errors['min']">
+                            <span class="span-invalid" *ngIf="ExpedienteForm.controls.FechaNa.errors && ExpedienteForm.controls.FechaNa.errors['min']">
                               *La edad minima es 18
                            </span>
                             </span>
@@ -135,36 +135,36 @@
                 <ul>
                   <li>
                     <input class='text input-validator'
-                    formControlName ="Ficha">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Ficha.invalid && ExpedienteForm.controls.Ficha.touched">
-                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Ficha.errors && ExpedienteForm.controls.Ficha.errors['required']">
+                    formControlName ="FichaID">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.FichaID.invalid && ExpedienteForm.controls.FichaID.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.FichaID.errors && ExpedienteForm.controls.FichaID.errors['required']">
                          *Este es un campo obligatorio
                     </span>
                     </span>
                   </li>
                   <li>
                     <input class='text input-validator' class='input-parrafo'
-                    formControlName ="Antecedentes1">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Antecedentes1.invalid && ExpedienteForm.controls.Antecedentes1.touched">
-                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Antecedentes1.errors && ExpedienteForm.controls.Antecedentes1.errors['required']">
+                    formControlName ="AntecedentesF">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.AntecedentesF.invalid && ExpedienteForm.controls.AntecedentesF.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.AntecedentesF.errors && ExpedienteForm.controls.AntecedentesF.errors['required']">
                          *Este es un campo obligatorio
                     </span>
                     </span>
                   </li>
                   <li>
                     <input class='text input-validator' class='input-parrafo'
-                    formControlName ="Antecedentes2">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Antecedentes2.invalid && ExpedienteForm.controls.Antecedentes2.touched">
-                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Antecedentes2.errors && ExpedienteForm.controls.Antecedentes2.errors['required']">
+                    formControlName ="AntecedentesP">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.AntecedentesP.invalid && ExpedienteForm.controls.AntecedentesP.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.AntecedentesP.errors && ExpedienteForm.controls.AntecedentesP.errors['required']">
                          *Este es un campo obligatorio
                     </span>
                     </span>
                   </li>
                   <li>
                     <input class='text input-validator'
-                    formControlName ="Exp">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Exp.invalid && ExpedienteForm.controls.Exp.touched">
-                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Exp.errors && ExpedienteForm.controls.Exp.errors['required']">
+                    formControlName ="Exploracion">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Exploracion.invalid && ExpedienteForm.controls.Exploracion.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Exploracion.errors && ExpedienteForm.controls.Exploracion.errors['required']">
                          *Este es un campo obligatorio
                     </span>
                     </span>
@@ -180,18 +180,18 @@
                   </li>
                   <li>
                     <input class='text input-validator'
-                    formControlName ="Temp">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Temp.invalid && ExpedienteForm.controls.Temp.touched">
-                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Temp.errors && ExpedienteForm.controls.Temp.errors['required']">
+                    formControlName ="Temperatura">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Temperatura.invalid && ExpedienteForm.controls.Temperatura.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Temperatura.errors && ExpedienteForm.controls.Temperatura.errors['required']">
                          *Este es un campo obligatorio
                     </span>
                     </span>
                   </li>
                   <li>
                     <input class='input-parrafo' class='text input-validator'
-                    formControlName ="Estado">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Estado.invalid && ExpedienteForm.controls.Estado.touched">
-                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.Estado.errors && ExpedienteForm.controls.Estado.errors['required']">
+                    formControlName ="EstadoF">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.EstadoF.invalid && ExpedienteForm.controls.EstadoF.touched">
+                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.EstadoF.errors && ExpedienteForm.controls.EstadoF.errors['required']">
                            *Este es un campo obligatorio
                       </span>
                       </span>
@@ -215,18 +215,18 @@
                   <ul>
                     <li>
                       <input class='text input-validator' class='input-parrafo'
-                      formControlName ="Lab">
-                      <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Lab.invalid && ExpedienteForm.controls.Lab.touched">
-                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.Lab.errors && ExpedienteForm.controls.Lab.errors['required']">
+                      formControlName ="ResultadosLab">
+                      <span  class="span-invalid" *ngIf="ExpedienteForm.controls.ResultadosLab.invalid && ExpedienteForm.controls.ResultadosLab.touched">
+                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.ResultadosLab.errors && ExpedienteForm.controls.ResultadosLab.errors['required']">
                            *Este es un campo obligatorio
                       </span>
                       </span>
                     </li>
                     <li>
                       <input class='text input-validator' class='input-parrafo'
-                      formControlName ="Pro">
-                      <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Pro.invalid && ExpedienteForm.controls.Pro.touched">
-                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.Pro.errors && ExpedienteForm.controls.Pro.errors['required']">
+                      formControlName ="Pronostico">
+                      <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Pronostico.invalid && ExpedienteForm.controls.Pronostico.touched">
+                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.Pronostico.errors && ExpedienteForm.controls.Pronostico.errors['required']">
                            *Este es un campo obligatorio
                       </span>
                       </span>
@@ -251,51 +251,52 @@
                 <Form (ngSubmit)="save($event)"  [formGroup]="ExpedienteForm">
                   <li>
                     <input class='text input-validator' class='input-parrafo'
-                    formControlName ="Sig">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Sig.invalid && ExpedienteForm.controls.Sig.touched">
-                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Sig.errors && ExpedienteForm.controls.Sig.errors['required']">
+                    formControlName ="SignosVit">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.SignosVit.invalid && ExpedienteForm.controls.SignosVit.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.SignosVit.errors && ExpedienteForm.controls.SignosVit.errors['required']">
                          *Este es un campo obligatorio
                     </span>
                     </span>
                   </li>
                   <li>
                     <input class='text input-validator' class='input-parrafo'
-                    formControlName ="Res">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Res.invalid && ExpedienteForm.controls.Res.touched">
-                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Res.errors && ExpedienteForm.controls.Res.errors['required']">
+                    formControlName ="Resultados">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Resultados.invalid && ExpedienteForm.controls.Resultados.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Resultados.errors && ExpedienteForm.controls.Resultados.errors['required']">
                          *Este es un campo obligatorio
                     </span>
                     </span>
                   </li>
                   <li>
                     <input class='text input-validator' class='input-parrafo'
-                    formControlName ="Dia">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Dia.invalid && ExpedienteForm.controls.Dia.touched">
-                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Dia.errors && ExpedienteForm.controls.Dia.errors['required']">
+                    formControlName ="Diagnostico">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Diagnostico.invalid && ExpedienteForm.controls.Diagnostico.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Diagnostico.errors && ExpedienteForm.controls.Diagnostico.errors['required']">
                          *Este es un campo obligatorio
                     </span>
                     </span>
                   </li>
                   <li>
                     <input class='text input-validator' class='input-parrafo'
-                    formControlName ="Pro2">
-                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Pro2.invalid && ExpedienteForm.controls.Pro2.touched">
-                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Pro2.errors && ExpedienteForm.controls.Pro2.errors['required']">
+                    formControlName ="PronosticoEv">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.PronosticoEv.invalid && ExpedienteForm.controls.PronosticoEv.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.PronosticoEv.errors && ExpedienteForm.controls.PronosticoEv.errors['required']">
                          *Este es un campo obligatorio
                     </span>
                     </span>
                   </li>
+                  <div class='row' style="padding-left: 600px;">
+                    <button type="submit" [disabled] ="ExpedienteForm.invalid"  class='btn btn-success'
+                    (click)='Guardar()'>Guardar</button>
+                    <button type="button" class='btn btn-danger'
+                    (click)='Borrar()'>Borrar expediente</button>
+                  </div>
                 </Form>
               </div>
             </div>
           </tab>
       </tabset>
-      <div class='row' style="padding-left: 600px;">
-        <button type="submit" [disabled] ="ExpedienteForm.invalid"  class='btn btn-success'
-        (click)='Guardar()'>Guardar</button>
-        <button type="button" class='btn btn-danger'
-        (click)='Borrar()'>Borrar expediente</button>
-      </div>
+      
     </div>
 
       <progressbar max="200" [value]="150" type="danger" [striped]="true" [animate]="true"><i>150 / 200</i></progressbar>

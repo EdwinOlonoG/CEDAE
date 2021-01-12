@@ -26,6 +26,19 @@ addReceta(receta: IReceta[]) {
     console.log(receta);
     return this.http.post(`${this.baseUrl}postReceta.php?idDoctor=1&idPaciente=1`, receta).subscribe();
   }
+  getReceta(id: number) {
+    return this.http.get(`${this.baseUrl}/get.php?Paciente_idPaciente=${id}`);
+  }
+  getRecetaAll(id:number) {
+
+    this.http.get(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=6`).subscribe(data => {
+      console.log(data);
+    });
+   
+    return this.http.get<IReceta[]>(this.jasonPaciente).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+    );
+  }
   /*
   this.http.get(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=3`).subscribe(data => {
     console.log(data);

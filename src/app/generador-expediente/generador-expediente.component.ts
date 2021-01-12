@@ -22,30 +22,31 @@ export class GeneradorExpedienteComponent implements OnInit {
     this.ExpedienteForm = this.fb.group({
       Nombre: ["",[Validators.required]],
       NSS:["",[Validators.required,Validators.pattern(/^([0-9])*$/)]],
-      Edad:["",[Validators.required,Validators.min(18)]],
+      FechaNa:["",[Validators.required,Validators.min(18)]],
       Domicilio:["",[Validators.required,Validators.maxLength(200)]],
       Nacionalidad:["",[Validators.required]],
       Genero:["",[Validators.required]],
       Telefono:["",[Validators.required,Validators.pattern(/^([0-9])*$/)]],
       Correo:["",[Validators.required,Validators.email]],
-      Ficha: ["",[Validators.required]],
-      Antecedentes1:[[Validators.required]],
-      Antecedentes2:[[Validators.required]],
-      Exp: ["",[Validators.required]],
+      FichaID: ["",[Validators.required]],
+      AntecedentesF:["",[Validators.required]],
+      AntecedentesP:["",[Validators.required]],
+      Exploracion: ["",[Validators.required]],
       Pulso: ["",[Validators.required]],
-      Temp: ["",[Validators.required]],
-      Estado: ["",[Validators.required]],
-      Lab: ["",[Validators.required]],
-      Pro:["",[Validators.required]],
-      Sig:["",[Validators.required]],
-      Res:["",[Validators.required]],
-      Dia:["",[Validators.required]],
-      Pro2:["",[Validators.required]],
+      Temperatura: ["",[Validators.required]],
+      EstadoF: ["",[Validators.required]],
+      Resultados: ["",[Validators.required]],
+      Pronostico:["",[Validators.required]],
+      SignosVit:["",[Validators.required]],
+      ResultadosLab:["",[Validators.required]],
+      Diagnostico:["",[Validators.required]],
+      PronosticoEv:["",[Validators.required]],
      });
   }
  Guardar(/* paciente: ExpedientesComponent */): void{
    this.Expediente = this.ExpedienteForm.value;
    this.expedienteService.addExpediente(this.Expediente);/* (paciente) */
+   console.log(this.ExpedienteForm.value);
  }
  Borrar(): void{
    alert('¿Seguro que quieres borrar el expediente?');

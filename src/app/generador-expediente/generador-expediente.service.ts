@@ -23,7 +23,15 @@ export class GeneradorExpedienteService {
   addExpediente(paciente: IGeneradorExpediente) {
     return this.http.post(`${this.baseUrl}/post.php`, paciente);
   }
+  getExpedienteAll(id:number) {
 
-
+    this.http.get(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=6`).subscribe(data => {
+      console.log(data);
+    });
+   
+    return this.http.get<IGeneradorExpediente[]>(this.jasonPaciente).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+    );
+    }
  
 }

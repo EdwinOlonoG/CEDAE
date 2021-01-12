@@ -67,4 +67,5 @@ export class ExpedienteService {
   updateExpediente(paciente: ExpedientesComponent) {
     return this.http.put(`${this.baseUrl}/update.php`, paciente);
   }
+  
 }

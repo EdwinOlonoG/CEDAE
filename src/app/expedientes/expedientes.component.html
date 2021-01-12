@@ -1,4 +1,4 @@
-<div class='row'>
+<div class='row' *ngIf ='ViewValue'>
     <div class='col-sm-2'>
     <pm-sidebar-recepcionista></pm-sidebar-recepcionista>
     </div>
@@ -25,10 +25,11 @@
             </thead>
             <tbody>
                 <tr *ngFor ='let expediente of expedientes'>
-                    <td>{{expediente.idPaciente}}</td>
-                    <td a href="#"
-                    routerLink = '/seguimiento'>
-                        {{expediente.nomPac}}</td>
+                    <td  a href="#"
+                    routerLink = '/seguimiento' 
+                    (click)='toggleValue()'
+                    (click)='Mostrar(expediente.idPaciente)'>{{expediente.idPaciente}}</td>
+                    <td>{{expediente.nomPac}}</td>
                     <td>{{expediente.TelPac}}</td>
                     <td>{{expediente.EdadPac}}</td>
                     <td>{{expediente.SexoPac}}</td>
@@ -39,23 +40,88 @@
     
             </tbody>
         </table>
-              <!--       <h2>Listado de expedientes</h2>
-            <table mat-table [dataSource]="expedientes" class="mat-elevation-z8" style="width:
-                100%;">
-                <ng-container matColumnDef="nombre">
-                    <th mat-header-cell *matHeaderCellDef>Nombre</th>
-                    <td mat-cell *matCellDef="let expediente"> {{expediente.nomPac}} </td>
-                </ng-container>
-                <ng-container matColumnDef="raza">
-                    <th mat-header-cell *matHeaderCellDef>Sexo</th>
-                    <td mat-cell *matCellDef="let expediente"> {{expediente.SexoPac}} </td>
-                </ng-container>
-                <ng-container matColumnDef="edad">
-                    <th mat-header-cell *matHeaderCellDef>Tel</th>
-                    <td mat-cell *matCellDef="let expediente"> {{expediente.TelPac}} </td>
-                </ng-container>
-
-            </table> -->
         </div>
     </div>
+</div>
+<div class="row" *ngIf='!ViewValue'>
+    <div class='col-sm-2'>
+        <pm-sidebar-medico></pm-sidebar-medico>
+    </div>
+    <div class='col-sm-8'>
+        <div class='row'>
+            <div class="div-formulario">
+                <div>
+                    <h2>Expedientes</h2>
+                    <table class='table table-dark'>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>NSS</td>
+                            <td>FechaNa</td>
+                           <td>Domicilio</td> 
+                            <td>Nacionalidad</td>
+                            <td>FichaID </td>
+                            <td>AntecedentesF</td>
+                            <td>AntecedentesP</td>
+                            <td>Exploracion</td> 
+                            <td>Pulso</td>
+                            <td>Temperatura</td> 
+                            <td>EstadoF </td>
+                            <td>ResultadosLab</td> 
+                            <td>Pronostico</td>
+                            <td>SignosVit</td>
+                            <td>Resultados</td>
+                            <td>Diagnostico</td>
+                            <td>PronosticoEv</td>
+                        </tr>
+                        <tbody>
+                            <tr>
+                        <tr *ngFor ='let exp of Tablaexpedientes'>
+                            <td>{{exp.Nombre}}</td>
+                            <td>{{exp.NSS}}</td>
+                            <td>{{exp.FechaNa}}</td>
+                            <td>{{exp.Domicilio}}</td>
+                            <td>{{exp.Nacionalidad}}</td>
+                            <td>{{exp.FichaID}} </td>
+                            <td>{{exp.AntecedentesF}}</td>
+                            <td>{{exp.AntecedentesP}}</td>
+                            <td>{{exp.Exploracion}} </td>
+                            <td>{{exp.Pulso}}</td>
+                            <td>{{exp.Temperatura}}</td> 
+                            <td>{{exp.EstadoF }}</td>
+                            <td>{{exp.ResultadosLab }}</td>
+                            <td>{{exp.Pronostico}}</td>
+                            <td>{{exp.SignosVit}}</td>
+                            <td>{{exp.Resultados}}</td>
+                            <td>{{exp.Diagnostico}}</td>
+                            <td>{{exp.PronosticoEv}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <div class='row' style="height: 100px;"></div>
+            <div class="div-formulario">
+                <h2>Recetas</h2>
+                    <table class='table table-dark'>
+                        <tr>
+                                <td>id</td>id
+                                <td>Medicamento</td> 
+                                <td>Dosis</td>
+                                <td>Indicaciones</td>
+                                <td>Correo</td>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <tr *ngFor ='let receta of TablaReceta'>
+                                <td>{{receta.id}}</td>
+                                <td>{{receta.Medicamento}}</td>
+                                <td>{{receta.Dosis}}</td>
+                                <td>{{receta.Indicaciones}}</td>
+                                <td>{{receta.Correo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+            </div>
+
+        </div>
 </div>
