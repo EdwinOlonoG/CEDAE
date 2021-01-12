@@ -48,7 +48,6 @@ filteredExpedientes: IExpediente[];
     this.ViewValue = !this.ViewValue;
   }
   Mostrar(idPaciente: number): void{
-    alert("Se subió a la bd");
     console.log(idPaciente);
     this.ViewValue = !this.ViewValue;
     this.recetaService
