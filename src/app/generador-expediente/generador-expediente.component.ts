@@ -28,6 +28,19 @@ export class GeneradorExpedienteComponent implements OnInit {
       Genero:["",[Validators.required]],
       Telefono:["",[Validators.required,Validators.pattern(/^([0-9])*$/)]],
       Correo:["",[Validators.required,Validators.email]],
+      Ficha: ["",[Validators.required]],
+      Antecedentes1:[[Validators.required]],
+      Antecedentes2:[[Validators.required]],
+      Exp: ["",[Validators.required]],
+      Pulso: ["",[Validators.required]],
+      Temp: ["",[Validators.required]],
+      Estado: ["",[Validators.required]],
+      Lab: ["",[Validators.required]],
+      Pro:["",[Validators.required]],
+      Sig:["",[Validators.required]],
+      Res:["",[Validators.required]],
+      Dia:["",[Validators.required]],
+      Pro2:["",[Validators.required]],
      });
   }
  Guardar(/* paciente: ExpedientesComponent */): void{
