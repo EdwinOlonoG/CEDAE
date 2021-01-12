@@ -26,7 +26,8 @@ addReceta(receta: IReceta[]) {
     console.log(receta);
     return this.http.post(`${this.baseUrl}postReceta.php?idDoctor=1&idPaciente=1`, receta).subscribe();
   }
-  getReceta(id: number) {
+  getReceta(id: number) {  //aqui poner lo get de la receta id
+    console.log("Entre a la funcion de receta");
     return this.http.get(`${this.baseUrl}/get.php?Paciente_idPaciente=${id}`);
   }
   getRecetaAll(id:number) {
