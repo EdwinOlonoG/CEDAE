@@ -48,8 +48,8 @@ addReceta(receta: IReceta[]) {
   }
 
   enviar(receta: IReceta[]) {
-    console.log("Entre a la funcion de enviar receta a la base");
+    console.log("Entre a la funcion de enviar receta al correo");
     console.log(receta);
-    return this.http.post(`${this.baseUrl}postReceta.php?idDoctor=1&idPaciente=1`, receta).subscribe();
+    return this.http.post(`${this.baseUrl}correo.php`, receta).subscribe();
   }
 }
