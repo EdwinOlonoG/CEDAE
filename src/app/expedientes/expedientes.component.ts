@@ -48,6 +48,7 @@ filteredExpedientes: IExpediente[];
     this.ViewValue = !this.ViewValue;
   }
   Mostrar(idPaciente: number): void{
+    console.log(idPaciente);
     this.recetaService
       .getRecetaAll(idPaciente)
       .subscribe({
