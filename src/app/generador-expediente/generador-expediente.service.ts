@@ -24,7 +24,7 @@ export class GeneradorExpedienteService {
   addExpediente(paciente: IGeneradorExpediente) {         //agregar expediente aqui quedo no mover porfavor :D
     console.log("Entre a la funcion de enviar receta a la base");
     console.log(paciente);
-    return this.http.post(`${this.baseUrl}postExpediente.php?idDoctor=6&idPaciente=1&idExpediente=1`, paciente).subscribe();
+    return this.http.post(`${this.baseUrl}postExpediente.php?idDoctor=7&idPaciente=10&idExpediente=6`, paciente).subscribe();
   }
   getExpedienteAll(id:number) {    //aqui tomar la expedientes del id
     console.log("Entre a la funcion de expediente");
