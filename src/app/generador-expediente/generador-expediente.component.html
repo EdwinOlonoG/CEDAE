@@ -16,6 +16,9 @@
                 <li>fecha de nacimiento</li>
                 <li class='li-parrafo'>Dirección de Domicilio:</li>
                 <li style='padding-top: 40px;'>Nacionalidad:</li>
+                <li style='padding-top: 30px;'>Género:</li>
+                <li style='padding-top: 30px;'>Teléfono:</li>
+                <li style='padding-top: 30px;'>Correo: </li>
               </ul>
             </div>
             <div class='col-sm-8'>
@@ -109,7 +112,7 @@
                   </li>
               </ul>
              </Form>
-       
+
             </div>
           </div>
         </tab>
@@ -117,26 +120,84 @@
         <tab heading="Historia clínica">
           <div class='row'>
             <div class='col-sm-4'>
-              <ul>
-                <li>Ficha de identificacion: </li>
-                <li class='li-parrafo'>Antecedentes familiares: </li>
-                <li class='li-parrafo'>Antecedentes personales: </li>
-                <li>Exploración física</li>
-                <li>Pulso lat/min </li>
-                <li>temperatura: </li>
-                <li class='li-parrafo'>Estado físico: </li>
-              </ul>
+                <ul>
+                  <li>Ficha de identificacion: </li>
+                  <li class='li-parrafo'>Antecedentes familiares: </li>
+                  <li class='li-parrafo'>Antecedentes personales: </li>
+                  <li>Exploración física</li>
+                  <li>Pulso lat/min </li>
+                  <li>temperatura: </li>
+                  <li class='li-parrafo'>Estado físico: </li>
+                </ul>
             </div>
             <div class='col-sm-8'>
-              <ul>
-                <li><input></li>
-                <li><input class='input-parrafo'></li>
-                <li><input class='input-parrafo'></li>
-                <li><input></li>
-                <li><input></li>
-                <li><input></li>
-                <li><input class='input-parrafo'></li>
-              </ul>
+              <Form (ngSubmit)="save($event)"  [formGroup]="ExpedienteForm">
+                <ul>
+                  <li>
+                    <input class='text input-validator'
+                    formControlName ="Ficha">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Ficha.invalid && ExpedienteForm.controls.Ficha.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Ficha.errors && ExpedienteForm.controls.Ficha.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator' class='input-parrafo'
+                    formControlName ="Antecedentes1">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Antecedentes1.invalid && ExpedienteForm.controls.Antecedentes1.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Antecedentes1.errors && ExpedienteForm.controls.Antecedentes1.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator' class='input-parrafo'
+                    formControlName ="Antecedentes2">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Antecedentes2.invalid && ExpedienteForm.controls.Antecedentes2.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Antecedentes2.errors && ExpedienteForm.controls.Antecedentes2.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator'
+                    formControlName ="Exp">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Exp.invalid && ExpedienteForm.controls.Exp.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Exp.errors && ExpedienteForm.controls.Exp.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator'
+                    formControlName ="Pulso">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Pulso.invalid && ExpedienteForm.controls.Pulso.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Pulso.errors && ExpedienteForm.controls.Pulso.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator'
+                    formControlName ="Temp">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Temp.invalid && ExpedienteForm.controls.Temp.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Temp.errors && ExpedienteForm.controls.Temp.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                  <li>
+                    <input class='input-parrafo' class='text input-validator'
+                    formControlName ="Estado">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Estado.invalid && ExpedienteForm.controls.Estado.touched">
+                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.Estado.errors && ExpedienteForm.controls.Estado.errors['required']">
+                           *Este es un campo obligatorio
+                      </span>
+                      </span>
+                  </li>
+                </ul>
+              </Form>
             </div>
           </div>
         </tab>
@@ -150,10 +211,28 @@
                 </ul>
               </div>
               <div class='col-sm-8'>
-                <ul>
-                  <li><input class='input-parrafo'></li>
-                  <li><input class='input-parrafo'></li>
-                </ul>
+                <Form (ngSubmit)="save($event)"  [formGroup]="ExpedienteForm">
+                  <ul>
+                    <li>
+                      <input class='text input-validator' class='input-parrafo'
+                      formControlName ="Lab">
+                      <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Lab.invalid && ExpedienteForm.controls.Lab.touched">
+                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.Lab.errors && ExpedienteForm.controls.Lab.errors['required']">
+                           *Este es un campo obligatorio
+                      </span>
+                      </span>
+                    </li>
+                    <li>
+                      <input class='text input-validator' class='input-parrafo'
+                      formControlName ="Pro">
+                      <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Pro.invalid && ExpedienteForm.controls.Pro.touched">
+                      <span class="span-invalid" *ngIf="ExpedienteForm.controls.Pro.errors && ExpedienteForm.controls.Pro.errors['required']">
+                           *Este es un campo obligatorio
+                      </span>
+                      </span>
+                    </li>
+                  </ul>
+                </Form>
               </div>
             </div>
           </tab>
@@ -169,16 +248,50 @@
                 </ul>
               </div>
               <div class='col-sm-8'>
-              <li><input class='input-parrafo'></li>
-              <li><input class='input-parrafo'></li>
-              <li><input class='input-parrafo'></li>
-              <li><input class='input-parrafo'></li>
+                <Form (ngSubmit)="save($event)"  [formGroup]="ExpedienteForm">
+                  <li>
+                    <input class='text input-validator' class='input-parrafo'
+                    formControlName ="Sig">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Sig.invalid && ExpedienteForm.controls.Sig.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Sig.errors && ExpedienteForm.controls.Sig.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator' class='input-parrafo'
+                    formControlName ="Res">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Res.invalid && ExpedienteForm.controls.Res.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Res.errors && ExpedienteForm.controls.Res.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator' class='input-parrafo'
+                    formControlName ="Dia">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Dia.invalid && ExpedienteForm.controls.Dia.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Dia.errors && ExpedienteForm.controls.Dia.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                  <li>
+                    <input class='text input-validator' class='input-parrafo'
+                    formControlName ="Pro2">
+                    <span  class="span-invalid" *ngIf="ExpedienteForm.controls.Pro2.invalid && ExpedienteForm.controls.Pro2.touched">
+                    <span class="span-invalid" *ngIf="ExpedienteForm.controls.Pro2.errors && ExpedienteForm.controls.Pro2.errors['required']">
+                         *Este es un campo obligatorio
+                    </span>
+                    </span>
+                  </li>
+                </Form>
               </div>
             </div>
           </tab>
       </tabset>
       <div class='row' style="padding-left: 600px;">
-        <button type="submit" class='btn btn-success'
+        <button type="submit" [disabled] ="ExpedienteForm.invalid"  class='btn btn-success'
         (click)='Guardar()'>Guardar</button>
         <button type="button" class='btn btn-danger'
         (click)='Borrar()'>Borrar expediente</button>
