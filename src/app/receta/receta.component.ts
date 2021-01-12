@@ -71,5 +71,6 @@ export class RecetaComponent implements OnInit {
   }
   enviarCorreo(): void{
     alert('enviando al correo');
+    this.recetaService.enviar(this.RecetaForm.value);
   }
 }
