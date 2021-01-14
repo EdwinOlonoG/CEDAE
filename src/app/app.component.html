@@ -1,21 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar navbar-light nav-link" style="background-color:#052538;">  <!--  --> 
-  <img src="./assets/images/cedae.png"
-        style="max-width: 200px;"
-        routerLink='/'>
-<li class="nav-item active">
-  <a href="#" routerLink='/' style="color: azure; padding: 20px;">Home</a>
-  <a href="#" routerLink='/cita'style="color: azure; padding: 20px">Paciente</a>
-  <a href="#" routerLink='/expediente' style="color: azure; padding: 20px">Médico</a>
-  <a href="#" routerLink='/registrar' style="color: azure; padding: 20px">Administrador</a>
-  <a href='#' routerLink='/farmacia' style="color: azure; padding: 20px"> Farmacia</a>
-  <a href='#' routerLink='/recepcionista' style="color: azure; padding: 20px"> Recepcionista</a>
-  <button routerLink='/Login' type="button" class="btn btn-success">Iniciar sesión</button>
-</li>
+<nav class="navbar navbar-light nav-link" style="background-color: #052538">
+  <!--  -->
+  <link rel="stylesheet" href="app.component.css" />
+  <img src="./assets/images/cedae-blanco.png" style="max-width: 200px" routerLink="/"/>
+  <li class="nav-item active">
+    <a href="#" routerLink="/">Home</a>
+    <a href="#" routerLink="/cita">Paciente</a>
+    <a href="#" routerLink="/expediente">Médico</a>
+    <a href="#" routerLink="/registrar">Administrador</a>
+    <a href="#" routerLink="/farmacia">Farmacia</a>
+    <a href="#" routerLink="/recepcionista">Recepcionista</a>
+    <button routerLink="/Login" type="button" class="btn btn-success">Iniciar sesión</button>
+  </li>
 </nav>
 
 <!-- <div class='container'> -->
 <router-outlet></router-outlet>
 <!-- </div> -->
-
-

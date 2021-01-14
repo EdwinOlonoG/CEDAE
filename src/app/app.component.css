@@ -1,5 +1,6 @@
 .nav-link {
   font-size: large;
+  text-decoration: none;
  
 }
 button{
@@ -8,4 +9,53 @@ button{
 .div-barra{
   height: 50px;
   background-color: azure;
+}
+
+li {
+  /* uno al lado del otro */
+  display: inline-block;
+  list-style: none;
+}
+
+a{
+  color: aliceblue;
+  text-decoration: none;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s linear;
+  border-radius: 5px;  
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 3s;
+}
+
+a:hover{
+  color: #75bac4;
+  cursor: pointer;
+}
+
+.btn{
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
