@@ -25,7 +25,7 @@
             </tr>
             <tbody>
                 <tr *ngFor = "let farmacia of farmaciaTable">
-                    <td><img src="./assets/images/carrito.png"></td>
+                    <td><img src="./assets/images/carrito.png" (click)="Venta(farmacia)"></td>
                     <td>{{farmacia.NomProd}}</td>
                     <td>{{farmacia.PrecioProd}}</td>
                     <td>{{farmacia.CadProd}}</td>
@@ -87,6 +87,26 @@
                     </div>
                 </form>
             </div>
+        </div>
+
+        <div *ngIf="viewVentas" class="div-formulario">
+            <table class='table table-dark table-striped'>
+                <tr>
+                    <td></td>
+                    <td>Nombre</td>
+                    <td>Precio</td>
+                    <td>Caducidad</td>
+                </tr>
+                <tbody>
+                    <tr *ngFor = "let venta of ventasTable">
+                        <td><img src="./assets/images/palomita.png"></td>
+                        <td>{{venta.NomProd}}</td>
+                        <td>{{venta.PrecioProd}}</td>
+                        <td>{{venta.CadProd}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-success" (click)="enviar()">Terminar compra</button>
         </div>
     </div>
 </div>
