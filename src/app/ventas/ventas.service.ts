@@ -24,4 +24,9 @@ export class VentasService {
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
     }
+    addVenta(venta: IVentas){
+      console.log("Entre a la funcion de ventas");
+      console.log(venta);
+    return this.http.post(`${this.baseUrl}postReceta.php?idDoctor=7&idPaciente=10`, venta).subscribe();
+    }
 }
