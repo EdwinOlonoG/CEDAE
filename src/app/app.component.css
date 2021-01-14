@@ -1,3 +1,7 @@
+.navbar{
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.50);
+}
+
 .nav-link {
   font-size: large;
   text-decoration: none;
@@ -6,9 +10,14 @@
 button{
   width: auto;
 }
+
 .div-barra{
   height: 50px;
   background-color: azure;
+}
+
+.logo:hover{
+  cursor: pointer;
 }
 
 li {
