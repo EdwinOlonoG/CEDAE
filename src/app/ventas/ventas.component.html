@@ -1,0 +1,22 @@
+<div class="div-formulario">
+<h2>Ventas</h2>
+    <table class='table table-dark table-striped'>
+        <tr>
+            <td>id</td>
+            <td>Cantidad</td>
+            <td>Total</td>
+            <td>Fecha</td>
+            <td>idSucursal</td>
+        </tr>
+        <tbody>
+            <tr *ngFor = "let ventas of ventasTable">
+                <td>{{ventas.idProductos}}</td>
+                <td>{{ventas.CantidadProducto}}</td>
+                <td>{{ventas.TotalVenta}}</td>
+                <td>{{ventas.Fecha}}</td>
+                <td>{{idSucursal}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

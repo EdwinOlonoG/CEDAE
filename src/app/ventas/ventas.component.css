@@ -1,0 +1,11 @@
+.div-formulario{
+    background-color: rgb(235, 241, 243);
+    width: 2000px;
+    height: 500px;
+}
+td{
+    text-align: center;
+}
+th{
+    text-align: center;
+}
