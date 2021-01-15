@@ -35,7 +35,7 @@
                 </tr>
             </tbody>
         </table>
-        <table class='table table-dark table-striped' *ngIf='!viewTable'>
+        <table class='table table-dark table-striped' *ngIf='viewTable'>
             <tr>
                 <td>Agregar</td>
                 <td>Nombre</td>
@@ -112,7 +112,7 @@
         </div>
 
         <div *ngIf="viewVentas" class="div-formulario">
-            <table class='table table-dark table-striped'>
+            <table class='table table-dark table-striped' *ngIf="!viewTable">
                 <tr>
                     <td></td>
                     <td>Nombre</td>
