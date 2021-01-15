@@ -81,13 +81,30 @@
     </div>
 </div>
 <div class='div-formulario' id="contenido" *ngIf='true'>
-    <img src="./assets/images/cedae.png"
-    style="max-width: 200px;">
-    <h3>Clínica de atención dermatológica</h3>
-    <p>Doctor Buen Día</p>
-    <p>Cédula profesional</p>
+    <div class="container">
+        <h3>RECETA MÉDICA</h3>
+        <img class="imagen" src="./assets/images/cedae.png">
+        <!-- Aquí se agregan los datos del médico -->
+        <p class="datos-doc" id="datos-doc">DR. NOÉ ALBERTO GUZMÁN GARCÍA</p>
+        <p class="datos-doc" id="datos-doc">MÉDICO ESPECIALISTA</p>
+        <p class="datos-doc" id="datos-doc">CED. PROF. 58496</p>
+        <p class="datos-doc" id="datos-doc">TELÉFONO: 5612890623</p><br>
+        <!-- Aquí se agregan los datos de la consulta -->
+        <p class="datos-con">FECHA:</p>
+        <p class="valor">15/01/2021</p>
+        <p class="datos-con">NOMBRE DEL PACIENTE:</p>
+        <p class="valor">DAVID GUZMÁN SUÁREZ</p>
+        <p class="datos-con">EDAD:</p>
+        <p class="valor">15 AÑOS</p>
+        <p class="datos-con">SEXO:</p>
+        <p class="valor">MASCULINO</p>
 
-    <p *ngFor = 'let medicamento of Receta'>
+        <p>DIAGNOSTICO:</p>
+        <p>INDICACIONES:</p>
+
+        <p *ngFor = 'let medicamento of Receta'>
         {{medicamento.Dosis}} de {{medicamento.Medicamento}}. {{medicamento.Indicaciones}}
-    </p>
+        </p>
+    </div>
+    
 </div>
