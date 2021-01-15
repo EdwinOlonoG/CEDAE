@@ -92,7 +92,7 @@ export class FarmaciaComponent implements OnInit {
   }
   verVentas(){
     this.viewVentas2 = true;
-    console.log(this.fechaForm.value);
+    console.log(this.fechaForm.value + "Entrando a consultar ventas");
     this.farmaciaService
       .getVentas(this.fechaForm.value)
       .subscribe({
