@@ -46,8 +46,9 @@ export class FarmaciaService {
 
   getVentas(fecha : Date){   //obtengo las ventas del dia
     console.log("Entre a la funcion de ventas");
-    console.log(fecha);
-    this.http.get(`${this.baseUrl}getVentas.php?Fecha=${fecha}`).subscribe(fecha => {
+    console.log(JSON.stringify(fecha));
+
+    this.http.get(`${this.baseUrl}getVentas.php?Fecha=${JSON.stringify(fecha)}`).subscribe(fecha => {
     console.log(fecha);
     });
 
