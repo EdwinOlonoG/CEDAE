@@ -26,7 +26,7 @@ export class FarmaciaComponent implements OnInit {
           this.farmaciaTable = this.farmaciaTable;
         }
     })
-
+    console.log(this.farmaciaTable);
     this.farmaciaForm   = this.fb.group({
       NomProd: ["", [Validators.required]],
       CadProd: ["", [Validators.required]],
