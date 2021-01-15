@@ -30,6 +30,7 @@ export class FarmaciaComponent implements OnInit {
     })
     console.log(this.farmaciaTable);
     this.farmaciaForm   = this.fb.group({
+      CantidadProd: [0],
       NomProd: ["", [Validators.required]],
       CadProd: ["", [Validators.required]],
       PrecioProd: ["", [Validators.required]],
@@ -71,13 +72,18 @@ export class FarmaciaComponent implements OnInit {
     })
   }
   aumento(venta: Ifarmacia){
-    if(venta.CantidadProd != 1)
+    if(venta.CantidadProd > 1)
+    { 
+      venta.CantidadProd = venta.CantidadProd+1;
+    }
+    else if(venta.CantidadProd = 1)
+    {
+      venta.CantidadProd = venta.CantidadProd+1;
+    }
+     else
     {
       venta.CantidadProd = 1;
       
-    }
-    else{
-      venta.CantidadProd = venta.CantidadProd + 1;
     }
   }
 }

@@ -11,7 +11,8 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 })
 export class FarmaciaService {
     baseUrl = "http://localhost/Coneccion/";
-    jasonfarmacia = "http://localhost/Coneccion/productos.json"
+    jasonfarmacia = "http://localhost/Coneccion/productos.json";
+    jasonCaducados = "http://localhost/Coneccion/caducar.json";
     constructor(private http: HttpClient) {}
 
     getfarmaciaAll(){
@@ -33,11 +34,11 @@ export class FarmaciaService {
 
     getfarmaciaCad(){
       console.log("Entre para consultar caducidad");
-      this.http.get(`${this.baseUrl}getProductos.php?Farmacia_idFarmacia=1`).subscribe(data => {
+      this.http.get(`${this.baseUrl}caducidad.php`).subscribe(data => {
           console.log(data);
         });
         console.log("Obtengo jsn de Productos caducados");
-        return this.http.get<Ifarmacia[]>(this.jasonfarmacia).pipe(
+        return this.http.get<Ifarmacia[]>(this.jasonCaducados).pipe(
           tap(data => console.log('All: ' + JSON.stringify(data))),
         );
   }
