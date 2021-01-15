@@ -14,9 +14,9 @@ export class VentasService {
 
     constructor(private http: HttpClient) {}
 
-    getVentas(dia: Date){
+    getVentas(dia: Date){   //obtengo las ventas del dia
         console.log("Entre a la funcion de ventas");
-    this.http.get(`${this.baseUrl}getRecetas.php?id=${dia}`).subscribe(dia => {
+    this.http.get(`${this.baseUrl}getVentas.php?Fecha=${dia}`).subscribe(dia => {
       console.log(dia);
     });
    
@@ -24,9 +24,14 @@ export class VentasService {
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
     }
-    addVenta(venta: IVentas){
-      console.log("Entre a la funcion de ventas");
+    addVenta(venta: IVentas){   //aplico la venta
+      console.log("Entre a la funcion de hacer la venta");
       console.log(venta);
-    return this.http.post(`${this.baseUrl}postReceta.php?idDoctor=7&idPaciente=10`, venta).subscribe();
+    this.http.get(`${this.baseUrl}postVentas.php?idSucursal=1`).subscribe(dia => {
+      console.log(dia);
+    });
+    this.http.get(`${this.baseUrl}updateProductos.php?idSucursal=1`).subscribe(dia => {
+      console.log(dia);
+    });
     }
 }

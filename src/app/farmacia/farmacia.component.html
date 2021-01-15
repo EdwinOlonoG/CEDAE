@@ -27,7 +27,7 @@
                 <tr *ngFor = "let farmacia of farmaciaTable">
                     <td><img src="./assets/images/carrito.png"  alt="Comprar"
                   width="50"
-                  height="50" (click)="Venta(farmacia)"></td>
+                  height="50" (click)="venta(farmacia)"></td>
                     <td>{{farmacia.NomProd}}</td>
                     <td>{{farmacia.PrecioProd}}</td>
                     <td>{{farmacia.CadProd}}</td>
@@ -101,7 +101,9 @@
                 </tr>
                 <tbody>
                     <tr *ngFor = "let venta of ventasTable">
-                        <td><img src="./assets/images/palomita.png"></td>
+                        <td><img src="./assets/images/palomita.png" alt="Comprar"
+                            width="50"
+                            height="50" ></td>
                         <td>{{venta.NomProd}}</td>
                         <td>{{venta.PrecioProd}}</td>
                         <td>{{venta.CadProd}}</td>
