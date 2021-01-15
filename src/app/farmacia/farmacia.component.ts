@@ -71,6 +71,13 @@ export class FarmaciaComponent implements OnInit {
     })
   }
   aumento(venta: Ifarmacia){
-    venta.CantidadProd = 1;
+    if(venta.CantidadProd != 1)
+    {
+      venta.CantidadProd = 1;
+      
+    }
+    else{
+      venta.CantidadProd = venta.CantidadProd + 1;
+    }
   }
 }

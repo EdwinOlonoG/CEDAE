@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IVentas } from './ventas';
 import { VentasService } from './ventas.service';
+import { FarmaciaComponent } from '../farmacia/farmacia.component';
 
 @Component({
   selector: 'pm-ventas',
