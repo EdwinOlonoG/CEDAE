@@ -14,7 +14,7 @@ export class FarmaciaComponent implements OnInit {
   farmaciaForm: FormGroup;
   farmacia: Ifarmacia;
   viewTable = false;
-  
+  n: number=1;
   constructor(private fb: FormBuilder, public farmaciaService: FarmaciaService, public ventasService: VentasService) { }
   farmaciaTable: Ifarmacia [] = [];
   ventasTable: Ifarmacia [] = [];
@@ -71,6 +71,6 @@ export class FarmaciaComponent implements OnInit {
     })
   }
   aumento(venta: Ifarmacia){
-    venta.CantidadProd = venta.CantidadProd + 1;
+    venta.CantidadProd = 1;
   }
 }
