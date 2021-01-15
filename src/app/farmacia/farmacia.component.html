@@ -3,14 +3,17 @@
             <div style="background-color: azure;">
                 <p style="color: black;">Usuario_Farmacia <img src='./assets/images/user.png' class='img-icon'> </p>
             </div>
-            <div style="padding-left: 35px;">
-                <pm-calendario></pm-calendario>
-                <div style="align-items: center;">
-                    <button type="button" class='btn-warning' routerLink='/ventas'>Historial de venta</button>
+            <form (ngSubmit)="save()"  [formGroup]="fechaForm">
+                <div style="padding-left: 35px;">
+                    
+                    <input type="date" value="aaaa-mm-dd" formControlName="fecha">
+                    <div style="align-items: center;">
+                        <button type="submit" class='btn-warning' (click)='verVentas'>Historial de venta</button>
+                    </div>
                 </div>
-            </div>
+            </form>    
     </div>
-    <div class='col-sm-8' style="background-color: azure;">
+    <div class='col-sm-8' style="background-color: azure;">(click)='verVentas'
         <h1 style="text-align: center;">Farmacia</h1>
         Medicamento: <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style='width: 600px;'>
         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -137,3 +140,24 @@
         </div>
     </div>
 </div>
+<div class="div-formulario" *ngIf='viewVentas2'>
+    <h2>Ventas</h2>
+        <table class='table table-dark table-striped'>
+            <tr>
+                <td>id</td>
+                <td>Cantidad</td>
+                <td>Total</td>
+                <td>Fecha</td>
+                <td>idSucursal</td>
+            </tr>
+            <tbody>
+                <tr *ngFor = "let ventas of ventasTable2">
+                    <td>{{ventas.idProductos}}</td>
+                    <td>{{ventas.NomProd}}</td>
+                    <td>{{ventas.CantidadProducto}}</td>
+                    <td>{{ventas.TotalVenta}}</td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>

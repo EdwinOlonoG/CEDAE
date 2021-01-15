@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Ifarmacia } from './farmacia';
 import { FarmaciaService } from './farmacia.service';
 import { VentasService } from '../ventas/ventas.service';
+import { IVentas } from '../ventas/ventas';
 @Component({
   selector: 'pm-farmacia',
   templateUrl: './farmacia.component.html',
@@ -11,7 +12,9 @@ import { VentasService } from '../ventas/ventas.service';
 export class FarmaciaComponent implements OnInit {
   agregarMedicamento = false;
   viewVentas = false;
+  viewVentas2 = false;
   farmaciaForm: FormGroup;
+  fechaForm: FormGroup;
   farmacia: Ifarmacia;
   viewTable = false;
   n: number=1;
@@ -19,6 +22,7 @@ export class FarmaciaComponent implements OnInit {
   farmaciaTable: Ifarmacia [] = [];
   ventasTable: Ifarmacia [] = [];
   farmaciaTableCad: Ifarmacia[] = [];
+  ventasTable2: IVentas[];
   ngOnInit(): void {
     
     this.farmaciaService
@@ -85,5 +89,16 @@ export class FarmaciaComponent implements OnInit {
       venta.CantidadProd = 1;
       
     }
+  }
+  verVentas(){
+    this.viewVentas2 = true;
+    console.log(this.fechaForm.value);
+    this.farmaciaService
+      .getVentas(this.fechaForm.value)
+      .subscribe({
+        next: ventasTable2 => {
+          this.ventasTable2 = ventasTable2;
+        }
+    })
   }
 }
