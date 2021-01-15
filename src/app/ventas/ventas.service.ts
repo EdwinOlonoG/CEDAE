@@ -27,9 +27,7 @@ export class VentasService {
     addVenta(venta: IVentas[]){   //aplico la venta
       console.log("Entre a la funcion de hacer la venta");
       console.log(venta);
-    this.http.get(`${this.baseUrl}postVentas.php?idSucursal=1`).subscribe(venta => {
-      console.log(venta);
-    });
+      this.http.post(`${this.baseUrl}postVentas.php?idSucursal=1`, venta).subscribe();
     this.http.get(`${this.baseUrl}updateProductos.php?idSucursal=1`).subscribe(venta => {
       console.log(venta);
     });
