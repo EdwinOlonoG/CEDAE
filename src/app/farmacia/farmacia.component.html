@@ -120,6 +120,9 @@
                     <td>Nombre</td>
                     <td>Precio</td>
                     <td>Caducidad</td>
+                    <td>Cantidad</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tbody>
                     <tr *ngFor = "let venta of ventasTable">
@@ -132,6 +135,8 @@
                         <td>{{venta.CantidadProd}}</td>
                         <td><img src="./assets/images/suma.png" style="width: 50px; height: 50px;"
                             (click)='aumento(venta)'></td>
+                        <td><img src="./assets/images/resta.png" style="width: 50px; height: 50px;"
+                            (click)='decremento(venta)'></td>
                     </tr>
                 </tbody>
             </table>

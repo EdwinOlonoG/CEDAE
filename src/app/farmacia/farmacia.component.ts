@@ -63,6 +63,7 @@ export class FarmaciaComponent implements OnInit {
     this.ventasTable.push(farmacia);    
   }
   enviar(){
+    alert("La compra se realizó con exito");
     this.ventasService.addVenta(this.ventasTable);
   }
   verCad(){
@@ -90,6 +91,15 @@ export class FarmaciaComponent implements OnInit {
     {
       venta.CantidadProd = 1;
       
+    }
+  }
+  decremetno(venta: Ifarmacia){
+    if(venta.CantidadProd = 0)
+    {
+      return;
+    }
+    else{
+      venta.CantidadProd = venta.CantidadProd - 1;
     }
   }
   verVentas(){
