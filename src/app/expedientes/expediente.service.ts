@@ -24,7 +24,7 @@ export class ExpedienteService {
       console.log(data);
     });
     */
-    this.http.get(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=7`).subscribe(data => {
+    this.http.get(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=1`).subscribe(data => {
       console.log(data);
     });
    

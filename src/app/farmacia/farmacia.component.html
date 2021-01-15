@@ -5,9 +5,8 @@
             </div>
             <div style="padding-left: 35px;">
                 <pm-calendario></pm-calendario>
-                <div style="padding-left: 30px;">
-                    <button type="button" class='btn-success'>Nueva venta</button>
-                    <button type="button" class='btn-warning'>Historial de venta</button>
+                <div style="align-items: center;">
+                    <button type="button" class='btn-warning' routerLink='/ventas'>Historial de venta</button>
                 </div>
             </div>
     </div>
@@ -16,42 +15,50 @@
         Medicamento: <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style='width: 600px;'>
         <button class="btn btn-outline-success" type="submit">Search</button>
         
-        <table class='table table-dark'>
+        <table class='table table-dark table-striped' *ngIf='viewTable'>
             <tr>
-                <td>Id</td>
+                <td>Agregar</td>
                 <td>Nombre</td>
                 <td>Precio</td>
                 <td>Caducidad</td>
                 <td>En existencia</td>
             </tr>
             <tbody>
-                <tr class='table-active'>
-                    <td>000</td>
-                    <td>Crema humectante</td>
-                    <td>$100</td>
-                    <td>11/12/2020</td>
-                    <td>2</td>
-                </tr>
-                <tr class='table-active'>
-                    <td>001</td>
-                    <td>Crema para irritación</td>
-                    <td>$200</td>
-                    <td>01/03/2021</td>
-                    <td>3</td>
-                </tr>
-                <tr class='table-active'>
-                    <td>002</td>
-                    <td>Crema humectante</td>
-                    <td>$100</td>
-                    <td>23/04/2021</td>
-                    <td>5</td>
+                <tr *ngFor = "let farmacia of farmaciaTableCad">
+                    <td><img src="./assets/images/carrito.png"  alt="Comprar"
+                  width="50"
+                  height="50" (click)="venta(farmacia)"></td>
+                    <td>{{farmacia.NomProd}}</td>
+                    <td>{{farmacia.PrecioProd}}</td>
+                    <td>{{farmacia.CadProd}}</td>
+                    <td>{{farmacia.ExistenciaProd}}</td>
                 </tr>
             </tbody>
         </table>
-        <button type="button" class='button btn-danger'>Medicamento próximo a caducar</button>
+        <table class='table table-dark table-striped' *ngIf='!viewTable'>
+            <tr>
+                <td>Agregar</td>
+                <td>Nombre</td>
+                <td>Precio</td>
+                <td>Caducidad</td>
+                <td>En existencia</td>
+            </tr>
+            <tbody>
+                <tr *ngFor = "let farmacia of farmaciaTable">
+                    <td><img src="./assets/images/carrito.png"  alt="Comprar"
+                  width="50"
+                  height="50" (click)="venta(farmacia)"></td>
+                    <td>{{farmacia.NomProd}}</td>
+                    <td>{{farmacia.PrecioProd}}</td>
+                    <td>{{farmacia.CadProd}}</td>
+                    <td>{{farmacia.ExistenciaProd}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class='button btn-danger' (click)='verCad()'>Medicamento próximo a caducar</button>
         <button type ='button' class='button btn-success' (click)='Agregar()'>Agregar Medicamento</button>
         <div *ngIf='agregarMedicamento' style="height: 120px;"><h3>Agregar al almacén</h3></div>
-        <div *ngIf='agregarMedicamento' style=" width: 500px;background-color: #052538;">
+        <div *ngIf='agregarMedicamento' style=" width: 800px;background-color: #052538;">
             <div class='row'>
                 <div class='col-sm-3'>
                     <p style="padding-top: 50px;">Medicamento: </p>
@@ -59,15 +66,74 @@
                     <p>Fecha de Caducidad: </p>
                     <p>Cantidad adquirida del medicamento:</p>
                 </div>
-                <div class='col-sm-1'>
-                    <p style="padding-top: 50px;"><input></p>
-                    <p><input></p>
-                    <p><input></p>
-                    <p style="padding-top: 50px;"><input></p>
-                    <p style="padding-top: 50px;"></p>
-                    <p><button class="button btn-success">Agregar</button></p>
-                </div>
+                <form (ngSubmit)="save()"  [formGroup]="farmaciaForm">
+                    <div class='col-sm-5s'>
+                        <p style="padding-top: 50px;">
+                            <input class='text input-validator' formControlName="NomProd"/>
+                        </p>
+                        <span class="span-invalid" *ngIf="farmaciaForm.controls.NomProd.invalid && (farmaciaForm.controls.NomProd.dirty || farmaciaForm.controls.NomProd.touched)">
+                            <span class="span-invalid" *ngIf="farmaciaForm.controls.NomProd.errors && farmaciaForm.controls.NomProd.errors['required']">
+                                    <br>*El nombre del medicamento es requerido
+                            </span>
+                        </span>
+                        <p>
+                            <input class='text input-validator' formControlName="PrecioProd"/>
+                        </p>
+                        <span class="span-invalid" *ngIf="farmaciaForm.controls.PrecioProd.invalid && (farmaciaForm.controls.PrecioProd.dirty || farmaciaForm.controls.PrecioProd.touched)">
+                            <span class="span-invalid" *ngIf="farmaciaForm.controls.PrecioProd.errors && farmaciaForm.controls.PrecioProd.errors['required']">
+                                <br>*El precio es requerido
+                            </span>
+                        </span>
+                        <p>
+                            <input class='text input-validator' formControlName="CadProd"/>
+                        </p>
+                        <span class="span-invalid" *ngIf="farmaciaForm.controls.CadProd.invalid && (farmaciaForm.controls.CadProd.dirty || farmaciaForm.controls.CadProd.touched)">
+                            <span class="span-invalid" *ngIf="farmaciaForm.controls.CadProd.errors && farmaciaForm.controls.CadProd.errors['required']">
+                                <br>*La fecha de caducidad es requerida
+                            </span>
+                        </span>
+                        <p style="padding-top: 50px;">
+                            <input class='text input-validator' formControlName="ExistenciaProd"/>
+                        </p>
+                        <span class="span-invalid" *ngIf="farmaciaForm.controls.ExistenciaProd.invalid && (farmaciaForm.controls.ExistenciaProd.dirty || farmaciaForm.controls.ExistenciaProd.touched)">
+                            <span class="span-invalid" *ngIf="farmaciaForm.controls.ExistenciaProd.errors && farmaciaForm.controls.ExistenciaProd.errors['required']">
+                                    <br>*La cantidad de medicamento es requerida
+                            </span>
+                        </span>
+                        <p style="padding-top: 50px;"></p>
+                        <p>
+                            <button type="submit()"class="button btn-success"
+                             [disabled]="farmaciaForm.invalid">Agregar
+                            </button>
+                        </p>
+                    </div>
+                </form>
             </div>
+        </div>
+
+        <div *ngIf="viewVentas" class="div-formulario">
+            <table class='table table-dark table-striped'>
+                <tr>
+                    <td></td>
+                    <td>Nombre</td>
+                    <td>Precio</td>
+                    <td>Caducidad</td>
+                </tr>
+                <tbody>
+                    <tr *ngFor = "let venta of ventasTable">
+                        <td><img src="./assets/images/palomita.png" alt="Comprar"
+                            width="50"
+                            height="50" ></td>
+                        <td>{{venta.NomProd}}</td>
+                        <td>{{venta.PrecioProd}}</td>
+                        <td>{{venta.CadProd}}</td>
+                        <td>{{venta.CantidadProd}}</td>
+                        <td><img src="./assets/images/suma.png" style="width: 50px; height: 50px;"
+                            (click)='aumento(venta)'></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-success" (click)="enviar()">Terminar compra</button>
         </div>
     </div>
 </div>
