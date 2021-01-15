@@ -24,7 +24,7 @@ export class VentasService {
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
     }
-    addVenta(venta: IVentas){   //aplico la venta
+    addVenta(venta: IVentas[]){   //aplico la venta
       console.log("Entre a la funcion de hacer la venta");
       console.log(venta);
     this.http.get(`${this.baseUrl}postVentas.php?idSucursal=1`).subscribe(dia => {

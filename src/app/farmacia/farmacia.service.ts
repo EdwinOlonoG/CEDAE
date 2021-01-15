@@ -30,4 +30,15 @@ export class FarmaciaService {
     console.log(farmacia);
     return this.http.post(`${this.baseUrl}postProductos.php?Farmacia_idFarmacia=1`, farmacia).subscribe();
     }
+
+    getfarmaciaCad(){
+      console.log("Entre para consultar caducidad");
+      this.http.get(`${this.baseUrl}getProductos.php?Farmacia_idFarmacia=1`).subscribe(data => {
+          console.log(data);
+        });
+        console.log("Obtengo jsn de Productos caducados");
+        return this.http.get<Ifarmacia[]>(this.jasonfarmacia).pipe(
+          tap(data => console.log('All: ' + JSON.stringify(data))),
+        );
+  }
 }

@@ -13,10 +13,12 @@ export class FarmaciaComponent implements OnInit {
   viewVentas = false;
   farmaciaForm: FormGroup;
   farmacia: Ifarmacia;
+  viewTable = true;
   
   constructor(private fb: FormBuilder, public farmaciaService: FarmaciaService, public ventasService: VentasService) { }
   farmaciaTable: Ifarmacia [] = [];
   ventasTable: Ifarmacia [] = [];
+  farmaciaTableCad: Ifarmacia[] = [];
   ngOnInit(): void {
     
     this.farmaciaService
@@ -55,5 +57,20 @@ export class FarmaciaComponent implements OnInit {
   }
   enviar(){
     this.ventasService.addVenta(this.ventasTable);
+  }
+  verCad(){
+    alert("Mostrando los medicamentos con tres meses próximos a caducar.");
+    this.viewTable = !this.viewTable;
+
+    this.farmaciaService
+      .getfarmaciaCad()
+      .subscribe({
+        next: farmaciaTableCad => {
+          this.farmaciaTableCad = farmaciaTableCad;
+        }
+    })
+  }
+  aumento(venta: Ifarmacia){
+    venta.CantidadProd = venta.CantidadProd + 1;
   }
 }
