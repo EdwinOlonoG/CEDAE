@@ -1,9 +1,11 @@
 img{
     width: 200px;
     height: 200px;
-    border: solid 5px/*  rgb(194, 68, 194); */#606dbc;
+    border: solid 5px/*  rgb(194, 68, 194); #606dbc*/ black;
+    border-radius: 5px;
 }
 table{
     text-align: center;
     color: azure;
+    margin-top: 2rem;
 }

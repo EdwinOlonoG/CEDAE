@@ -2,7 +2,7 @@ img{
     position: relative;
     width: 100px;
     height: 600px;
-    border: solid 5px black;
+    /* border: solid 5px black; */
     margin-top: 2em;
 }
 

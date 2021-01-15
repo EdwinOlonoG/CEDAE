@@ -12,6 +12,7 @@ input{
     background-color: azure;
     width: 1100px;
     height: 800px;
+    font-weight: bold;
 }
 .input-parrafo{
     width: 600px;
@@ -19,6 +20,7 @@ input{
 }
 li{
     padding: 20px;
+    list-style: none;
 }
 .li-parrafo{
     padding: 50px;
