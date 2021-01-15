@@ -18,7 +18,7 @@ export class FarmaciaComponent implements OnInit {
   farmacia: Ifarmacia;
   viewTable = false;
   n: number=1;
-  constructor(private fb: FormBuilder, public farmaciaService: FarmaciaService, public ventasService: VentasService) { }
+  constructor(private fb: FormBuilder,private fb1: FormBuilder, public farmaciaService: FarmaciaService, public ventasService: VentasService) { }
   farmaciaTable: Ifarmacia [] = [];
   ventasTable: Ifarmacia [] = [];
   farmaciaTableCad: Ifarmacia[] = [];
@@ -41,7 +41,9 @@ export class FarmaciaComponent implements OnInit {
       ExistenciaProd: ["",[Validators.required]],
     });
     console.log(this.farmaciaTable);
-    /*  */
+    this.fechaForm = this.fb1.group({
+      fecha: [""],
+    })
   }
   Agregar(): void {
     this.agregarMedicamento = !this.agregarMedicamento;

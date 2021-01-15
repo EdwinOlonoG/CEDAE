@@ -3,12 +3,12 @@
             <div style="background-color: azure;">
                 <p style="color: black;">Usuario_Farmacia <img src='./assets/images/user.png' class='img-icon'> </p>
             </div>
-            <form (ngSubmit)="save()"  [formGroup]="fechaForm">
+            <form (ngSubmit)="verVentas()"  [formGroup]="fechaForm">
                 <div style="padding-left: 35px;">
                     
                     <input type="date" value="aaaa-mm-dd" formControlName="fecha">
                     <div style="align-items: center;">
-                        <button type="submit" class='btn-warning' (click)='verVentas()'>Historial de venta</button>
+                        <button type="submit" class='btn-warning'>Historial de venta</button>
                     </div>
                 </div>
             </form>    

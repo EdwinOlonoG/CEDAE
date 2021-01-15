@@ -42,15 +42,17 @@ export class FarmaciaService {
         return this.http.get<Ifarmacia[]>(this.jasonCaducados).pipe(
           tap(data => console.log('All: ' + JSON.stringify(data))),
         );
-  }
-  getVentas(dia){   //obtengo las ventas del dia
-    console.log("Entre a la funcion de ventas");
-this.http.get(`${this.baseUrl}getVentas.php?Fecha=${dia}`).subscribe(dia => {
-  console.log(dia);
-});
+    }
 
-return this.http.get<IVentas[]>(this.jasonVentas).pipe(
-  tap(data => console.log('All: ' + JSON.stringify(data))),
-);
-}
+  getVentas(fecha : Date){   //obtengo las ventas del dia
+    console.log("Entre a la funcion de ventas");
+    console.log(fecha);
+    this.http.get(`${this.baseUrl}getVentas.php?Fecha=${fecha}`).subscribe(fecha => {
+    console.log(fecha);
+    });
+
+    return this.http.get<IVentas[]>(this.jasonVentas).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+    );
+  }
 }
