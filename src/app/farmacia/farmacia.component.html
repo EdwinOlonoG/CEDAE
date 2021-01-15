@@ -3,18 +3,40 @@
             <div style="background-color: azure;">
                 <p style="color: black;">Usuario_Farmacia <img src='./assets/images/user.png' class='img-icon'> </p>
             </div>
-            <div style="padding-left: 35px;">
-                <pm-calendario></pm-calendario>
-                <div style="align-items: center;">
-                    <button type="button" class='btn-warning' routerLink='/ventas'>Historial de venta</button>
+            <form (ngSubmit)="verVentas()"  [formGroup]="fechaForm">
+                <div style="padding-left: 35px;">
+                    
+                    <input type="date" value="aaaa-mm-dd" formControlName="fecha">
+                    <div style="align-items: center;">
+                        <button type="submit" class='btn-warning'>Historial de venta</button>
+                    </div>
                 </div>
-            </div>
+            </form>    
     </div>
     <div class='col-sm-8' style="background-color: azure;">
         <h1 style="text-align: center;">Farmacia</h1>
         Medicamento: <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style='width: 600px;'>
         <button class="btn btn-outline-success" type="submit">Search</button>
-        
+        <h2 *ngIf='viewTable'>Medicamentos proximos a caducar</h2>
+        <table class='table table-dark table-striped' *ngIf='viewTable'>
+            <tr>
+                <td>Agregar</td>
+                <td>Nombre</td>
+                <td>Caducidad</td>
+                <td>En existencia</td>
+            </tr>
+            <tbody>
+                <tr *ngFor = "let farmacia of farmaciaTableCad">
+                    <td><img src="./assets/images/carrito.png"  alt="Comprar"
+                  width="50"
+                  height="50" (click)="venta(farmacia)"></td>
+                    <td>{{farmacia.NomProd}}</td>
+                    <td>{{farmacia.CadProd}}</td>
+                    <td>{{farmacia.ExistenciaProd}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Medicamentos :D</h2>
         <table class='table table-dark table-striped'>
             <tr>
                 <td>Agregar</td>
@@ -25,7 +47,9 @@
             </tr>
             <tbody>
                 <tr *ngFor = "let farmacia of farmaciaTable">
-                    <td><img src="./assets/images/carrito.png" (click)="Venta(farmacia)"></td>
+                    <td><img src="./assets/images/carrito.png"  alt="Comprar"
+                  width="50"
+                  height="50" (click)="venta(farmacia)"></td>
                     <td>{{farmacia.NomProd}}</td>
                     <td>{{farmacia.PrecioProd}}</td>
                     <td>{{farmacia.CadProd}}</td>
@@ -33,7 +57,7 @@
                 </tr>
             </tbody>
         </table>
-        <button type="button" class='button btn-danger'>Medicamento próximo a caducar</button>
+        <button type="button" class='button btn-danger' (click)='verCad()'>Medicamento próximo a caducar</button>
         <button type ='button' class='button btn-success' (click)='Agregar()'>Agregar Medicamento</button>
         <div *ngIf='agregarMedicamento' style="height: 120px;"><h3>Agregar al almacén</h3></div>
         <div *ngIf='agregarMedicamento' style=" width: 800px;background-color: #052538;">
@@ -88,21 +112,31 @@
                 </form>
             </div>
         </div>
-
+    <div></div>
         <div *ngIf="viewVentas" class="div-formulario">
-            <table class='table table-dark table-striped'>
+            <table class='table table-dark table-striped' *ngIf="viewVentas">
                 <tr>
                     <td></td>
                     <td>Nombre</td>
                     <td>Precio</td>
                     <td>Caducidad</td>
+                    <td>Cantidad</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tbody>
                     <tr *ngFor = "let venta of ventasTable">
-                        <td><img src="./assets/images/palomita.png"></td>
+                        <td><img src="./assets/images/palomita.png" alt="Comprar"
+                            width="50"
+                            height="50" ></td>
                         <td>{{venta.NomProd}}</td>
                         <td>{{venta.PrecioProd}}</td>
                         <td>{{venta.CadProd}}</td>
+                        <td>{{venta.CantidadProd}}</td>
+                        <td><img src="./assets/images/suma.png" style="width: 50px; height: 50px;"
+                            (click)='aumento(venta)'></td>
+                        <td><img src="./assets/images/resta.png" style="width: 50px; height: 50px;"
+                            (click)='decremento(venta)'></td>
                     </tr>
                 </tbody>
             </table>
@@ -110,3 +144,25 @@
         </div>
     </div>
 </div>
+<div class="div-formulario" *ngIf='viewVentas2'>
+    <h2>Ventas</h2>
+        <table class='table table-dark table-striped'>
+            <tr>
+                <td>id</td>
+                <td>Medicamento</td>
+                <td>Cantidad de Producto</td>
+                <td>TotalVenta</td>
+                <td>Fecha</td>
+            </tr>
+            <tbody>
+                <tr *ngFor = "let ventas of ventasTable2">
+                    <td>{{ventas.idProductos}}</td>
+                    <td>{{ventas.NomProd}}</td>
+                    <td>{{ventas.CantidadProducto}}</td>
+                    <td>{{ventas.TotalVenta}}</td>
+                    <td>{{ventas.Fecha}}</td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>

@@ -6,4 +6,6 @@ export interface Ifarmacia{
     ExistenciaProd: number; /* Formulario */
     Farmacia_idFarmacia: number;
     Farmacia_Sucursal_idSucursal: number;
+    CantidadProd: number;
+    TotalVenta: number;
 }
