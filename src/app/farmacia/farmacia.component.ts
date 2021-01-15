@@ -13,7 +13,7 @@ export class FarmaciaComponent implements OnInit {
   viewVentas = false;
   farmaciaForm: FormGroup;
   farmacia: Ifarmacia;
-  viewTable = true;
+  viewTable = false;
   
   constructor(private fb: FormBuilder, public farmaciaService: FarmaciaService, public ventasService: VentasService) { }
   farmaciaTable: Ifarmacia [] = [];
