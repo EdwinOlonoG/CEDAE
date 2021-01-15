@@ -23,16 +23,17 @@ export class FarmaciaComponent implements OnInit {
       .getfarmaciaAll()
       .subscribe({
         next: farmaciaTable => {
-          this.farmaciaTable = this.farmaciaTable;
+          this.farmaciaTable = farmaciaTable;
         }
     })
-
+    console.log(this.farmaciaTable);
     this.farmaciaForm   = this.fb.group({
       NomProd: ["", [Validators.required]],
       CadProd: ["", [Validators.required]],
       PrecioProd: ["", [Validators.required]],
       ExistenciaProd: ["",[Validators.required]],
     });
+    console.log(this.farmaciaTable);
     /*  */
   }
   Agregar(): void {

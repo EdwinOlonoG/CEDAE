@@ -38,6 +38,7 @@ filteredExpedientes: IExpediente[];
           this.expedientes = expedientes;
         }
     })
+    console.log(this.expedientes);
   }
   perfomFilter(filterBy: string): IExpediente[]{
     filterBy = filterBy.toLocaleLowerCase();
