@@ -93,7 +93,7 @@ export class FarmaciaComponent implements OnInit {
       
     }
   }
-  decremetno(venta: Ifarmacia){
+  decremento(venta: Ifarmacia){
     if(venta.CantidadProd = 0)
     {
       return;
