@@ -83,7 +83,7 @@ export class FarmaciaComponent implements OnInit {
     { 
       venta.CantidadProd = venta.CantidadProd+1;
     }
-    else if(venta.CantidadProd = 1)
+    else if(venta.CantidadProd == 1)
     {
       venta.CantidadProd = venta.CantidadProd+1;
     }
@@ -94,7 +94,7 @@ export class FarmaciaComponent implements OnInit {
     }
   }
   decremento(venta: Ifarmacia){
-    if(venta.CantidadProd = 0)
+    if(venta.CantidadProd == 0)
     {
       return;
     }
