@@ -7,7 +7,7 @@ import { ICitas } from './citas';
   })
   export class CitasService {
       baseUrl = "http://localhost/Coneccion/";
-      jasonCitas = "http://localhost/Coneccion/Citas.json";
+      jasonCitas = "http://localhost/Coneccion/citas.json";
     
       constructor(private http: HttpClient) {}
 
@@ -24,10 +24,10 @@ import { ICitas } from './citas';
         );
       }
 
-      updateCita(cita: ICitas){
+      updateCita(cita){
         console.log("Entre a la funcion update cita");
         console.log(cita);
-        return this.http.post(`${this.baseUrl}postCita.php?idDoctor=7&idPaciente=10`, cita).subscribe();
+        return this.http.put(`${this.baseUrl}updateCitas.php?`, cita).subscribe();
       }
 
       deleteCita(cita: ICitas){

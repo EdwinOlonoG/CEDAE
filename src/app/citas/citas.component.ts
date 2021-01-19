@@ -12,7 +12,17 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CitasComponent implements OnInit {
 
   citas: ICitas[];
-  citaEditada;
+  citaEditada:
+  {
+    Hora: string,
+    Fecha: Date,
+    NomDoc: string,
+    ApellidoDoc: string,
+    NewHora: string,
+      NewDia: Date,
+      NewNomDoc: string,
+      NewApellidosDoc: string,
+};
   fechaForm: FormGroup;
   EditCitaForm: FormGroup;
   viewCitas = false;
@@ -54,7 +64,7 @@ export class CitasComponent implements OnInit {
     alert("Se guardaron los cambios!");
     this.citaEditada = this.EditCitaForm.value;
     console.log(this.citaEditada);
-  
+    this.citasService.updateCita(this.citaEditada);
   }
   borrarCita(cita: ICitas){
     alert("Se borro la cita exitosamente!");

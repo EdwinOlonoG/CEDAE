@@ -7,24 +7,25 @@
         <form (ngSubmit)="verCitas()"  [formGroup]="fechaForm">
           <div style="padding-left: 35px;">
               <input type="date" value="aaaa-mm-dd" formControlName="fecha">
+              <button type="submit" class='btn btn-success'>Ver</button>
           </div>
         </form>    
     </div>
     <div>
-        <table class="table table-dark table-striped" *ngIf="!viewCitas">
+        <table class="table table-dark table-striped" *ngIf="viewCitas">
             <thead>
             <tr class="table table-active" style="color:azure;">
-                <th>
-                    <tr>
+                
                       <td>Nombre</td>
                       <td>Hora</td>
                       <td>Fecha</td>
                       <td>Lugar</td>
-                      <td>Doctor</td>
+                      <td>NomDoctor</td>
+                      <td>ApeDoctor</td>
                       <td>Asistencia</td>
                       <td>Opciones</td>
-                    </tr>
-                </th>
+                    
+                
             </tr>
             </thead>
             <tbody>
@@ -34,6 +35,7 @@
                     <td>{{cita.Fecha}}</td>
                     <td>{{cita.Lugar}}</td>
                     <td>{{cita.NomDoc}}</td>
+                    <td>{{cita.ApellidoDoc}}</td>
                     <td>{{cita.Asistio}}</td>
                     <td><button type="button" class="btn btn-success" (click)="editar(cita)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="borrarCita(cita)">Eliminar</button></td>
@@ -43,7 +45,7 @@
         </table>
     </div>
 
-    <div class="div-formulario" *ngIf='!viewEditar'>
+    <div class="div-formulario" *ngIf='viewEditar'>
       <form (ngSubmit)="updateCita()"  [formGroup]="EditCitaForm">
         <input class='text input-validator' placeholder="Hora" formControlName= "NewHora">
           <span class="span-invalid" *ngIf="EditCitaForm.controls.NewHora.invalid && (EditCitaForm.controls.NewHora.dirty || EditCitaForm.controls.NewHora.touched)">
