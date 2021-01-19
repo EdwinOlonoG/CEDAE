@@ -32,7 +32,7 @@
                     <td>{{expediente.SexoPac}}</td>
                     <td>{{expediente.CorreoPac}}</td>
                     <td><button type="button" class='btn btn-success' a href="#" 
-                        (click)='Mostrar(expediente.idPaciente)'>Ver Expedientes</button>
+                        (click)='Mostrar(expediente.idPaciente)'>Ver Fichas</button>
                 </tr>
     
             </tbody>
@@ -48,7 +48,7 @@
         <div class='row'>
             <div class="div-formulario">
                 <div>
-                    <h2>Expedientes</h2>
+                    <h2>Fichas</h2>
                     <table class='table table-dark table-striped'>
                         <tr>
                             <td>NSS</td>
@@ -96,12 +96,12 @@
             <div class='row' style="height: 100px;"></div>
             <div class="div-formulario">
                 <h2>Recetas</h2>
-                    <table class='table table-dark table-striped' style="width: 400px;">
+                    <table class='table table-dark table-striped' style="width: 700px;">
                         <tr>
                                 <td>Medicamento</td> 
                                 <td>Dosis</td>
                                 <td>Indicaciones</td>
-                    
+                                <td>Fecha   </td>
                         </tr>
                         <tbody>
                             <tr>
@@ -109,7 +109,7 @@
                                 <td>{{receta.Medicamento}}</td>
                                 <td>{{receta.Dosis}}</td>
                                 <td>{{receta.Indicaciones}}</td>
-                                
+                                <td>{{receta.Fecha}}</td>
                             </tr>
                         </tbody>
                     </table>

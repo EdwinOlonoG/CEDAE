@@ -4,4 +4,5 @@ export interface  IReceta{
     Dosis:string;
     Indicaciones: string;
     Correo: string;
+    Fecha: Date;
   }
