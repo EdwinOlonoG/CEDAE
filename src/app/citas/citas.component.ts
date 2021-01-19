@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵgetComponentViewDefinitionFactory } from '@angular/core';
+import { ICitas } from './citas';
+import { CitasService } from './citas.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'pm-citas',
@@ -8,55 +11,53 @@ import { Component, OnInit } from '@angular/core';
 
 export class CitasComponent implements OnInit {
 
-  constructor() { }
-  persons: any = [
-    {
-      Id: 0,
-      Nombre: 'Ivan',
-      citas: '4:30-5:30pm',
-      telefono: '01-275587954',
-      correo:  'emmawatson@gmail.com',
-      medico: 'José de Jesús',
-    },
-    {
-      Id: 1,
-      Nombre: 'María',
-      citas: 'Cancelada',
-      telefono: '01-800421892',
-      correo: 'seguroselaguila@gmail.com',
-      medico: 'José de Jesús',
-    },
-    {
-      Id: 2,
-      Nombre: 'José María Morelos y pavón',
-      citas: '7:30-8:30pm',
-      telefono: '01-600547895',
-      correo: 'holamundo@gmail.com',
-      medico: 'José de Jesús',
-    },
-  ];
-  columns: any = [
-  {
-      column: 'Id'
-  },
-  {
-      column: 'Nombre'
-  },
-  {
-      column: 'Hora de la cita'
-  },
-  {
-      column: 'Teléfono'
-  },
-  {
-      column: 'correo'
-  },
-  {
-      column: 'Médico'
-  },
-
-];
+  citas: ICitas[];
+  citaEditada;
+  fechaForm: FormGroup;
+  EditCitaForm: FormGroup;
+  viewCitas = false;
+  viewEditar = false;
+  constructor(public citasService: CitasService, private fb: FormBuilder, private fb2: FormBuilder) { }
+  persons: any = [];
 
   ngOnInit(): void {
+    this.fechaForm = this.fb.group({
+      fecha: [""],
+    })
+    this.EditCitaForm = this.fb2.group({
+      NewHora:["", [Validators.required]],
+      NewDia:["", [Validators.required]],
+      NewNomDoc:["", [Validators.required]],
+      NewApellidosDoc:["", [Validators.required]],
+    })
+  }
+  verCitas(){
+    this.viewCitas = true;
+    this.citasService
+    .getCitas(this.fechaForm.value)
+    .subscribe({
+      next: citas => {
+        this.citas = citas;
+      }
+  })
+  console.log(this.citas);
+  }
+  editar(cita: ICitas){
+    this.viewEditar = true;
+    this.citaEditada.Hora = cita.Hora;
+    this.citaEditada.Fecha = cita.Fecha;
+    this.citaEditada.NomDoc = cita.NomDoc;
+    this.citaEditada.ApellidoDoc = cita.ApellidoDoc;
+    console.log(this.citaEditada);
+  }
+  updateCita(){
+    alert("Se guardaron los cambios!");
+    this.citaEditada = this.EditCitaForm.value;
+    console.log(this.citaEditada);
+  
+  }
+  borrarCita(cita: ICitas){
+    alert("Se borro la cita exitosamente!");
+    this.citasService.deleteCita(cita);
   }
 }

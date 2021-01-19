@@ -3,27 +3,77 @@
     <pm-sidebar-recepcionista></pm-sidebar-recepcionista>
   </div>
   <div class='col-sm-8'>
+    <div class="row">
+        <form (ngSubmit)="verCitas()"  [formGroup]="fechaForm">
+          <div style="padding-left: 35px;">
+              <input type="date" value="aaaa-mm-dd" formControlName="fecha">
+          </div>
+        </form>    
+    </div>
     <div>
-        <table class="table table-dark">
+        <table class="table table-dark table-striped" *ngIf="!viewCitas">
             <thead>
             <tr class="table table-active" style="color:azure;">
-                <th *ngFor='let column of columns'>
-                    {{column.column}}
+                <th>
+                    <tr>
+                      <td>Nombre</td>
+                      <td>Hora</td>
+                      <td>Fecha</td>
+                      <td>Lugar</td>
+                      <td>Doctor</td>
+                      <td>Asistencia</td>
+                      <td>Opciones</td>
+                    </tr>
                 </th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor='let person of persons'>
-                    <td>{{person.Id}}</td>
-                    <td>{{person.Nombre}}</td>
-                    <td>{{person.citas}}</td>
-                    <td>{{person.telefono}}</td>
-                    <td>{{person.correo}}</td>
-                    <td>{{person.medico}}</td>
+            <tr *ngFor="let cita of citas">
+                    <td>{{cita.NomPac}}</td>
+                    <td>{{cita.Hora}}</td>
+                    <td>{{cita.Fecha}}</td>
+                    <td>{{cita.Lugar}}</td>
+                    <td>{{cita.NomDoc}}</td>
+                    <td>{{cita.Asistio}}</td>
+                    <td><button type="button" class="btn btn-success" (click)="editar(cita)">Editar</button>
+                        <button type="button" class="btn btn-danger" (click)="borrarCita(cita)">Eliminar</button></td>
             </tr>
 
             </tbody>
         </table>
+    </div>
+
+    <div class="div-formulario" *ngIf='!viewEditar'>
+      <form (ngSubmit)="updateCita()"  [formGroup]="EditCitaForm">
+        <input class='text input-validator' placeholder="Hora" formControlName= "NewHora">
+          <span class="span-invalid" *ngIf="EditCitaForm.controls.NewHora.invalid && (EditCitaForm.controls.NewHora.dirty || EditCitaForm.controls.NewHora.touched)">
+            <span class="span-invalid" *ngIf="EditCitaForm.controls.NewHora.errors && EditCitaForm.controls.NewHora.errors['required']">
+              *La hora es requerida
+            </span>
+          </span>
+        
+          <input class='text input-validator' placeholder="fecha" formControlName= "NewDia">
+          <span class="span-invalid" *ngIf="EditCitaForm.controls.NewDia.invalid && (EditCitaForm.controls.NewDia.dirty || EditCitaForm.controls.NewDia.touched)">
+            <span class="span-invalid" *ngIf="EditCitaForm.controls.NewDia.errors && EditCitaForm.controls.NewDia.errors['required']">
+              *La hora es requerida
+            </span>
+          </span>
+
+          <input class='text input-validator' placeholder="Doctor" formControlName= "NewNomDoc">
+          <span class="span-invalid" *ngIf="EditCitaForm.controls.NewNomDoc.invalid && (EditCitaForm.controls.NewNomDoc.dirty || EditCitaForm.controls.NewNomDoc.touched)">
+            <span class="span-invalid" *ngIf="EditCitaForm.controls.NewNomDoc.errors && EditCitaForm.controls.NewNomDoc.errors['required']">
+              *La hora es requerida
+            </span>
+          </span>
+
+          <input class='text input-validator' placeholder="Apellidos del Doctor" formControlName= "NewApellidosDoc">
+          <span class="span-invalid" *ngIf="EditCitaForm.controls.NewApellidosDoc.invalid && (EditCitaForm.controls.NewApellidosDoc.dirty || EditCitaForm.controls.NewApellidosDoc.touched)">
+            <span class="span-invalid" *ngIf="EditCitaForm.controls.NewApellidosDoc.errors && EditCitaForm.controls.NewApellidosDoc.errors['required']">
+              *La hora es requerida
+            </span>
+          </span>
+          <button type="submit" class="btn btn-success" [disabled] ="EditCitaForm.invalid">Aceptar cambios</button>
+      </form>      
     </div>
   </div>
 </div>

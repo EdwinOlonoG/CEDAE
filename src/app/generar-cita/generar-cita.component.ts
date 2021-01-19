@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GenerarCitasService } from './generar-cita.service';
+import { ICitas } from '../citas/citas';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'pm-generar-cita',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenerarCitaComponent implements OnInit {
 
-  mytime: Date = new Date();
-  constructor() { }
+  citaForm: FormGroup;
+  cita: ICitas;
+  constructor(public fb: FormBuilder, public generarCitasService: GenerarCitasService) { }
 
   ngOnInit(): void {
+    this.citaForm = this.fb.group({
+      Hora: [""],
+      Fecha:[""],
+      Lugar: [""],
+      NomPac: [""],
+      NomDoc:  [""],
+    })
+  }
+  agregarCita(){
+    alert("Se agregó la cita");
+    console.log(this.citaForm.value);
+    this.generarCitasService.addCita(this.citaForm.value);
   }
 }

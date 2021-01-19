@@ -1,31 +1,29 @@
 <div class='row'>
-  <div class='col-sm-2' style="background-color: azure; height:700px;">
-    <pm-sidebar-recepcionista></pm-sidebar-recepcionista>
-  </div>
-  <div class='col-sm-3' style="background-color: azure; height:700px;">
-    <h3>Reservación de Citas</h3>
-    <img src="./assets/images/user.png"
-          style="max-height: 200px; max-width: 200px;">
-          <div class="alert alert-danger" role="alert" style="width: 200px;">
-            Ingrese NSS o llene los campos.
-          </div> 
-            <input placeholder="NSS">
-            <h5>Ó si es primera cita</h5>
-            <p><input placeholder="Nombre Completo"></p>
-            <p><input placeholder="Teléfono"></p>
-            <p><input placeholder="Edad"></p>
-            <p><input placeholder="Juan.Perez@gmail.com"></p>
-  </div>
-  <div class='col-sm-3' style="background-color: azure; height:700px ;">
-    <pm-calendario></pm-calendario>
-  </div>
-    <div  class='col-sm-3'style="background-color: azure; height:700px; padding-top: 50px;">
-      <div class="alert alert-danger" role="alert" >
-        Porfavor escoja una fecha para la cita! c:
+    <div class='col-sm-2' style="background-color: azure; height:700px;">
+      <pm-sidebar-recepcionista></pm-sidebar-recepcionista>
+    </div>
+    <div class='col-sm-8'>
+  <form (ngSubmit)="agregarCita()"  [formGroup]="citaForm">
+      <div class='col-sm-4'>
+      <h3>Reservación de Citas</h3>
+      <img src="./assets/images/user.png"
+            style="max-height: 200px; max-width: 200px;">
+            <div class="alert alert-danger" role="alert" style="width: 200px;">
+              Ingrese NSS o llene los campos.
+            </div> 
+              <input placeholder="NSS">
+              <h5>Ó si es primera cita</h5>
+              <p><input placeholder="Nombre Completo" formControlName="NomPac"></p>
+              <p><input placeholder="Teléfono"></p>
+              <p><input placeholder="Edad"></p>
+              <p><input placeholder="Juan.Perez@gmail.com"></p>
+      <input type="date" value="aaaa-mm-dd" formControlName="Fecha">
       </div>
+    
       <div class='card div-Horarios div-inside' >
         <h4>Seleccionar Lugar</h4>
-        <div class="btn-group" dropdown>
+          <input placeholder="Lugar" formControlName="Lugar">
+       <!--  <div class="btn-group" dropdown>
             <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
                     aria-controls="dropdown-basic">
                 Local <span class="caret"></span>
@@ -38,14 +36,15 @@
               <li class="divider dropdown-divider"></li>
         
             </ul>
-          </div>
+          </div> -->
           <h4>Seleccionar hora</h4>
-          <div class="btn-group" dropdown>
+          <input placeholder="Hora 12:00" formControlName="Hora">
+          <!-- <div class="btn-group" dropdown>
               <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
                       aria-controls="dropdown-basic">
                   Horarios <span class="caret"></span>
               </button>
-
+      
               <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
                   role="menu" aria-labelledby="button-basic">
                 <li role="menuitem"><a class="dropdown-item" href="#">2:15 pm</a></li>
@@ -54,10 +53,11 @@
                 <li class="divider dropdown-divider"></li>
           
               </ul>
-            </div>
+            </div> -->
           
             <h4>Seleccionar Médico</h4>
-          <div class="btn-group" dropdown>
+            <input placeholder="Médico" formControlName="NomDoc">
+          <!-- <div class="btn-group" dropdown>
               <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
                       aria-controls="dropdown-basic">
                   Médico <span class="caret"></span>
@@ -70,16 +70,12 @@
                 <li class="divider dropdown-divider"></li>
           
               </ul>
-            </div>
+            </div> -->
             <div style="padding-top: 50px;">
-              <button type="button" class="btn btn-success button-acept">Aceptar</button>
+              <button type="submit" class="btn btn-success button-acept">Aceptar</button>
             </div>
-          
-      
-    </div>
-    <button type="button" 
-    class='btn btn-danger'
-    routerLink='/'>Regresar</button>
-    </div>
-      
+      </div>
+    </form>
+  </div>
+  
 </div>
