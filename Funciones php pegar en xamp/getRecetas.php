@@ -2,7 +2,7 @@
 //medicamento, dosis e indicaciones
 header("Access-Control-Allow-Origin: http://localhost:4200");
 $jsonMascota = json_decode(file_get_contents("php://input"));
-echo "hola mundo : ";
+echo "hola mundo desde recetas : ";
 $id = (int)$_GET["id"];
 echo $id;
 /*
@@ -22,7 +22,7 @@ $bd = include_once "bd.php";
 //$sentencia->execute([$id]);
 //$pacientes = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-$sentencia = $bd->query("select Medicamento, Dosis, Indicaciones from receta where receta.idPaciente=$id");
+$sentencia = $bd->query("select Medicamento, Dosis, Indicaciones, Fecha from receta where receta.idPaciente=$id");
 $pacientes = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
 //guardar Json
