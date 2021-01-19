@@ -54,6 +54,7 @@ export class CitasComponent implements OnInit {
     this.citaEditada.Fecha = cita.Fecha;
     this.citaEditada.NomDoc = cita.NomDoc;
     this.citaEditada.ApellidoDoc = cita.ApellidoDoc;
+    this.citaEditada.idCitas = cita.idCitas;
     console.log(this.citaEditada);
   }
   updateCita(){

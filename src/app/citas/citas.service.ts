@@ -33,8 +33,9 @@ import { ICitas } from './citas';
       deleteCita(cita){
         console.log("Entre a la funcion borrar citas");
         console.log(cita);
-        console.log(cita);
-        return this.http.delete(`${this.baseUrl}deleteCita.php?`, cita).subscribe();
+        var n = cita.idCitas;
+        console.log(n);
+        return this.http.delete(`${this.baseUrl}deleteCita.php?id=${n}`).subscribe();
       }
       
       updatePago(cita: ICitas){
