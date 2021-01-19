@@ -21,10 +21,10 @@
                       <td>Fecha</td>
                       <td>Lugar</td>
                       <td>NomDoctor</td>
-                      <td>ApeDoctor</td>
+                      <td>ApellidoDoctor</td>
                       <td>Asistencia</td>
                       <td>Opciones</td>
-                    
+                      <td>Confirmar</td>
                 
             </tr>
             </thead>
@@ -39,6 +39,7 @@
                     <td>{{cita.Asistio}}</td>
                     <td><button type="button" class="btn btn-success" (click)="editar(cita)">Editar</button>
                         <button type="button" class="btn btn-danger" (click)="borrarCita(cita)">Eliminar</button></td>
+                    <td><button type="button" class="btn btn-warning" (click)="updatePago(cita)"> Confirmar</button></td>
             </tr>
 
             </tbody>

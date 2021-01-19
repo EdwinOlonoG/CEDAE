@@ -24,15 +24,20 @@ import { ICitas } from './citas';
         );
       }
 
-      updateCita(cita){
+      updateCita(cita, cita2){
         console.log("Entre a la funcion update cita");
-        console.log(cita);
-        return this.http.put(`${this.baseUrl}updateCitas.php?`, cita).subscribe();
+        console.log(cita, cita2);
+        return this.http.put(`${this.baseUrl}updateCitas.php?`, cita, cita2).subscribe();
       }
 
       deleteCita(cita: ICitas){
         console.log("Entre a la funcion borrar citas");
         console.log(cita);
         return this.http.post(`${this.baseUrl}postCita.php?idDoctor=7&idPaciente=10`, cita).subscribe();
+      }
+      updatePago(cita: ICitas){
+        console.log("Entre a la funcion update Pago");
+        console.log(cita);
+        return this.http.put(`${this.baseUrl}updatePago.php?`, cita).subscribe();
       }
   }

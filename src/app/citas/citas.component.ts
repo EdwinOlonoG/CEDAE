@@ -18,11 +18,13 @@ export class CitasComponent implements OnInit {
     Fecha: Date,
     NomDoc: string,
     ApellidoDoc: string,
-    NewHora: string,
-      NewDia: Date,
-      NewNomDoc: string,
-      NewApellidosDoc: string,
 };
+  citaEditada2: {
+    NewHora: string,
+    NewDia: Date,
+    NewNomDoc: string,
+    NewApellidosDoc: string,
+  }
   fechaForm: FormGroup;
   EditCitaForm: FormGroup;
   viewCitas = false;
@@ -62,12 +64,16 @@ export class CitasComponent implements OnInit {
   }
   updateCita(){
     alert("Se guardaron los cambios!");
-    this.citaEditada = this.EditCitaForm.value;
+    this.citaEditada2 = this.EditCitaForm.value;
     console.log(this.citaEditada);
-    this.citasService.updateCita(this.citaEditada);
+    console.log(this.citaEditada2);
+    this.citasService.updateCita(this.citaEditada, this.citaEditada2);
   }
   borrarCita(cita: ICitas){
     alert("Se borro la cita exitosamente!");
     this.citasService.deleteCita(cita);
+  }
+  updatePago(cita: ICitas){
+    this.citasService.updatePago(cita);
   }
 }
