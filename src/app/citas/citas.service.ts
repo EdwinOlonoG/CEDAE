@@ -30,11 +30,13 @@ import { ICitas } from './citas';
         return this.http.put(`${this.baseUrl}updateCitas.php?`, cita, cita2).subscribe();
       }
 
-      deleteCita(cita: ICitas){
+      deleteCita(cita){
         console.log("Entre a la funcion borrar citas");
         console.log(cita);
-        return this.http.post(`${this.baseUrl}postCita.php?idDoctor=7&idPaciente=10`, cita).subscribe();
+        console.log(cita);
+        return this.http.delete(`${this.baseUrl}deleteCita.php?`, cita).subscribe();
       }
+      
       updatePago(cita: ICitas){
         console.log("Entre a la funcion update Pago");
         console.log(cita);
