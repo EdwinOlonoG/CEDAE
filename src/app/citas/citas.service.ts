@@ -27,7 +27,10 @@ import { ICitas } from './citas';
       updateCita(cita, cita2){
         console.log("Entre a la funcion update cita");
         console.log(cita, cita2);
-        return this.http.put(`${this.baseUrl}updateCitas.php?`, cita, cita2).subscribe();
+        
+        let obj_unidos = Object.assign(cita, cita2);
+        console.log(obj_unidos);
+        return this.http.put(`${this.baseUrl}updateCitas.php?`, obj_unidos).subscribe();
       }
 
       deleteCita(cita){
