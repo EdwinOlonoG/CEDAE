@@ -21,6 +21,7 @@ export class GenerarCitaComponent implements OnInit {
       Lugar: [""],
       NomPac: [""],
       NomDoc:  [""],
+      ApellidoDoc:[""],
     })
   }
   agregarCita(){

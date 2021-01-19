@@ -12,13 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CitasComponent implements OnInit {
 
   citas: ICitas[];
-  citaEditada:
-  {
-    Hora: string,
-    Fecha: Date,
-    NomDoc: string,
-    ApellidoDoc: string,
-};
+  citaEditada;
   citaEditada2: {
     NewHora: string,
     NewDia: Date,
