@@ -56,4 +56,7 @@ export class FarmaciaService {
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
   }
+  prueba(){
+    console.log("Presionó el botón de prueba php");
+  }
 }

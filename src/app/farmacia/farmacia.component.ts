@@ -113,4 +113,7 @@ export class FarmaciaComponent implements OnInit {
         }
     })
   }
+  Pruebaphp(){
+    this.farmaciaService.prueba();
+  }
 }
