@@ -1,0 +1,20 @@
+.div-formulario{
+    width: 300px; 
+    text-align: center;
+    height: 550px;
+    color: rgb(213, 230, 230);
+    border: 10px solid rgb(14, 75, 75);
+    /* background-color: rgb(228, 202, 215); */
+    background-color: rgb(45, 45, 46);/* rgb(91, 59, 121); */
+    
+}
+input{
+    max-width: 300px;
+    border: 3px solid pink;
+}
+.div-container{
+    background-color: azure;
+    width: 300px;
+    height: 500px;
+    font-weight: bold;
+}

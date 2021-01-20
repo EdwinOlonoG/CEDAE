@@ -30,6 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
+import { CookieService } from 'ngx-cookie-service';
+import { SidebarPacienteComponent } from './sidebar-paciente/sidebar-paciente.component';
 
 
 
@@ -54,6 +57,8 @@ import { VentasComponent } from './ventas/ventas.component';
     RecepcionistaComponent,
     SeguimientoComponent,
     VentasComponent,
+    CrearUsuarioComponent,
+    SidebarPacienteComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +79,7 @@ import { VentasComponent } from './ventas/ventas.component';
       { path: 'recepcionista', component: RecepcionistaComponent},
       { path: 'seguimiento', component: SeguimientoComponent},
       { path: 'ventas', component: VentasComponent},
+      { path: 'crear', component: CrearUsuarioComponent},
 
     ]),
     BrowserAnimationsModule,
@@ -85,6 +91,7 @@ import { VentasComponent } from './ventas/ventas.component';
     ProgressbarModule.forRoot(),
     ReactiveFormsModule,
     ],
+    providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

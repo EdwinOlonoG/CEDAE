@@ -1,0 +1,34 @@
+
+<div class='row'>
+    <div class='col-sm-3'>
+        <h2>Crear Cuenta</h2>
+    </div>
+    <div class='col-sm-4 ' style="padding-top: 50px;">
+        
+        <div class='div-formulario '>
+            <form (ngSubmit)="registrar()"  [formGroup]="usuarioForm">
+                <img src='./assets/images/usuario.png'>
+                <p>Correo</p>
+                <input placeholder="Juanperez@gmail.com" formControlName ="Correo">
+                <p>Contraseña</p>
+                <input placeholder="********" formControlName ="Contrasena">
+            </form>
+        </div>
+    </div>    
+    <div class='col-sm-4' style="padding-top: 50px;">    
+        <div class='div-formulario'>
+            <form (ngSubmit)="registrar()"  [formGroup]="usuarioForm">
+                <p>Nombre Completo</p>
+                <input placeholder="Juanperez" formControlName ="NomPac">
+                <p>Teléfono</p>
+                <input placeholder="550089693" formControlName ="TelPac">
+                <p>Edad</p>
+                <input placeholder="18" formControlName ="EdadPac">
+                <p>Sexo</p>
+                <input placeholder="M" formControlName ="SexoPac">
+                <p></p>
+                <button type="submit" class="btn btn-success">Registrar</button>
+            </form>
+        </div>    
+    </div>
+</div>
