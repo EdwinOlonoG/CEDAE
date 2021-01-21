@@ -25,6 +25,7 @@
     "jquery": "^3.5.1",
     "jspdf": "^2.2.0",
     "ngx-bootstrap": "^6.2.0",
+    "ngx-cookie-service": "^11.0.2",
     "popper.js": "^1.16.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

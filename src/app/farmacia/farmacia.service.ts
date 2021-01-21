@@ -58,5 +58,15 @@ export class FarmaciaService {
   }
   prueba(){
     console.log("Presionó el botón de prueba php");
+    this.http.get(`${this.baseUrl}sesion.php?`).subscribe(fecha => {
+      console.log(fecha);
+      });
+    this.http.get(`${this.baseUrl}vamoaver.php?`).subscribe(fecha => {
+       console.log(fecha);
+      });
+/*
+      this.http.get(`${this.baseUrl}salir.php?`).subscribe(fecha => {
+        console.log(fecha);
+       });*/
   }
 }
