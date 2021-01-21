@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LogInService } from './log-in.service';
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: 'pm-log-in',
@@ -8,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LogInComponent implements OnInit {
   LogInForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public logInService: LogInService) { }
 
   ngOnInit(): void {
     this.LogInForm   = this.fb.group({
@@ -17,7 +19,12 @@ export class LogInComponent implements OnInit {
     });
   }
   save(): void{
+    alert("Iniciando sesión");
     console.log(this.LogInForm.value);
+    this.logInService.iniciarSesión(this.LogInForm.value).subscribe(data => {
+      this.logInService.setToken(data.token);
+      console.log(data.token);
+    });
   }
   buttondisplay(): void{
     alert('Hola buton');

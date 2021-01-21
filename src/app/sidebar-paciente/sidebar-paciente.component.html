@@ -1,0 +1,17 @@
+<div *ngIf='showValue'>
+    <li><img src='./assets/images/tache.png'(click)='Ocultar()'></li>
+<li>
+    <img src='./assets/images/carpetaicon.png'>
+    <a href="#"
+    routerLink = '/tablaexpedientes'>Mis citas</a>
+</li>
+<li>
+    <img src='./assets/images/carpetaicon.png'>
+    <a href="#"
+    routerLink = '/cita'>Agendar cita</a>
+</li>
+
+
+</div>
+<button type="button" class="btn btn-success" *ngIf='!showValue'
+(click)='Ocultar()'>Mostrar</button>

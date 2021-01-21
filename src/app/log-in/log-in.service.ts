@@ -1,0 +1,32 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+import { CookieService } from "ngx-cookie-service";
+import { Observable } from 'rxjs';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LogInService {
+    baseUrl = "http://localhost/Coneccion/";
+    constructor(private http: HttpClient, private cookies: CookieService) {}
+
+    iniciarSesión(logIn: any): Observable<any>{
+        console.log("Entre a la funcion de enviar sesión");
+    console.log(logIn);
+    return this.http.post(`${this.baseUrl}postSesion.php?`, logIn)
+}
+    setToken(token: string) {
+        this.cookies.set("token", token);
+      }
+      getToken() {
+        return this.cookies.get("token");
+    }
+    
+    registrarUsuario(registrar: any): Observable<any>{
+        console.log("Entre a la funcion de registrar usuario");
+    console.log(registrar);
+    return this.http.post(`${this.baseUrl}postRegistrar.php?`, registrar)
+    }
+}
