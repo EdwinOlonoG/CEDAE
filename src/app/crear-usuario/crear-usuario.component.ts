@@ -14,12 +14,12 @@ export class CrearUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuarioForm = this.fb.group({
-      Correo: [""],
-      Contrasena: [""],
-      NomPac: [""],
-      TelPac: [""],
-      EdadPac: [""],
-      SexoPac: [""],
+      Correo: ["",[Validators.required,Validators.email]],
+      Contrasena: ["",[Validators.required]],
+      NomPac: ["",[Validators.required]],
+      TelPac: ["",[Validators.required,Validators.pattern(/^([0-9])*$/)]],
+      EdadPac: ["",[Validators.required,Validators.min(18)]],
+      SexoPac: ["",[Validators.required]],
     })
   }
   registrar(){
