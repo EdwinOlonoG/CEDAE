@@ -21,8 +21,11 @@ export class LogInComponent implements OnInit {
   save(): void{
     alert("Iniciando sesión");
     console.log(this.LogInForm.value);
+    console.log("Fuera de la funcion");
     this.logInService.iniciarSesión(this.LogInForm.value).subscribe(data => {
+      console.log("ando en el component");
       this.logInService.setToken(data.token);
+      
       console.log(data.token);
     });
   }
