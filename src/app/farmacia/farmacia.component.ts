@@ -4,6 +4,8 @@ import { Ifarmacia } from './farmacia';
 import { FarmaciaService } from './farmacia.service';
 import { VentasService } from '../ventas/ventas.service';
 import { IVentas } from '../ventas/ventas';
+import { LogInService } from '../log-in/log-in.service';
+
 @Component({
   selector: 'pm-farmacia',
   templateUrl: './farmacia.component.html',
@@ -18,7 +20,7 @@ export class FarmaciaComponent implements OnInit {
   farmacia: Ifarmacia;
   viewTable = false;
   n: number=1;
-  constructor(private fb: FormBuilder,private fb1: FormBuilder, public farmaciaService: FarmaciaService, public ventasService: VentasService) { }
+  constructor(private fb: FormBuilder,private fb1: FormBuilder, public farmaciaService: FarmaciaService, public ventasService: VentasService, public logInService:LogInService) { }
   farmaciaTable: Ifarmacia [] = [];
   ventasTable: Ifarmacia [] = [];
   farmaciaTableCad: Ifarmacia[] = [];
@@ -114,6 +116,8 @@ export class FarmaciaComponent implements OnInit {
     })
   }
   Pruebaphp(){
-    this.farmaciaService.prueba();
+    var token= this.logInService.getUserLogged();
+    console.log(token);
+    this.farmaciaService.prueba(token);
   }
 }

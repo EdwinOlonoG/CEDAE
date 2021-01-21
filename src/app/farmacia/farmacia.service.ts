@@ -4,6 +4,7 @@ import { tap } from 'rxjs/operators';
 import { Ifarmacia } from './farmacia';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { IVentas } from '../ventas/ventas';
+import { LogInService } from '../log-in/log-in.service';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class FarmaciaService {
     jasonfarmacia = "http://localhost/Coneccion/productos.json";
     jasonCaducados = "http://localhost/Coneccion/caducar.json";
     jasonVentas = "http://localhost/Coneccion/ventas.json";
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, public logInService:LogInService) {}
 
     getfarmaciaAll(){
         console.log("Entre para guardar los productos");
@@ -56,13 +57,13 @@ export class FarmaciaService {
       tap(data => console.log('All: ' + JSON.stringify(data))),
     );
   }
-  prueba(){
+  prueba(token : any){
     console.log("Presionó el botón de prueba php");
-    this.http.get(`${this.baseUrl}sesion.php?`).subscribe(fecha => {
+    console.log(token);
+    //console.log(this.logInService.getUserLogged);
+    
+    this.http.get(`${this.baseUrl}decodeToken.php?id=${token}`).subscribe(fecha => {
       console.log(fecha);
-      });
-    this.http.get(`${this.baseUrl}vamoaver.php?`).subscribe(fecha => {
-       console.log(fecha);
       });
 /*
       this.http.get(`${this.baseUrl}salir.php?`).subscribe(fecha => {

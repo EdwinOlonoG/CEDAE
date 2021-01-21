@@ -26,15 +26,23 @@ export class LogInService {
 
     setToken(token: string) {
         this.cookies.set("token", token);
+        console.log("Guarde el token");
         console.log(token);
       }
       getToken() {
+        console.log("Recupero el token");
         return this.cookies.get("token");
     }
+
+    getUserLogged() {
+        const token = this.getToken();
+        console.log(token);
+        return token;
+      }
     
     registrarUsuario(registrar: any): Observable<any>{
         console.log("Entre a la funcion de registrar usuario");
-    console.log(registrar);
-    return this.http.post(`${this.baseUrl}postRegistrar.php?`, registrar)
+        console.log(registrar);
+        return this.http.post(`${this.baseUrl}postPaciente.php?`, registrar)
     }
 }
