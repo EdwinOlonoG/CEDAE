@@ -1,5 +1,5 @@
 <div class='row'>
-  <div class='col-sm-2'>    
+  <div class='col-sm-2'>
     <pm-sidebar-medico></pm-sidebar-medico>
   </div>
   <div class='col-sm-6'>
@@ -10,7 +10,7 @@
                 <div class="btn-group" dropdown>
                     <button id="button-basic" dropdownToggle type="button" class="btn btn-danger dropdown-toggle"
                             aria-controls="dropdown-basic">
-                      Doctor <span class="caret"></span>
+                      Elige Uno <span class="caret"></span>
                     </button>
                     <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
                         role="menu" aria-labelledby="button-basic">
@@ -22,12 +22,48 @@
                       </li>
                     </ul>
                   </div>
-                </li> 
-        <li>Nombre:<input></li>
-        <li>Apellidos:<input></li>
-        <li>Edad:<input></li>
-      
-        <li>Teléfono:<input></li>
+                </li>
+      <form (ngSubmit)="save($event)" [formGroup]="registrarForm">
+        <li>
+          Nombre:<input class="text input-validator" formControlName="Nomb">
+          <span  class="span-invalid" *ngIf="registrarForm.controls.Nomb.invalid && registrarForm.controls.Nomb.touched">
+            <span class="span-invalid" *ngIf="registrarForm.controls.Nomb.errors && registrarForm.controls.Nomb.errors['required']">
+                 *Este es un campo obligatorio
+            </span>
+          </span>
+        </li>
+        <li>
+          Apellidos:<input class="text input-validator" formControlName="Apelli">
+          <span  class="span-invalid" *ngIf="registrarForm.controls.Apelli.invalid && registrarForm.controls.Apelli.touched">
+            <span class="span-invalid" *ngIf="registrarForm.controls.Apelli.errors && registrarForm.controls.Apelli.errors['required']">
+                 *Este es un campo obligatorio
+            </span>
+          </span>
+        </li>
+        <li>
+          Edad:<input class="text input-validator" formControlName="Ed">
+          <span  class="span-invalid" *ngIf="registrarForm.controls.Ed.invalid && registrarForm.controls.Ed.touched">
+            <span class="span-invalid" *ngIf="registrarForm.controls.Ed.errors && registrarForm.controls.Ed.errors['required']">
+                 *Este es un campo obligatorio
+            </span>
+            <span class="span-invalid" *ngIf="registrarForm.controls.Ed.errors && registrarForm.controls.Ed.errors['min']">
+              *La edad mínima es 18
+            </span>
+          </span>
+        </li>
+
+        <li>
+          Teléfono:<input class="text input-validator" formControlName="Tel">
+          <span  class="span-invalid" *ngIf="registrarForm.controls.Tel.invalid && registrarForm.controls.Tel.touched">
+            <span class="span-invalid" *ngIf="registrarForm.controls.Tel.errors && registrarForm.controls.Tel.errors['required']">
+                 *Este es un campo obligatorio
+            </span>
+            <span class="span-invalid" *ngIf="registrarForm.controls.Tel.errors && registrarForm.controls.Tel.errors['pattern']">
+              *Sólo se aceptan números
+            </span>
+          </span>
+        </li>
+      </form>
         <li><button type='button' class="btn btn-success">Registrar</button></li>
     </div>
 

@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrarUsuarioComponent implements OnInit {
 
-  constructor() { }
+  registrarForm: FormGroup;
+  constructor(private fb2:FormBuilder) { }
 
   ngOnInit(): void {
-  }
 
+    this.registrarForm = this.fb2.group
+    ({
+     Nomb:["",[Validators.required]],
+     Apelli:["",[Validators.required]],
+     Ed:["",[Validators.required,Validators.min(18)]],
+     Tel:["",[Validators.required,Validators.pattern(/^([0-9])*$/)]]
+    });
+  }
+  save(event: Event): void
+ {
+   event.preventDefault();
+   console.log(this.registrarForm.value);
+  }
 }

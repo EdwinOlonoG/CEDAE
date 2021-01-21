@@ -12,10 +12,10 @@
                 <input class='text input-validator' placeholder="Juanperez@gmail.com" formControlName ="Correo">
                 <span  class="span-invalid" *ngIf="usuarioForm.controls.Correo.invalid && usuarioForm.controls.Correo.touched">
                   <span class="span-invalid" *ngIf="usuarioForm.controls.Correo.errors && usuarioForm.controls.Correo.errors['required']">
-                       *Este es un campo obligatorio
+                    <br>  *Este es un campo obligatorio
                   </span>
                   <span class="span-invalid" *ngIf="usuarioForm.controls.Correo.errors && usuarioForm.controls.Correo.errors['email']">
-                       *El email es incorrecto
+                    <br>    *El email es incorrecto
                   </span>
                 </span>
 
@@ -23,7 +23,7 @@
                 <input class='text input-validator' placeholder="********" formControlName ="Contrasena">
                 <span  class="span-invalid" *ngIf="usuarioForm.controls.Contrasena.invalid && usuarioForm.controls.Contrasena.touched">
                   <span class="span-invalid" *ngIf="usuarioForm.controls.Contrasena.errors && usuarioForm.controls.Contrasena.errors['required']">
-                       *Este es un campo obligatorio
+                    <br>    *Este es un campo obligatorio
                   </span>
                 </span>
             </form>
@@ -36,7 +36,7 @@
                 <input class='text input-validator'placeholder="Juanperez" formControlName ="NomPac">
                 <span  class="span-invalid" *ngIf="usuarioForm.controls.NomPac.invalid && usuarioForm.controls.NomPac.touched">
                   <span class="span-invalid" *ngIf="usuarioForm.controls.NomPac.errors && usuarioForm.controls.NomPac.errors['required']">
-                       *Este es un campo obligatorio
+                    <br>    *Este es un campo obligatorio
                   </span>
                 </span>
 
@@ -44,10 +44,10 @@
                 <input class='text input-validator' placeholder="550089693" formControlName ="TelPac">
                 <span  class="span-invalid" *ngIf="usuarioForm.controls.TelPac.invalid && usuarioForm.controls.TelPac.touched">
                   <span class="span-invalid" *ngIf="usuarioForm.controls.TelPac.errors && usuarioForm.controls.TelPac.errors['required']">
-                       *Este es un campo obligatorio
+                    <br>    *Este es un campo obligatorio
                   </span>
                   <span class="span-invalid" *ngIf="usuarioForm.controls.TelPac.errors && usuarioForm.controls.TelPac.errors['pattern']">
-                    *Sólo se aceptan números
+                    <br>  *Sólo se aceptan números
                   </span>
                 </span>
 
@@ -55,10 +55,10 @@
                 <input class='text input-validator' placeholder="18" formControlName ="EdadPac">
                 <span  class="span-invalid" *ngIf="usuarioForm.controls.EdadPac.invalid && usuarioForm.controls.EdadPac.touched">
                   <span class="span-invalid" *ngIf="usuarioForm.controls.EdadPac.errors && usuarioForm.controls.EdadPac.errors['required']">
-                       *Este es un campo obligatorio
+                    <br>    *Este es un campo obligatorio
                   </span>
                   <span class="span-invalid" *ngIf="usuarioForm.controls.EdadPac.errors && usuarioForm.controls.EdadPac.errors['min']">
-                    *La edad mínima es 18
+                    <br>  *La edad mínima es 18
                   </span>
                 </span>
 
@@ -66,7 +66,7 @@
                 <input class='text input-validator' placeholder="M" formControlName ="SexoPac">
                 <span  class="span-invalid" *ngIf="usuarioForm.controls.SexoPac.invalid && usuarioForm.controls.SexoPac.touched">
                   <span class="span-invalid" *ngIf="usuarioForm.controls.SexoPac.errors && usuarioForm.controls.SexoPac.errors['required']">
-                       *Este es un campo obligatorio
+                    <br>   *Este es un campo obligatorio
                   </span>
                 </span>
                 <p></p>

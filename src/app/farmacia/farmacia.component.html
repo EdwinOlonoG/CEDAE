@@ -6,13 +6,13 @@
             </div>
             <form (ngSubmit)="verVentas()"  [formGroup]="fechaForm">
                 <div style="padding-left: 35px;">
-                    
+
                     <input type="date" value="aaaa-mm-dd" formControlName="fecha">
                     <div style="align-items: center;">
                         <button type="submit" class='btn-warning'>Historial de venta</button>
                     </div>
                 </div>
-            </form>    
+            </form>
     </div>
     <div class='col-sm-8' style="background-color: azure;">
         <h1 style="text-align: center;">Farmacia</h1>
@@ -76,7 +76,7 @@
                         </p>
                         <span class="span-invalid" *ngIf="farmaciaForm.controls.NomProd.invalid && (farmaciaForm.controls.NomProd.dirty || farmaciaForm.controls.NomProd.touched)">
                             <span class="span-invalid" *ngIf="farmaciaForm.controls.NomProd.errors && farmaciaForm.controls.NomProd.errors['required']">
-                                    <br>*El nombre del medicamento es requerido
+                                    *Este campo es requerido
                             </span>
                         </span>
                         <p>
@@ -84,7 +84,7 @@
                         </p>
                         <span class="span-invalid" *ngIf="farmaciaForm.controls.PrecioProd.invalid && (farmaciaForm.controls.PrecioProd.dirty || farmaciaForm.controls.PrecioProd.touched)">
                             <span class="span-invalid" *ngIf="farmaciaForm.controls.PrecioProd.errors && farmaciaForm.controls.PrecioProd.errors['required']">
-                                <br>*El precio es requerido
+                              *Este campo es requerido
                             </span>
                         </span>
                         <p>
@@ -92,7 +92,7 @@
                         </p>
                         <span class="span-invalid" *ngIf="farmaciaForm.controls.CadProd.invalid && (farmaciaForm.controls.CadProd.dirty || farmaciaForm.controls.CadProd.touched)">
                             <span class="span-invalid" *ngIf="farmaciaForm.controls.CadProd.errors && farmaciaForm.controls.CadProd.errors['required']">
-                                <br>*La fecha de caducidad es requerida
+                              *Este campo es requerido
                             </span>
                         </span>
                         <p style="padding-top: 50px;">
@@ -100,7 +100,7 @@
                         </p>
                         <span class="span-invalid" *ngIf="farmaciaForm.controls.ExistenciaProd.invalid && (farmaciaForm.controls.ExistenciaProd.dirty || farmaciaForm.controls.ExistenciaProd.touched)">
                             <span class="span-invalid" *ngIf="farmaciaForm.controls.ExistenciaProd.errors && farmaciaForm.controls.ExistenciaProd.errors['required']">
-                                    <br>*La cantidad de medicamento es requerida
+                              *Este campo es requerido
                             </span>
                         </span>
                         <p style="padding-top: 50px;"></p>
@@ -165,5 +165,5 @@
                 </tr>
             </tbody>
         </table>
-    
+
     </div>
