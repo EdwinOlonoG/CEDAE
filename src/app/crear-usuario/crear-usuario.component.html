@@ -9,7 +9,7 @@
             <form (ngSubmit)="registrar()"  [formGroup]="usuarioForm">
                 <img src='./assets/images/usuario.png'>
                 <p>Correo</p>
-                <input class='text input-validator' placeholder="Juanperez@gmail.com" formControlName ="Correo">
+                <input class='text input-validator' placeholder="Juanperez@gmail.com" formControlName ="Correo" type="password">
                 <span  class="span-invalid" *ngIf="usuarioForm.controls.Correo.invalid && usuarioForm.controls.Correo.touched">
                   <span class="span-invalid" *ngIf="usuarioForm.controls.Correo.errors && usuarioForm.controls.Correo.errors['required']">
                     <br>  *Este es un campo obligatorio

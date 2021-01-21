@@ -10,6 +10,11 @@ import { CookieService } from "ngx-cookie-service";
 })
 export class LogInComponent implements OnInit {
   LogInForm: FormGroup;
+  usuario: {
+  TipoUsuario: string;
+  id: number;
+  Existe: boolean;
+  }
   constructor(private fb: FormBuilder, public logInService: LogInService) { }
 
   ngOnInit(): void {
@@ -25,9 +30,13 @@ export class LogInComponent implements OnInit {
     this.logInService.iniciarSesión(this.LogInForm.value).subscribe(data => {
       console.log("ando en el component");
       this.logInService.setToken(data.token);
-      
       console.log(data.token);
     });
+    this.logInService.getUserLogged().subscribe({
+      next: usuario => {
+        this.usuario = usuario;}
+      })
+      console.log(this.usuario);
   }
   buttondisplay(): void{
     alert('Hola buton');

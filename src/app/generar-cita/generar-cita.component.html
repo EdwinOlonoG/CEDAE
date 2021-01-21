@@ -1,10 +1,10 @@
 <div class='row'>
-    <div class='col-sm-2' style="background-color: azure; height:700px;">
+    <div class='col-sm-3' style="background-color: azure; height:700px;">
       <pm-sidebar-recepcionista></pm-sidebar-recepcionista>
     </div>
-    <div class='col-sm-4'>
+    <div class='col-sm-4 div-formulario'>
   <form (ngSubmit)="agregarCita()"  [formGroup]="citaForm">
-      <div class='col-sm-4'>
+      <div class='col-sm-4 div-formulario'>
       <h3>Reservación de Citas</h3>
       <img src="./assets/images/user.png"
             style="max-height: 200px; max-width: 200px;">
@@ -15,11 +15,10 @@
               <p><input placeholder="Teléfono"></p>
               <p><input placeholder="Edad"></p>
               <p><input placeholder="Juan.Perez@gmail.com"></p>
-      <input type="date" value="aaaa-mm-dd" formControlName="Fecha">
       </div>
   </form>
     </div>
-    <div class='col-sm-4'>
+    <div class='col-sm-4 div-formulario'>
       <form (ngSubmit)="agregarCita()"  [formGroup]="citaForm">
         <div class='card div-Horarios div-inside' >
         <!--  <div class="btn-group" dropdown>
@@ -36,6 +35,7 @@
           
               </ul>
             </div> -->
+            <input type="date" value="aaaa-mm-dd" formControlName="Fecha">
             <h4>Seleccionar hora</h4>
             <input placeholder="Hora 12:00" formControlName="Hora">
             <!-- <div class="btn-group" dropdown>

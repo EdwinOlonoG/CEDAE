@@ -5,12 +5,13 @@
   <img class="logo" src="./assets/images/cedae-blanco.png" style="max-width: 200px" routerLink="/"/>
   <li class="nav-item active">
     <a href="#" routerLink="/">Home</a>
-    <a href="#" routerLink="/cita">Paciente</a>
-    <a href="#" routerLink="/expediente">Médico</a>
-    <a href="#" routerLink="/registrar">Administrador</a>
-    <a href="#" routerLink="/farmacia">Farmacia</a>
-    <a href="#" routerLink="/recepcionista">Recepcionista</a>
-    <button routerLink="/Login" type="button" class="btn btn-success">Iniciar sesión</button>
+    <a href="#" routerLink="/cita" *ngIf = 'viewPaciente'>Paciente</a>
+    <a href="#" routerLink="/expediente" *ngIf = 'viewDoctor'>Médico</a>
+    <a href="#" routerLink="/registrar" *ngIf = 'false'>Administrador</a>
+    <a href="#" routerLink="/farmacia" *ngIf='false'>Farmacia</a>
+    <a href="#" routerLink="/cita" *ngIf = 'true'>Agendar Cita</a>
+    <button routerLink="/Login" type="button" class="btn btn-success" *ngIf='!viewSesion'>Iniciar sesión</button>
+    <button type="button" class="btn btn-danger" *ngIf='viewSesion'>Cerrar sesión</button>
   </li>
 </nav>
 
