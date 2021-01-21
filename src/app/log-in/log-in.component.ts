@@ -13,7 +13,7 @@ export class LogInComponent implements OnInit {
   usuario: {
   TipoUsuario: string;
   id: number;
-  Existe: boolean;
+  Existe: number;
   }
   constructor(private fb: FormBuilder, public logInService: LogInService) { }
 
@@ -32,12 +32,17 @@ export class LogInComponent implements OnInit {
       this.logInService.setToken(data.token);
       console.log(data.token);
     });
-    this.logInService.getUserLogged().subscribe({
-      next: usuario => {
-        this.usuario = usuario;}
-      })
-      console.log(this.usuario);
+    
+    this.logInService.getUserLogged().subscribe(data => {
+      console.log(data);
+      alert("Bienvenido ");
+      window.location.href="http://localhost:8080/";
+    });
   }
+  validator(usuario: object): void{
+
+  }
+
   buttondisplay(): void{
     alert('Hola buton');
   }

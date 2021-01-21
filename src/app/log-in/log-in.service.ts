@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class LogInService {
     baseUrl = "http://localhost/Coneccion/";
     jasonSesion = "http://localhost/Coneccion/tokens.json";
+    jason = "http://localhost/Coneccion/se.json";
     
     constructor(private http: HttpClient, private cookies: CookieService) {}
 
@@ -35,12 +36,25 @@ export class LogInService {
         return this.cookies.get("token");
     }
 
-    getUserLogged(): any {
+    getUserLogged(){
         const token = this.getToken();
+        console.log("Le envie el token a funcion decode ");
         console.log(token);
-        return this.http.get(`${this.baseUrl}/get.php?=${token}`)
+        return this.http.get(`${this.baseUrl}/decodeToken.php?id=${token}`);
+        /*
+        
+        console.log("tomo el json ");
+        return this.http.get(this.jason).pipe(
+          tap(data => console.log('All: ' + JSON.stringify(data))),
+        );*/
       }
     
+
+
+
+
+
+
     registrarUsuario(registrar: any): Observable<any>{
         console.log("Entre a la funcion de registrar usuario");
         console.log(registrar);
