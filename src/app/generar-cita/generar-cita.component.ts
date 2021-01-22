@@ -63,14 +63,14 @@ export class GenerarCitaComponent implements OnInit {
       i++;
     }
     this.citaForm = this.fb.group({
-      Hora: [""],
-      Fecha:[""],
-      Lugar: [""],
-      NomPac: [""],
-      NomDoc:  [""],
-      ApellidoDoc:[""],
-      Correo:[""],
-      Telefono:[""],
+      Hora: ["10:00"],
+      Fecha:["2021-01-23"],
+      Lugar: ["Loma Bonita"],
+      NomPac: ["Libertad Garcia"],
+      NomDoc:  ["Benjamin"],
+      ApellidoDoc:["Dubey"],
+      Correo:["libertad@mail.com"],
+      Telefono:["13265246"],
     })
   }
   agregarCita(){

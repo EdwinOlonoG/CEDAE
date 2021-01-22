@@ -9,7 +9,7 @@
             <form (ngSubmit)="registrar()"  [formGroup]="usuarioForm">
                 <img src='./assets/images/usuario.png'>
                 <p>Correo</p>
-                <input class='text input-validator' placeholder="Juanperez@gmail.com" formControlName ="Correo" type="password">
+                <input class='text input-validator' placeholder="Juanperez@gmail.com" formControlName ="Correo">
                 <span  class="span-invalid" *ngIf="usuarioForm.controls.Correo.invalid && usuarioForm.controls.Correo.touched">
                   <span class="span-invalid" *ngIf="usuarioForm.controls.Correo.errors && usuarioForm.controls.Correo.errors['required']">
                     <br>  *Este es un campo obligatorio
@@ -20,7 +20,7 @@
                 </span>
 
                 <p>Contraseña</p>
-                <input class='text input-validator' placeholder="********" formControlName ="Contrasena">
+                <input class='text input-validator' placeholder="********" formControlName ="Contrasena" type="password">
                 <span  class="span-invalid" *ngIf="usuarioForm.controls.Contrasena.invalid && usuarioForm.controls.Contrasena.touched">
                   <span class="span-invalid" *ngIf="usuarioForm.controls.Contrasena.errors && usuarioForm.controls.Contrasena.errors['required']">
                     <br>    *Este es un campo obligatorio

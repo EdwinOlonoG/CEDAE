@@ -1,84 +1,39 @@
 <h2 *ngIf="!viewSesion">Agendar Cita Nuevo Paciente</h2>
 <h2 *ngIf="viewSesion">Agendar Cita</h2>
 <div class='row'>
-    <div class='col-sm-3' style="background-color: azure; height:700px;"*ngIf="viewRecepcionista || viewPaciente">
-      <pm-sidebar-recepcionista *ngIf="viewRecepcionista"></pm-sidebar-recepcionista>
-      <pm-sidebar-paciente *ngIf="viewPaciente"></pm-sidebar-paciente>
-    </div>
-    <div class='col-sm-4' >
-  <form (ngSubmit)="agregarCita()"  [formGroup]="citaForm">
-      <div class='col-sm-4 div-formulario' *ngIf="!viewPaciente">
-      <h3>Reservación de Citas</h3>
-      <img src="./assets/images/user.png"
-            style="max-height: 200px; max-width: 200px;">
-            <div class="alert alert-danger" role="alert" style="width: 200px;">
-            llene los campos.
-            </div> 
-              <p><input placeholder="Nombre Completo" formControlName="NomPac"></p>
-              <p><input placeholder="Teléfono" formControlName="Telefono"></p>
-              <p><input placeholder="Edad" ></p>
-              <p><input placeholder="Juan.Perez@gmail.com" formControlName="Correo" ></p>
-      </div>
-  </form>
-    </div>
-    <div class='col-sm-4 '>
-      <form (ngSubmit)="agregarCita()"  [formGroup]="citaForm">
-        <div class='card div-Horarios div-inside' >
-        <!--  <div class="btn-group" dropdown>
-              <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-                      aria-controls="dropdown-basic">
-                  Local <span class="caret"></span>
-              </button>
-              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                  role="menu" aria-labelledby="button-basic">
-                <li role="menuitem"><a class="dropdown-item" href="#">Local 1</a></li>
-                <li role="menuitem"><a class="dropdown-item" href="#">Local 2</a></li>
-                <li role="menuitem"><a class="dropdown-item" href="#">Local 3</a></li>
-                <li class="divider dropdown-divider"></li>
-          
-              </ul>
-            </div> -->
-            <input type="date" value="aaaa-mm-dd" formControlName="Fecha">
-            <h4>Seleccionar hora</h4>
-            <input placeholder="Hora 12:00" formControlName="Hora">
-            <!-- <div class="btn-group" dropdown>
-                <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-                        aria-controls="dropdown-basic">
-                    Horarios <span class="caret"></span>
-                </button>
-        
-                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                    role="menu" aria-labelledby="button-basic">
-                  <li role="menuitem"><a class="dropdown-item" href="#">2:15 pm</a></li>
-                  <li role="menuitem"><a class="dropdown-item" href="#">3:15 pm</a></li>
-                  <li role="menuitem"><a class="dropdown-item" href="#">4:15 pm</a></li>
-                  <li class="divider dropdown-divider"></li>
-            
-                </ul>
-              </div> -->
-            
-              <h4 >Seleccionar Médico</h4>
-              <input placeholder="Médico" formControlName="NomDoc" >
-              <input placeholder="ApellidoMédico" formControlName="ApellidoDoc" >
-            <!-- <div class="btn-group" dropdown>
-                <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-                        aria-controls="dropdown-basic">
-                    Médico <span class="caret"></span>
-                </button>
-                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                    role="menu" aria-labelledby="button-basic">
-                  <li role="menuitem"><a class="dropdown-item" href="#">Doctor Nosbaunn</a></li>
-                  <li role="menuitem"><a class="dropdown-item" href="#">Doctor Nick Riviera</a></li>
-                  <li role="menuitem"><a class="dropdown-item" href="#">Doctor House</a></li>
-                  <li class="divider dropdown-divider"></li>
-            
-                </ul>
-              </div> -->
-              <div style="padding-top: 50px;">
-                <button type="submit" class="btn btn-success button-acept">Aceptar</button>
-              </div>
+  <div class='col-sm-3' style="background-color: azure; height:700px;"*ngIf="viewRecepcionista || viewPaciente">
+    <pm-sidebar-recepcionista *ngIf="viewRecepcionista"></pm-sidebar-recepcionista>
+    <pm-sidebar-paciente *ngIf="viewPaciente"></pm-sidebar-paciente>
+  </div>
+  <div class='col-sm-4' >
+    <form (ngSubmit)="agregarCita()"  [formGroup]="citaForm">
+        <div class='col-sm-4 div-formulario' *ngIf="!viewPaciente">
+          <h3>Reservación de Citas</h3>
+          <img src="./assets/images/user.png" style="max-height: 200px; max-width: 200px;">
+              <div class="alert alert-danger" role="alert" style="width: 200px;">
+                Llene los campos.
+              </div> 
+          <p><input placeholder="Nombre Completo" formControlName="NomPac"></p>
+          <p><input placeholder="Teléfono" formControlName="Telefono"></p>
+          <p><input placeholder="Juan.Perez@gmail.com" formControlName="Correo" ></p>
         </div>
     </form>
   </div>
-  
+  <div class='col-sm-4 '>
+    <form (ngSubmit)="agregarCita()"  [formGroup]="citaForm">
+      <div class='card div-Horarios div-inside' >
+          <input type="date" value="aaaa-mm-dd" formControlName="Fecha">
+          <h4>Seleccionar hora</h4>
+          <input placeholder="Hora 12:00" formControlName="Hora">
+          <div *ngIf="viewRecepcionista">
+            <h4 >Seleccionar Médico</h4>
+            <input placeholder="Médico" formControlName="NomDoc" >
+            <input placeholder="ApellidoMédico" formControlName="ApellidoDoc" >
+          </div>
+          <div style="padding-top: 50px;">
+              <button type="submit" class="btn btn-success button-acept">Aceptar</button>
+          </div>
+      </div>
+    </form>
+  </div>
 </div>
