@@ -27,13 +27,14 @@ export class GeneradorExpedienteService {
     return this.http.post(`${this.baseUrl}postExpediente.php?idDoctor=7&idPaciente=10&idExpediente=6`, paciente).subscribe();
   }
   getExpedienteAll(id:number) {    //aqui tomar la expedientes del id
-    console.log("Entre a la funcion de expediente");
+    console.log("Entre a la funcion de expediente");/*
     this.http.get(`${this.baseUrl}getExpedientes.php?id=${id}`).subscribe(id => {
       console.log(id);
     });
    
     return this.http.get<IGeneradorExpediente[]>(this.jasonExpediente).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
-    );
+    );*/
+    return this.http.get<IGeneradorExpediente[]>(`${this.baseUrl}getExpedientes.php?id=${id}`);
     }
 }

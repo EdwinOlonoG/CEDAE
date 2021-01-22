@@ -2,16 +2,17 @@
     <div class='col-sm-2'>
     <pm-sidebar-recepcionista *ngIf="viewRecepcionista"></pm-sidebar-recepcionista>
     <pm-sidebar-paciente *ngIf="viewPaciente"></pm-sidebar-paciente>
+    <pm-sidebar-medico *ngIf="viewDoctor"></pm-sidebar-medico>
     </div>
     <div class=col-sm-8>
         <div style="background-color: azure;">
-        <h3>Expedientes</h3>
-    
+        <h3 *ngIf="!viewPaciente">Expedientes</h3>
+        <h3 *ngIf="!viewDoctor">Fichas</h3>
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style='width: 600px;'
-        [(ngModel)]='listFilter' *ngIf='viewRecepcionista'/>
-        <button class="btn btn-outline-success" type="submit" *ngIf='viewRecepcionista'>Search</button>
+        [(ngModel)]='listFilter' *ngIf='viewRecepcionista || viewDoctor'/>
+        <button class="btn btn-outline-success" type="submit" *ngIf='viewRecepcionista || viewDoctor'>Search</button>
         </div>
-        <div *ngIf='viewRecepcionista'>
+        <div *ngIf='viewRecepcionista || viewDoctor'>
         <table class="table table-dark">
             <thead>
                 <tr>

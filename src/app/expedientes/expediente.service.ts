@@ -24,30 +24,10 @@ export class ExpedienteService {
       console.log(data);
     });
     */
-    this.http.get(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=1`).subscribe(data => {
-      console.log(data);
-    });
-   
-    return this.http.get<IExpediente[]>(this.jasonPaciente).pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
-    );
+   //return this.http.get<IGeneradorExpediente[]>(`${this.baseUrl}getExpedientes.php?id=${id}`);
+    return this.http.get<IExpediente[]>(`${this.baseUrl}getPacienteDeDoctor.php?idDoctor=1`);
     
-
-    /*
-    this.http.get(`${this.baseUrl}/getAll.php`).subscribe(data => {
-      console.log(data);
-    });
-    return this.http.get<IExpediente[]>(this.jasonPaciente).pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
-    );
-    */
-    /*
-    return this.http.get<IExpediente[]>(this.productUrl).pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
-     );
-     */
   }
-    /* return this.http.get(`${this.baseUrl}/getAll.php`); */
 
 
   
