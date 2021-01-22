@@ -9,10 +9,10 @@
     <a href="#" routerLink="/expediente" *ngIf = 'viewDoctor'>Médico</a>
     <a href="#" routerLink="/recepcionista" *ngIf = 'viewRecepcionista'>Recepcionista</a>
     <a href="#" routerLink="/registrar" *ngIf = 'false'>Administrador</a>
-    <a href="#" routerLink="/farmacia" *ngIf='false'>Farmacia</a>
-    <a href="#" routerLink="/cita" *ngIf = 'true'>Agendar Cita</a>
+    <a href="#" routerLink="/farmacia" *ngIf='viewFarmacia'>Farmacia</a>
+    <a href="#" routerLink="/cita" *ngIf = '!viewSesion'>Agendar Cita</a>
     <button routerLink="/Login" type="button" class="btn btn-success" *ngIf='true'>Iniciar sesión</button>
-    <button type="button" class="btn btn-danger" *ngIf='true'>Cerrar sesión</button>
+    <button type="button" class="btn btn-danger" *ngIf='true' (click)="cerrarSesion()">Cerrar sesión</button>
   </li>
 </nav>
 

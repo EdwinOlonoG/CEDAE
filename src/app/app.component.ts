@@ -18,6 +18,7 @@ export class AppComponent {
     viewPaciente = false;
     viewRecepcionista = false;
     viewSesion = false;
+    viewFarmacia = false;
     constructor(public logInService: LogInService) { }
     ngOnInit(){
       /*
@@ -63,7 +64,7 @@ export class AppComponent {
             }
             if(usuario[property] == "Farmacia")
             {
-              //this.viewFarmacia = true;
+              this.viewFarmacia = true;
             }
           }
           i++;
@@ -92,5 +93,9 @@ export class AppComponent {
           this.viewSesion = false;
         }
         */
+      }
+      cerrarSesion()
+      {
+        this.logInService.cerrarSesion();
       }
 }

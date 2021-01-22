@@ -48,7 +48,11 @@ export class LogInService {
           tap(data => console.log('All: ' + JSON.stringify(data))),
         );*/
       }
-    
+    cerrarSesion(){
+      this.cookies.delete("token");
+      console.log("Cerrando sessión");
+      console.log(this.getToken);
+    }
 
 
 
