@@ -65,7 +65,16 @@ filteredExpedientes: IExpediente[];
         if(usuario[property] == "Paciente")
         {
           this.viewPaciente = true;
-          this.expedienteService.getExpedientePaciente(this.logInService.getToken());
+          this.expedienteService.getExpedientePaciente(this.logInService.getToken()).subscribe({
+            next: TablaExpediente => {
+              this.TablaExpediente = TablaExpediente;
+            }
+        })
+          this.expedienteService.getRecetaPaciente(this.logInService.getToken()).suscribe({
+            next: TablaReceta => {
+              this.TablaReceta = TablaReceta;
+            }
+          })
         }
         if(usuario[property] == "Recepcionista")
         {
