@@ -38,13 +38,12 @@ addReceta(receta: IReceta[]) {
 
   getRecetaAll(id:number) { //aqui poner lo get de la receta id----------------------------------------
     console.log("Entre a la funcion de receta");
-    this.http.get(`${this.baseUrl}getRecetas.php?id=${id}`).subscribe(id => {
-      console.log(id);
-    });
+    return this.http.get<IReceta[]>(`${this.baseUrl}getRecetas.php?id=${id}`);
+    /*
     console.log("tomo json de las recetas");
     return this.http.get<IReceta[]>(this.jasonReceta).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
-    );
+    );*/
   }
 
   enviar(receta: IReceta[]) {

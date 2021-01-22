@@ -46,16 +46,16 @@ export class FarmaciaService {
     }
 
   getVentas(fecha : Date){   //obtengo las ventas del dia
-    console.log("Entre a la funcion de ventas");
+    console.log("Entre a la funcion de ventas:");
     console.log(JSON.stringify(fecha));
 
-    this.http.get(`${this.baseUrl}getVentas.php?Fecha=${JSON.stringify(fecha)}`).subscribe(fecha => {
-    console.log(fecha);
-    });
-
+    //return this.http.get<ICitas[]>(`${this.baseUrl}getCitas.php?Fecha=${JSON.stringify(fecha)}`);
+    return this.http.get<IVentas[]>(`${this.baseUrl}getVentas.php?Fecha=${JSON.stringify(fecha)}`);
+    
+    /*
     return this.http.get<IVentas[]>(this.jasonVentas).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
-    );
+    );*/
   }
   prueba(token : any){
     console.log("Presionó el botón de prueba php");

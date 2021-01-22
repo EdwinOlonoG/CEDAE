@@ -12,16 +12,14 @@ import { ICitas } from './citas';
       constructor(private http: HttpClient) {}
 
       getCitas(fecha: Date){
-        console.log("Entre a la funcion de obbtener citas por día");
+        console.log("Entre a la funcion  de obbtener citas por día");
         console.log(JSON.stringify(fecha));
-
-        this.http.get(`${this.baseUrl}getCitas.php?Fecha=${JSON.stringify(fecha)}`).subscribe(fecha => {
-        console.log(fecha);
-        });
-
+       
+        return this.http.get<ICitas[]>(`${this.baseUrl}getCitas.php?Fecha=${JSON.stringify(fecha)}`);
+        /*
         return this.http.get<ICitas[]>(this.jasonCitas).pipe(
         tap(data => console.log('All: ' + JSON.stringify(data))),
-        );
+        );*/
       }
 
       updateCita(cita, cita2){
