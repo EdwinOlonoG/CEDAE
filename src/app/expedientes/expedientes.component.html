@@ -7,7 +7,6 @@
     <div class=col-sm-8>
         <div style="background-color: azure;">
         <h3 *ngIf="!viewPaciente">Expedientes</h3>
-        <h3 *ngIf="!viewDoctor">Fichas</h3>
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style='width: 600px;'
         [(ngModel)]='listFilter' *ngIf='viewRecepcionista || viewDoctor'/>
         <button class="btn btn-outline-success" type="submit" *ngIf='viewRecepcionista || viewDoctor'>Search</button>
@@ -124,7 +123,7 @@
         <div class='row'>
             <div class="div-formulario">
                 <div>
-                    <h2>Fichas</h2>
+                    <h2>  Fichas</h2>
                     <table class='table table-dark table-striped'>
                         <tr>
                             <td>NSS</td>
@@ -171,7 +170,7 @@
                 </div>
             <div class='row' style="height: 100px;"></div>
             <div class="div-formulario">
-                <h2>Recetas</h2>
+                <h2>  Recetas</h2>
                     <table class='table table-dark table-striped' style="width: 700px;">
                         <tr>
                                 <td>Medicamento</td> 
