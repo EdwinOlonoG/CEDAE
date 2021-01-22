@@ -44,7 +44,7 @@ filteredExpedientes: IExpediente[];
     });
   }
   validator(usuario: object): void{
-    console.log("Imprimiendo los datos decodificados ");
+    console.log("Imprimiendo los datos decodificados  ");
     console.log(usuario);
     var i=0;
     for (const property in usuario) {
@@ -69,12 +69,12 @@ filteredExpedientes: IExpediente[];
             next: TablaExpediente => {
               this.TablaExpediente = TablaExpediente;
             }
-        })
-          this.expedienteService.getRecetaPaciente(this.logInService.getToken()).suscribe({
+        });
+          this.expedienteService.getRecetaPaciente(this.logInService.getToken()).subscribe({
             next: TablaReceta => {
               this.TablaReceta = TablaReceta;
             }
-          })
+        });
         }
         if(usuario[property] == "Recepcionista")
         {

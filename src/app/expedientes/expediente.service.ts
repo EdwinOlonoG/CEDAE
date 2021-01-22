@@ -3,6 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ExpedientesComponent } from './expedientes.component';
 import { Observable } from 'rxjs';
 import { IExpediente } from './expediente';
+import { IReceta } from '../receta/Receta';
 import { tap } from 'rxjs/operators';
 
 
@@ -48,10 +49,13 @@ export class ExpedienteService {
     return this.http.put(`${this.baseUrl}/update.php`, paciente);
   }
 
+  //return this.http.get<ICitas[]>(`${this.baseUrl}getCitasIdPaciente.php?id=${token}`);   <IExpediente[]>
   getExpedientePaciente(token: string): any {
-    return this.http.get(`${this.baseUrl}/get.php?Paciente_idPaciente=${token}`);
+    console.log("tomo expediente");
+    return this.http.get<IExpediente[]>(`${this.baseUrl}/getExpedientePacienteID.php?id=${token}`);
   }
-  getRecetaPaciente(token: string): any {
-    return this.http.get(`${this.baseUrl}/get.php?Paciente_idPaciente=${token}`);
+  getRecetaPaciente(token: string): any {    
+    console.log("tomo recetas ");
+    return this.http.get<IReceta[]>(`${this.baseUrl}/getRecetasPaciente.php?id=${token}`);
   }
 }
