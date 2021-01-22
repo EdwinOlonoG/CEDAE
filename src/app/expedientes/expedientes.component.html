@@ -1,16 +1,17 @@
 <div class='row' *ngIf ='ViewValue'>
     <div class='col-sm-2'>
-    <pm-sidebar-recepcionista></pm-sidebar-recepcionista>
+    <pm-sidebar-recepcionista *ngIf="viewRecepcionista"></pm-sidebar-recepcionista>
+    <pm-sidebar-paciente *ngIf="viewPaciente"></pm-sidebar-paciente>
     </div>
     <div class=col-sm-8>
         <div style="background-color: azure;">
         <h3>Expedientes</h3>
     
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style='width: 600px;'
-        [(ngModel)]='listFilter'/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        [(ngModel)]='listFilter' *ngIf='viewRecepcionista'/>
+        <button class="btn btn-outline-success" type="submit" *ngIf='viewRecepcionista'>Search</button>
         </div>
-        <div>
+        <div *ngIf='viewRecepcionista'>
         <table class="table table-dark">
             <thead>
                 <tr>
@@ -117,4 +118,85 @@
             </div>
 
         </div>
+
+
+
+
+
+
+
+
+        <div class='col-sm-8' *ngIf="viewPaciente">
+            <div class='row'>
+                <div class="div-formulario">
+                    <div>
+                        <h2>Fichas</h2>
+                        <table class='table table-dark table-striped'>
+                            <tr>
+                                <td>NSS</td>
+                                <td>FechaNa</td>
+                               <td>Domicilio</td> 
+                                <td>Nacionalidad</td>
+                                <td>FichaID </td>
+                                <td>AntecedentesF</td>
+                                <td>AntecedentesP</td>
+                                <td>Exploracion</td> 
+                                <td>Pulso</td>
+                                <td>Temperatura</td> 
+                                <td>EstadoF </td>
+                                <td>ResultadosLab</td> 
+                                <td>Pronostico</td>
+                                <td>SignosVit</td>
+                                <td>Resultados</td>
+                                <td>Diagnostico</td>
+                                <td>PronosticoEv</td>
+                            </tr>
+                            <tbody>
+                                <tr>
+                            <tr *ngFor ='let exp of TablaExpediente'>
+                                <td>{{exp.NSS}}</td>
+                                <td>{{exp.FechaNa}}</td>
+                                <td>{{exp.Domicilio}}</td>
+                                <td>{{exp.Nacionalidad}}</td>
+                                <td>{{exp.FichaId}} </td>
+                                <td>{{exp.AntecedentesF}}</td>
+                                <td>{{exp.AntecedentesP}}</td>
+                                <td>{{exp.Exploracion}} </td>
+                                <td>{{exp.Pulso}}</td>
+                                <td>{{exp.Temperatura}}</td> 
+                                <td>{{exp.EstadoF }}</td>
+                                <td>{{exp.ResultadosLab }}</td>
+                                <td>{{exp.Pronostico}}</td>
+                                <td>{{exp.SignosVit}}</td>
+                                <td>{{exp.Resultados}}</td>
+                                <td>{{exp.Diagnostico}}</td>
+                                <td>{{exp.PronosticoEv}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <div class='row' style="height: 100px;"></div>
+                <div class="div-formulario">
+                    <h2>Recetas</h2>
+                        <table class='table table-dark table-striped' style="width: 700px;">
+                            <tr>
+                                    <td>Medicamento</td> 
+                                    <td>Dosis</td>
+                                    <td>Indicaciones</td>
+                                    <td>Fecha   </td>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <tr *ngFor ='let receta of TablaReceta'>
+                                    <td>{{receta.Medicamento}}</td>
+                                    <td>{{receta.Dosis}}</td>
+                                    <td>{{receta.Indicaciones}}</td>
+                                    <td>{{receta.Fecha}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                </div>
+    
+            </div>
 </div>

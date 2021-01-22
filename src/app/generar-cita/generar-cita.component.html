@@ -1,10 +1,12 @@
+<h2>Angendar Cita</h2>
 <div class='row'>
-    <div class='col-sm-3' style="background-color: azure; height:700px;">
-      <pm-sidebar-recepcionista></pm-sidebar-recepcionista>
+    <div class='col-sm-3' style="background-color: azure; height:700px;"*ngIf="viewRecepcionista">
+      <pm-sidebar-recepcionista *ngIf="viewRecepcionista"></pm-sidebar-recepcionista>
+      <pm-sidebar-paciente *ngIf="viewPaciente"></pm-sidebar-paciente>
     </div>
-    <div class='col-sm-4 div-formulario'>
+    <div class='col-sm-4' >
   <form (ngSubmit)="agregarCita()"  [formGroup]="citaForm">
-      <div class='col-sm-4 div-formulario'>
+      <div class='col-sm-4 div-formulario' *ngIf="viewPaciente">
       <h3>Reservación de Citas</h3>
       <img src="./assets/images/user.png"
             style="max-height: 200px; max-width: 200px;">
@@ -18,7 +20,7 @@
       </div>
   </form>
     </div>
-    <div class='col-sm-4 div-formulario'>
+    <div class='col-sm-4 '>
       <form (ngSubmit)="agregarCita()"  [formGroup]="citaForm">
         <div class='card div-Horarios div-inside' >
         <!--  <div class="btn-group" dropdown>
@@ -54,9 +56,9 @@
                 </ul>
               </div> -->
             
-              <h4>Seleccionar Médico</h4>
-              <input placeholder="Médico" formControlName="NomDoc">
-              <input placeholder="ApellidoMédico" formControlName="ApellidoDoc">
+              <h4 *ngIf="!viewPaciente">Seleccionar Médico</h4>
+              <input placeholder="Médico" formControlName="NomDoc" *ngIf="!viewPaciente">
+              <input placeholder="ApellidoMédico" formControlName="ApellidoDoc" *ngIf="!viewPaciente">
             <!-- <div class="btn-group" dropdown>
                 <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
                         aria-controls="dropdown-basic">
