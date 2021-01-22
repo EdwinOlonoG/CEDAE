@@ -44,4 +44,8 @@ import { ICitas } from './citas';
         console.log(cita);
         return this.http.put(`${this.baseUrl}updatePago.php?`, cita).subscribe();
       }
+      getCitasPaciente(token: string): any{
+        return this.http.get(`${this.baseUrl}/get.php?Paciente_idPaciente=${token}`);
+      }
+
   }

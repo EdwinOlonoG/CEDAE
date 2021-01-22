@@ -65,7 +65,7 @@ filteredExpedientes: IExpediente[];
         if(usuario[property] == "Paciente")
         {
           this.viewPaciente = true;
-          
+          this.expedienteService.getExpedientePaciente(this.logInService.getToken());
         }
         if(usuario[property] == "Recepcionista")
         {

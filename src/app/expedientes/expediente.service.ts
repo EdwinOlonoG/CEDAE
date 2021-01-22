@@ -47,5 +47,8 @@ export class ExpedienteService {
   updateExpediente(paciente: ExpedientesComponent) {
     return this.http.put(`${this.baseUrl}/update.php`, paciente);
   }
-  
+
+  getExpedientePaciente(token: string) {
+    return this.http.get(`${this.baseUrl}/get.php?Paciente_idPaciente=${token}`);
+  }
 }
