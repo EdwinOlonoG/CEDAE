@@ -49,9 +49,25 @@ export class LogInService {
         );*/
       }
     cerrarSesion(){
-      this.cookies.delete("token");
+      var obj = { User:   "asdasdasd",   
+        Pass: "dasdasd"}
+      var i;
+      for (i = 0; i < 5; i++)
+      {
+      this.http.get(`${this.baseUrl}inicioSesion.php?hola=${JSON.stringify(obj)}`).subscribe(data => {
+        console.log("Estoy en proceso de eliminar, nuevo token");
+        console.log(data);
+        var tokenchido;
+        for (const property in data){
+          console.log(`${property}: ${data[property]}`);
+          tokenchido=data[property];
+        }
+        this.setToken(tokenchido);
+      });
+      //this.cookies.delete("token");
       console.log("Cerrando sessión");
       console.log(this.getUserLogged());
+    }
       window.location.href="http://localhost:8080/";
     }
 

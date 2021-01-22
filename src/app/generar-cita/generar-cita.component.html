@@ -15,9 +15,9 @@
             llene los campos.
             </div> 
               <p><input placeholder="Nombre Completo" formControlName="NomPac"></p>
-              <p><input placeholder="Teléfono"></p>
+              <p><input placeholder="Teléfono" formControlName="Telefono"></p>
               <p><input placeholder="Edad" *ngIf="viewRecepcionista"></p>
-              <p><input placeholder="Juan.Perez@gmail.com" *ngIf="viewRecepcionista" ></p>
+              <p><input placeholder="Juan.Perez@gmail.com" formControlName="Correo" *ngIf="viewRecepcionista"></p>
       </div>
   </form>
     </div>

@@ -69,11 +69,14 @@ export class GenerarCitaComponent implements OnInit {
       NomPac: [""],
       NomDoc:  [""],
       ApellidoDoc:[""],
+      Correo:[""],
+      Telefono:[""],
     })
   }
   agregarCita(){
     alert("Se agregó la cita");
+    var token = this.logInService.getToken();
     console.log(this.citaForm.value);
-    this.generarCitasService.addCita(this.citaForm.value);
+    this.generarCitasService.addCita(this.citaForm.value, token);
   }
 }

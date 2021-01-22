@@ -14,9 +14,11 @@ export class GenerarCitasService {
   //jasonCita = "C:\xampp\htdocs\Coneccion";
 
   constructor(private http: HttpClient) {}
-  addCita(cita: ICitas){
+  addCita(cita: ICitas, token: any){
     console.log("Entre a la funcion de enviar cita a la base");
     console.log(cita);
-    return this.http.post(`${this.baseUrl}postCitas.php`, cita).subscribe();
+    console.log(token);
+    //return this.http.post(`${this.baseUrl}postCitas.php?id=${token}`, cita).subscribe();
+    return this.http.post(`${this.baseUrl}postCitasMultiple.php?id=${token}`, cita).subscribe();
     }
 }
