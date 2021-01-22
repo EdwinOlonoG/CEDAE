@@ -51,7 +51,8 @@ export class LogInService {
     cerrarSesion(){
       this.cookies.delete("token");
       console.log("Cerrando sessión");
-      console.log(this.getToken);
+      console.log(this.getUserLogged());
+      window.location.href="http://localhost:8080/";
     }
 
 

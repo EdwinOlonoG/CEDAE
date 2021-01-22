@@ -69,30 +69,7 @@ export class AppComponent {
           }
           i++;
         }
-        /*
-        console.log(usuario.Existe);
-        console.log(usuario.TipoUsuario);
-        console.log(usuario.id);
-       
-        if(usuario.Existe == 1){
-          this.viewSesion = true;
-          //this.viewSesion = this.usuario.Existe;    
-          if(usuario.TipoUsuario == "Doctor")
-          {
-            this.viewDoctor = true;
-          }
-          if(usuario.TipoUsuario == "Paciente")
-          {
-            this.viewPaciente = true;
-          }
-          if(usuario.TipoUsuario == "Recepcionista")
-          {
-            this.viewRecepcionista = true;
-          }
-        }else{
-          this.viewSesion = false;
-        }
-        */
+        
       }
       cerrarSesion()
       {
