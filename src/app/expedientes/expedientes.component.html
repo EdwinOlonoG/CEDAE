@@ -4,7 +4,7 @@
     <pm-sidebar-paciente *ngIf="viewPaciente"></pm-sidebar-paciente>
     <pm-sidebar-medico *ngIf="viewDoctor"></pm-sidebar-medico>
     </div>
-    <div class=col-sm-8>
+    <div class=col-sm-8 *ngIf='viewRecepcionista || viewDoctor'> 
         <div style="background-color: azure;">
         <h3 *ngIf="!viewPaciente">Expedientes</h3>
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style='width: 600px;'

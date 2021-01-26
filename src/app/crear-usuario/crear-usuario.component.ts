@@ -23,8 +23,10 @@ export class CrearUsuarioComponent implements OnInit {
     })
   }
   registrar(){
+    alert("Se registro con exito nuevo usuario");
     this.logInService.registrarUsuario(this.usuarioForm.value).subscribe(data => {
       console.log(data);
+      
     });
   }
 }
