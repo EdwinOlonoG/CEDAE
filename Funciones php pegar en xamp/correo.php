@@ -65,11 +65,11 @@ $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = 'postales.qualite@gmail.com'; //no modificar
+$mail->Username = 'TUCORREOBRU@gmail.com'; //no modificar
 //Password to use for SMTP authentication
-$mail->Password = 'pcualite13'; //no modificar
+$mail->Password = 'TUPASSWORD'; //no modificar
 //Set who the message is to be sent from
-$mail->setFrom('postales.qualite@gmail.com', 'Postales Qualite');  //no modificar
+$mail->setFrom('TUCORREO', 'Postales Qualite');  //no modificar
 //Set an alternative reply-to address
 //$mail->addReplyTo('replyto@example.com', 'First Last');
 //Set who the message is to be sent to
